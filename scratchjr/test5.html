@@ -25,33 +25,17 @@ function openFullScreen(url) {
   });
 }
    </script>  
-  <script type="text/javascript">
-//Script for disabling right click on mouse
-var message="Function Disabled!";
-function clickdsb(){
-if (event.button==2){
-alert(message);
-return false;
+<script language="javascript">
+document.onmousedown=disableclick;
+status="Right Click Disabled";
+Function disableclick(e)
+{
+  if(event.button==2)
+   {
+     alert(status);
+     return false;	
+   }
 }
-}
-function clickbsb(e){
-if (document.layers||document.getElementById&&!document.all){
-if (e.which==2||e.which==3){
-alert(message);
-return false;
-}
-}
-}
-if (document.layers){
-document.captureEvents(Event.MOUSEDOWN);
-document.onmousedown=clickbsb;
-}
-else if (document.all&&!document.getElementById){
-document.onmousedown=clickdsb;
-}
-
-
-
 </script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
