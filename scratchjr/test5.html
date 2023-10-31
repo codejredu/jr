@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <script>
+/* To Disable Inspect Element */
+$(document).bind("contextmenu",function(e) {
+ e.preventDefault();
+});
+
+$(document).keydown(function(e){
+    if(e.which === 123){
+       return false;
+    }
+});
+</script>
   <script>  
 function openFullScreen(url) {
   var element = document.createElement('div');
