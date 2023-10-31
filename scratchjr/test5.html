@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <script>
-/* To Disable Inspect Element */
-$(document).bind("contextmenu",function(e) {
- e.preventDefault();
-});
-
-$(document).keydown(function(e){
-    if(e.which === 123){
-       return false;
-    }
-});
-</script>
+ 
   <script>  
 function openFullScreen(url) {
   var element = document.createElement('div');
@@ -35,7 +24,35 @@ function openFullScreen(url) {
     element.parentNode.removeChild(element);
   });
 }
-   </script>   
+   </script>  
+  <script type="text/javascript">
+//Script for disabling right click on mouse
+var message="Function Disabled!";
+function clickdsb(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+function clickbsb(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickbsb;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickdsb;
+}
+
+document.oncontextmenu=new Function("alert(message);return false")
+
+</script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
 <script>
