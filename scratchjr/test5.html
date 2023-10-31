@@ -26,17 +26,16 @@ function openFullScreen(url) {
 }
    </script>  
 <script language="javascript">
-document.onmousedown=disableclick;
-status="Right Click Disabled";
-Function disableclick(e)
-{
-  if(event.button==2)
-   {
-     alert(status);
-     return false;	
-   }
-}
-</script>
+ 10  		document.onmousedown=disableclick;
+ 11  		//status="Right Click Disabled"
+ 12  		function disableclick(e) {
+ 13  		if(event.button==2 )
+ 14  		{
+ 15  		alert("Sorry Right Click has been disabled!");
+ 16  		return false;
+ 17  		}
+ 18  		}
+ 19  </script>	
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
 <script>
