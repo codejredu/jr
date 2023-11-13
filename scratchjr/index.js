@@ -12598,7 +12598,7 @@
             }
             ,
             Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
-                const t = window.prompt("Project Name:", "בחר שם");
+                const t = input("Project Name:", "בחר שם");
                 t && D.zipAndSaveCurrentProject(t, (function() {}
                 ))
             }
