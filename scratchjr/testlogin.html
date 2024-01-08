@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Google Login Example</title>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 <div id="g-signin2"></div>
-<script>
-var googleUser = {};
-var oauth2Client = new google.auth.OAuth2Client();
+  <script>
+  var googleUser = {};
+  var oauth2Client = new google.auth.OAuth2Client();
 
-function onSignIn(user) {
-  // Signed in successfully.
-  // Get user's information and access tokens.
-  console.log(user);
-}
+  function onSignIn(user) {
+    // Handle sign-in response (access tokens, user information)
+    console.log(user); // Example: log user information to the console
+  }
 
-function signIn() {
-  // Redirect the user to the Google Sign-In page.
-  oauth2Client.init({
-    clientId: "1019096334258-qhc4f6vscj00m5n6kt684cpssar9fcgb.apps.googleusercontent.com", // Replace with your actual client ID
-    scope: "https://www.googleapis.com/auth/userinfo.email"
-  }).then(function () {
-    return oauth2Client.signIn();
-  }).then(onSignIn).catch(function (error) {
-    // An error occurred.
-    console.log(error);
-  });
-}
+  function signIn() {
+    oauth2Client.init({
+      clientId: "1019096334258-qhc4f6vscj00m5n6kt684cpssar9fcgb.apps.googleusercontent.com", // Replace with your actual client ID
+      scope: "https://www.googleapis.com/auth/userinfo.email"
+    }).then(function () {
+      return oauth2Client.signIn();
+    }).then(onSignIn).catch(function (error) {
+      // Handle errors
+      console.log(error);
+    });
+  }
 </script>
 <button onclick="signIn()">Sign in with Google</button>
 </body>
