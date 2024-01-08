@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Google Login Example</title>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Login OAuth Example</title>
 </head>
 <body>
 
-<div id="g-signin2"></div> <script>
-var googleUser = {};
-var oauth2Client = new google.auth.OAuth2Client();
+<h1>Google Login OAuth Example</h1>
+<button onclick="googleSignIn()">Sign in with Google</button>
 
-function onSignIn(user) {
-  // Handle sign-in response (access tokens, user information)
-  console.log(user); // Example: log user information to the console
-}
+<script>
+    function googleSignIn() {
+        // Client ID from Google Developer Console
+        const clientId = '1019096334258-qhc4f6vscj00m5n6kt684cpssar9fcgb.apps.googleusercontent.com';
 
-function signIn() {
-  oauth2Client.init({
-    clientId: "1019096334258-qhc4f6vscj00m5n6kt684cpssar9fcgb.apps.googleusercontent.com", // Replace with your actual client ID
-    scope: "https://www.googleapis.com/auth/userinfo.email"
-  }).then(function () {
-    return oauth2Client.signIn();
-  }).then(onSignIn).catch(function (error) {
-    // Handle errors
-    console.log(error);
-  });
-}
+        // Create a new Google Sign-In instance
+        const auth2 = gapi.auth2.init({
+            client_id: clientId,
+        });
+
+        // Sign in the user
+        auth2.signIn().then(userInfo => {
+            const profile = userInfo.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Email: ' + profile.getEmail());
+            console.log('Image URL: ' + profile.getImageUrl());
+
+            // You can now send the user information to your server for further processing
+            // For example, you can use AJAX to send the data to your server.
+
+            // For demonstration purposes, we'll display the user information on the page.
+            const userDetails = `
+                <p>ID: ${profile.getId()}</p>
+                <p>Name: ${profile.getName()}</p>
+                <p>Email: ${profile.getEmail()}</p>
+                <img src="${profile.getImageUrl()}" alt="User Image">
+            `;
+            document.body.innerHTML += userDetails;
+        });
+    }
 </script>
 
-<button onclick="signIn()">Sign in with Google</button> </body>
+<!-- Include the Google API client library -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+</body>
 </html>
