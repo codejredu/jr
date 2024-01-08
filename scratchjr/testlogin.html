@@ -1,19 +1,29 @@
 <html>
   <body>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <div id="g_id_onload"
-        data-client_id="1019096334258-qhc4f6vscj00m5n6kt684cpssar9fcgb.apps.googleusercontent.com"
-        data-login_uri="https://codejredu.github.io/jr/scratchjr/index.html"
-        data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left">
-    </div>
- 
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+<div id="g-signin2"></div>
+<script>
+  var googleUser = {};
+  var oauth2Client = new google.auth.OAuth2Client();
+
+  function onSignIn(user) {
+    // Signed in successfully.
+    // Use the user's information, access tokens, etc.
+    // ...
+  }
+
+  function signIn() {
+    // Redirect the user to the Google Sign-In page.
+    oauth2Client.init({
+      clientId: "1019096334258-ueafsh0svhf5tpt414d4cv2r7dqvh3v2.apps.googleusercontent.com",
+      scope: "https://www.googleapis.com/auth/userinfo.email"
+    }).then(function () {
+      return oauth2Client.signIn();
+    }).then(onSignIn).catch(function (error) {
+      // An error occurred.
+      // ...
+    });
+  }
+</script>
   <body>
 </html>
