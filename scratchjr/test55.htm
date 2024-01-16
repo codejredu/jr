@@ -23,21 +23,7 @@ const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
 window.location.href = authUrl;
 
 
-    // In your redirect URI handler:
-const hash = window.location.hash.substring(1);
-const accessToken = hash.split('&')[0].split('=')[1];
-
-const oauth2Client = new google.auth.OAuth2Client();
-oauth2Client.setCredentials({ access_token: accessToken });
-
-const drive = google.drive({ version: 'v3', auth: oauth2Client });
-drive.files.list({
-  pageSize: 10,
-  fields: 'nextPageToken, files(id, name)'
-}, (err, res) => {
-  // Handle response
-});
-    
+  
 </script>
 
 
