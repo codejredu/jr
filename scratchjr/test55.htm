@@ -10,31 +10,37 @@
 <body>
 
 <script>
-  var googleUser = {};
-  var oauth2Client = new google.auth.OAuth2Client();
+const clientId = 'YOUR_CLIENT_ID';
+const scopes = 'https://www.googleapis.com/auth/userinfo.email'; // Adjust scopes as needed
+const redirectUri = 'http://localhost:8080/oauth2callback'; // Replace with your redirect URI
 
-  function onSignIn(user) {
-    // Signed in successfully.
-    // Use the user's information to personalize your app.
-    // e.g., console.log(user.getBasicProfile());
-  }
+const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
+                  'client_id=' + clientId +
+                  '&redirect_uri=' + encodeURIComponent(redirectUri) +
+                  '&response_type=token' +
+                  '&scope=' + scopes;
 
-  function signIn() {
-    // Redirect the user to the Google Sign-In page.
-    oauth2Client.init({
-      clientId: "YOUR_CLIENT_ID",
-      clientSecret: "1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com
-",
-      scope: "https://www.googleapis.com/auth/userinfo.email"
-    }).then(function () {
-      return oauth2Client.signIn();
-    }).then(onSignIn).catch(function (error) {
-      console.error(error);
-    });
-  }
+window.location.href = authUrl;
+
+
+    // In your redirect URI handler:
+const hash = window.location.hash.substring(1);
+const accessToken = hash.split('&')[0].split('=')[1];
+
+const oauth2Client = new google.auth.OAuth2Client();
+oauth2Client.setCredentials({ access_token: accessToken });
+
+const drive = google.drive({ version: 'v3', auth: oauth2Client });
+drive.files.list({
+  pageSize: 10,
+  fields: 'nextPageToken, files(id, name)'
+}, (err, res) => {
+  // Handle response
+});
+    
 </script>
 
-<button onclick="signIn()">Sign in with Google</button>  
+
 
 </body>
 </html>
