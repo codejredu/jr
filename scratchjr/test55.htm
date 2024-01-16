@@ -5,43 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+ 
 </head>
 <body>
-    <header>
-        <!-- Your website header goes here -->
-    </header>
+ <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+  var googleUser = {};
+  var oauth2Client = new google.auth.OAuth2Client();
 
-    <main>
-    test
+  function onSignIn(user) {
+    // Signed in successfully.
+    // Use the user's information to personalize your app.
+    // e.g., console.log(user.getBasicProfile());
+  }
 
-        <!-- "Sign in with Google" button -->
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-clientid="1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com"></div>
+  function signIn() {
+    // Redirect the user to the Google Sign-In page.
+    oauth2Client.init({
+      clientId: "YOUR_CLIENT_ID",
+      clientSecret: "1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com
+",
+      scope: "https://www.googleapis.com/auth/userinfo.email"
+    }).then(function () {
+      return oauth2Client.signIn();
+    }).then(onSignIn).catch(function (error) {
+      console.error(error);
+    });
+  }
+</script>
 
-        <!-- Your other website content goes here -->
-    </main>
+<button onclick="signIn()">Sign in with Google</button>  
 
-    <footer>
-        <!-- Your website footer goes here -->
-    </footer>
-
-    <script>
-        function onSignIn(googleUser) {
-            // Retrieve user information
-            var profile = googleUser.getBasicProfile();
-            var userId = profile.getId();
-            var userName = profile.getName();
-            var userEmail = profile.getEmail();
-            var userImageURL = profile.getImageUrl();
-
-            // You can perform further actions here, such as sending user data to your server
-
-            // Example: Log user details to the console
-            console.log('ID: ' + userId);
-            console.log('Name: ' + userName);
-            console.log('Email: ' + userEmail);
-            console.log('Image URL: ' + userImageURL);
-        }
-    </script>
 </body>
 </html>
