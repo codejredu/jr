@@ -1,35 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
-    <!-- Include the Google Sign-In API script -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-clientid="1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com"></div>
 <body>
-    <!-- Your website content goes here -->
+    <header>
+        <!-- Your website header goes here -->
+    </header>
 
-    <!-- Add a button for "Sign in with Google" -->
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <main>
+        <!-- Your main content goes here -->
 
-    <!-- Your other website content goes here -->
+        <!-- "Sign in with Google" button -->
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-clientid="1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com"></div>
 
-    <!-- Include your JavaScript code -->
+        <!-- Your other website content goes here -->
+    </main>
+
+    <footer>
+        <!-- Your website footer goes here -->
+    </footer>
+
     <script>
-        // Function called when the user successfully signs in
         function onSignIn(googleUser) {
-            // You can access user information using the 'googleUser' object
+            // Retrieve user information
             var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId());
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail());
+            var userId = profile.getId();
+            var userName = profile.getName();
+            var userEmail = profile.getEmail();
+            var userImageURL = profile.getImageUrl();
 
             // You can perform further actions here, such as sending user data to your server
+
+            // Example: Log user details to the console
+            console.log('ID: ' + userId);
+            console.log('Name: ' + userName);
+            console.log('Email: ' + userEmail);
+            console.log('Image URL: ' + userImageURL);
         }
     </script>
-
 </body>
 </html>
