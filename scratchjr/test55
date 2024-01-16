@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Include the Google Sign-In API script -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <!-- Your website content goes here -->
+
+    <!-- Add a button for "Sign in with Google" -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <!-- Your other website content goes here -->
+
+    <!-- Include your JavaScript code -->
+    <script>
+        // Function called when the user successfully signs in
+        function onSignIn(googleUser) {
+            // You can access user information using the 'googleUser' object
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+            // You can perform further actions here, such as sending user data to your server
+        }
+    </script>
+<div class="g-signin2" data-onsuccess="onSignIn" data-clientid="1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com"></div>
+</body>
+</html>
