@@ -40,40 +40,7 @@ document.addEventListener('contextmenu', function (e) {
   gtag('config', 'G-X3HG3NKWG8');
 </script>
 
- <script> 
-/*
- * Create form to request access token from Google's OAuth 2.0 server.
- */
-function oauthSignIn() {
-  // Google's OAuth 2.0 endpoint for requesting an access token
-  var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
-  // Create <form> element to submit parameters to OAuth 2.0 endpoint.
-  var form = document.createElement('form');
-  form.setAttribute('method', 'GET'); // Send as a GET request.
-  form.setAttribute('action', oauth2Endpoint);
-
-  // Parameters to pass to OAuth 2.0 endpoint.
-  var params = {'client_id': '1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com',
-                'redirect_uri': 'https://codejredu.github.io/jr/scratchjr/test5.html',
-                'response_type': 'token',
-                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-                'include_granted_scopes': 'true',
-                'state': 'pass-through value'};
-
-  // Add form parameters as hidden input values.
-  for (var p in params) {
-    var input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', p);
-    input.setAttribute('value', params[p]);
-    form.appendChild(input);
-  }
-
-  // Add form to page and submit it to open the OAuth 2.0 endpoint.
-  document.body.appendChild(form);
-  form.submit();
-  </script>
 <head>
    <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -122,7 +89,41 @@ function oauthSignIn() {
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+ /*
+ <script> 
+/*
+ * Create form to request access token from Google's OAuth 2.0 server.
+ */
+function oauthSignIn() {
+  // Google's OAuth 2.0 endpoint for requesting an access token
+  var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
+  // Create <form> element to submit parameters to OAuth 2.0 endpoint.
+  var form = document.createElement('form');
+  form.setAttribute('method', 'GET'); // Send as a GET request.
+  form.setAttribute('action', oauth2Endpoint);
+
+  // Parameters to pass to OAuth 2.0 endpoint.
+  var params = {'client_id': '1019096334258-0sjs08qri6d4k255va6vgdpp87h7p7do.apps.googleusercontent.com',
+                'redirect_uri': 'https://codejredu.github.io/jr/scratchjr/test5.html',
+                'response_type': 'token',
+                'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+                'include_granted_scopes': 'true',
+                'state': 'pass-through value'};
+
+  // Add form parameters as hidden input values.
+  for (var p in params) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', p);
+    input.setAttribute('value', params[p]);
+    form.appendChild(input);
+  }
+
+  // Add form to page and submit it to open the OAuth 2.0 endpoint.
+  document.body.appendChild(form);
+  form.submit();
+  </script>
 </body>
 
 </html>
