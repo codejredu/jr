@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
  
-  <script>  
+  <script>
+history.pushState("", document.title, "/");
+
+window.addEventListener("popstate", function() {
+  history.pushState("", document.title, "/");
+});
+  </script>
+ 
+ 
+ <script>  
 function openFullScreen(url) {
   var element = document.createElement('div');
   element.style.position = 'fixed';
