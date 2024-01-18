@@ -12598,7 +12598,7 @@
             }
             ,
             Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
-                const t = downloadFile ("Project Name:", "בחר שם");
+                const t = ["Project Name:", "בחר שם"];
                 t && D.zipAndSaveCurrentProject(t, (function() {}
                 ))
             }
