@@ -12598,7 +12598,7 @@
             }
             ,
             Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
-                const t = window.prompt("Project Name:", "scratchjr作品");
+                const t = downloadFile ("Project Name:", "בחר שם");
                 t && D.zipAndSaveCurrentProject(t, (function() {}
                 ))
             }
@@ -12607,7 +12607,7 @@
         }
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
-                D.zipAndSubmitCurrentProject("scratchjr作品", (function() {}
+                D.zipAndSubmitCurrentProject("scratchjr", (function() {}
                 ))
             }
             )
@@ -19434,14 +19434,14 @@
           , r = function(e, t, r) {
             if (128 != (192 & t[0]))
                 return e.lastNeed = 0,
-                " ";
+                "�";
             if (e.lastNeed > 1 && t.length > 1) {
                 if (128 != (192 & t[1]))
                     return e.lastNeed = 1,
-                    " ";
+                    "�";
                 if (e.lastNeed > 2 && t.length > 2 && 128 != (192 & t[2]))
                     return e.lastNeed = 2,
-                    " "
+                    "�"
             }
         }(this, e);
         return void 0 !== r ? r : this.lastNeed <= e.length ? (e.copy(this.lastChar, t, 0, this.lastNeed),
@@ -19510,7 +19510,7 @@
     ,
     i.prototype.end = function(e) {
         var t = e && e.length ? this.write(e) : "";
-        return this.lastNeed ? t + " " : t
+        return this.lastNeed ? t + "�" : t
     }
     ,
     i.prototype.text = function(e, t) {
@@ -30219,9 +30219,9 @@
                 r.LOCAL_FILE_HEADER = "PK",
                 r.CENTRAL_FILE_HEADER = "PK",
                 r.CENTRAL_DIRECTORY_END = "PK",
-                r.ZIP64_CENTRAL_DIRECTORY_LOCATOR = "PK ",
+                r.ZIP64_CENTRAL_DIRECTORY_LOCATOR = "PK",
                 r.ZIP64_CENTRAL_DIRECTORY_END = "PK",
-                r.DATA_DESCRIPTOR = "PK \b"
+                r.DATA_DESCRIPTOR = "PK\b"
             }
             , {}],
             24: [function(e, t, r) {
@@ -52888,8 +52888,8 @@
         } catch (t) {
             return function(e) {
                 for (var t = {
-                    "%FE%FF": "  ",
-                    "%FF%FE": "  "
+                    "%FE%FF": "��",
+                    "%FF%FE": "��"
                 }, r = a.exec(e); r; ) {
                     try {
                         t[r[0]] = decodeURIComponent(r[0])
@@ -52899,7 +52899,7 @@
                     }
                     r = a.exec(e)
                 }
-                t["%C2"] = " ";
+                t["%C2"] = "�";
                 for (var i = Object.keys(t), s = 0; s < i.length; s++) {
                     var u = i[s];
                     e = e.replace(new RegExp(u,"g"), t[u])
@@ -68120,4 +68120,3 @@
     }
 }
 ]);
-
