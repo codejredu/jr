@@ -12612,30 +12612,6 @@
             }
             )
         }
-        function createGoogleFormLink(formId, text) {
-            // Create a link element
-            const link = document.createElement('a');
-          
-            // Set the link's text
-            link.textContent = text;
-          
-            // Set the link's href to the Google Form URL
-            link.href = `https://docs.google.com/forms/d/${formId}/viewform`;
-          
-            // Set the link's target to open in a new tab
-            link.target = '_blank'; 
-          
-            // Return the link element
-            return link;
-          }
-          
-          // Example usage:
-          const formId = 'YOUR_FORM_ID'; // Replace with your Google Form ID
-          const linkText = 'Submit Feedback'; // Customize the link text
-          const formLink = createGoogleFormLink(formId, linkText);
-          
-          // Add the link to the page
-          document.body.appendChild(formLink); 
         static dealwithUploadedFile(e) {
             const t = new FileReader;
             t.readAsDataURL(e),
@@ -68144,3 +68120,27 @@
     }
 }
 ]);
+function createGoogleFormLink(formId, text) {
+  // Create a link element
+  const link = document.createElement('a');
+
+  // Set the link's text
+  link.textContent = text;
+
+  // Set the link's href to the Google Form URL
+  link.href = `https://docs.google.com/forms/d/${formId}/viewform`;
+
+  // Set the link's target to open in a new tab
+  link.target = '_blank'; 
+
+  // Return the link element
+  return link;
+}
+
+// Example usage:
+const formId = 'YOUR_FORM_ID'; // Replace with your Google Form ID
+const linkText = 'Submit Feedback'; // Customize the link text
+const formLink = createGoogleFormLink(formId, linkText);
+
+// Add the link to the page
+document.body.appendChild(formLink);
