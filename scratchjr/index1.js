@@ -12605,6 +12605,7 @@
             ,
             this.gnSave2CloudButton(t)
         }
+        <button onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdzX1234567890abcdefg/viewform';">פתח טופס גוגל</button>
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
                 D.zipAndSubmitCurrentProject("scratchjr", (function() {}
@@ -12612,10 +12613,6 @@
             }
             )
         }
-        Object(y.newHTML)("button", "btn btn-save", "Send Email").onpointerup = function(e) {
-            window.location.href = "mailto:MOSHE@TZFONET.ORG.IL";
-        };
-        
         static dealwithUploadedFile(e) {
             const t = new FileReader;
             t.readAsDataURL(e),
