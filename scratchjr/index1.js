@@ -12744,6 +12744,25 @@
             }
             ))
         }
+        // Add a new button to the "filebuttons" div
+        static addGoogleFormButton(e) {
+            // Replace with your actual Google Form URL
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf9d5a8f7d8e39u2f9w204k9i33w2-e4';
+            
+            const button = Object(y.newHTML)("button", "btn btn-google-form", e);
+            button.textContent = "Submit to Google Form"; // Customize the button text
+            button.onclick = () => {
+                window.open(googleFormUrl, '_blank'); // Open the form in a new tab
+            };
+        }
+
+        // Call the new function in layoutFileBtns
+        static layoutFileBtns(e) {
+            // ... existing code ...
+            D.addGoogleFormButton(t); // Add the Google Form button
+        }
+    }
+    // ... rest of your code ...
         static zipAndSaveCurrentProject(e, t) {
             o.a.onHold = !0,
             l.a.prepareToSave(o.a.currentProject, (function() {
