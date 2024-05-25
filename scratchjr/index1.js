@@ -12605,8 +12605,8 @@
           
             // Creating and adding a button with a link to Google Form
             var googleFormBtn = Object(y.newHTML)("a", "btn btn-google-form", t);
-            googleFormBtn.setAttribute("href", "YOUR_GOOGLE_FORM_LINK_HERE");
-            googleFormBtn.innerText = "Go to Google Form";
+            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+            googleFormBtn.innerText = "Write to us";
         }
         
         static gnSave2CloudButton(e) {
