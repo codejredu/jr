@@ -12585,40 +12585,32 @@
             D.layoutFileBtns(r),
             D.layoutLibrary(t)
         }
-        class YourClassName {
-            static layoutFileBtns(e) {
-                const t = Object(y.newHTML)("div", "filebuttons", e);
-                const r = Object(y.newHTML)("span", "btn btn-open", t);
-                const n = Object(y.newHTML)("input", "open-file", r);
-                n.setAttribute("type", "file");
-                n.setAttribute("accept", ".sjr");
-                n.onchange = function(e) {
-                    const files = n.files;
-                    if (files.length) {
-                        D.dealwithUploadedFile(files[0]);
-                    }
-                    n.value = null;
-                };
-        
-                Object(y.newHTML)("button", "btn btn-save", t).addEventListener("click", function(e) {
-                    const projectName = "שם הפרויקט"; // Update with actual project name
-                    D.zipAndSaveCurrentProject(projectName, function() {});
-                });
-        
-                const googleFormBtn = Object(y.newHTML)("a", "btn btn-google-form", t);
-                googleFormBtn.textContent = "Go to Google Form";
-                googleFormBtn.href = "https://your-google-form-link-here";
-        
-                this.gnSave2CloudButton(t);
+        static layoutFileBtns(e) {
+            var t = Object(y.newHTML)("div", "filebuttons", e)
+              , r = Object(y.newHTML)("span", "btn btn-open", t)
+              , n = Object(y.newHTML)("input", "open-file", r);
+            n.setAttribute("type", "file"),
+            n.setAttribute("accept", ".sjr"),
+            n.onchange = function(e) {
+                const t = n.files;
+                t.length && D.dealwithUploadedFile(t[0]),
+                n.value = null
             }
-        
-            static gnSave2CloudButton(e) {
-                if (a.a.parse(location.search).s) {
-                    Object(y.newHTML)("button", "btn btn-submit-save", e).addEventListener("click", function(e) {
-                        D.zipAndSubmitCurrentProject("scratchjr", function() {});
-                    });
-                }
+            ,
+            Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
+                const t = [":שם הפרויקט"];
+                t && D.zipAndSaveCurrentProject(t, (function() {}
+                ))
             }
+            ,
+            this.gnSave2CloudButton(t)
+        }
+        static gnSave2CloudButton(e) {
+            a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
+                D.zipAndSubmitCurrentProject("scratchjr", (function() {}
+                ))
+            }
+            )
         }
         static dealwithUploadedFile(e) {
             const t = new FileReader;
