@@ -12595,22 +12595,25 @@
                 const t = n.files;
                 t.length && D.dealwithUploadedFile(t[0]),
                 n.value = null
-            }
-            ,
+            },
             Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
                 const t = [":שם הפרויקט"];
                 t && D.zipAndSaveCurrentProject(t, (function() {}
                 ))
-            }
-            ,
-            this.gnSave2CloudButton(t)
+            },
+            this.gnSave2CloudButton(t);
+          
+            // Creating and adding a button with a link to Google Form
+            var googleFormBtn = Object(y.newHTML)("a", "btn btn-google-form", t);
+            googleFormBtn.setAttribute("href", "YOUR_GOOGLE_FORM_LINK_HERE");
+            googleFormBtn.innerText = "Go to Google Form";
         }
+        
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
                 D.zipAndSubmitCurrentProject("scratchjr", (function() {}
                 ))
-            }
-            )
+            })
         }
         static dealwithUploadedFile(e) {
             const t = new FileReader;
