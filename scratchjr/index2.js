@@ -12610,6 +12610,9 @@
             var img = document.createElement("img");
             img.src = "https://github.com/codejredu/jr/blob/master/scratchjr/assets/ui/btn-google-form.svg"; // Replace "path/to/your/image/button.png" with the actual path to your image button
             img.alt = "Write to us";
+            googleFormBtn.appendChild(img);
+            
+            // Append the image button to an element with id "container" (you can change this id based on your HTML structure)
             
         }
         
