@@ -12605,13 +12605,15 @@
           
             
             // Creating and adding a button with a link to Google Form
-            var googleFormBtn = document.createElement("a");
-            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-            var img = document.createElement("img");
-            img.setAttribute("src", "https://github.com/codejredu/jr/blob/master/scratchjr/pnglibrary/elearn100.png"); // Replace "path/to/your/image/button/image.jpg" with the actual path to your image button
-            img.setAttribute("alt", "Write to us");
-            googleFormBtn.appendChild(img);
-             
+            const button = document.createElement('button');
+            button.textContent = 'Visit Walla';
+            button.style.padding = '10px';
+            button.style.margin = '10px';
+            // Add an event listener to open the link when the button is clicked
+            button.addEventListener('click', function() {    window.location.href = 'http://walla.co.il';});
+            // Append the button to the body of the document
+            document.body.appendChild(button);
+           
            }
         
         static gnSave2CloudButton(e) {
