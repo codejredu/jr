@@ -12604,18 +12604,13 @@
             this.gnSave2CloudButton(t);
           
             // Creating and adding a button with a link to Google Form
-           // Creating and adding an image button with a link to Google Form
-           var googleFormBtn = document.createElement("a");
-           googleFormBtn.setAttribute("class", "btn btn-google-form");
-           googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-           var img = document.createElement("img");
-           img.setAttribute("src", "https://www.shareicon.net/data/48x48/2015/07/28/76310_doc_256x256.png"); // Set the path to your image file
-           img.setAttribute("alt", "Write to us");
-           googleFormBtn.appendChild(img);
-           // Append the button to the document body or any other container element
-           document.body.appendChild(googleFormBtn);
-
-                }
+            var googleFormImgBtn = document.createElement("a");
+            googleFormImgBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+            var googleFormImg = document.createElement("img");
+            googleFormImg.setAttribute("src", "https://github.com/codejredu/jr/blob/master/scratchjr/pnglibrary/elearn100.png"); // Replace 'path/to/your/image.png' with the actual image URL
+            googleFormImg.setAttribute("alt", "Write to us");
+            googleFormImgBtn.appendChild(googleFormImg);     
+           }
         
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
