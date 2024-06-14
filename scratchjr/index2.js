@@ -12604,10 +12604,13 @@
             this.gnSave2CloudButton(t);
           
             // Creating and adding a button with a link to Google Form
-            googleFormBtn = y.newHTML("a", "btn btn-google-form", t)
-            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform")
-            googleFormBtn.innerText = "Contact Us"  # Change the text here
-        }
+            var googleFormBtn = document.createElement("a");
+            googleFormBtn.className = "btn btn-google-form";
+            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+            googleFormBtn.innerText = "Contact Us"; // Change the text displayed on the button to "Contact Us"
+            // Append the button to the document body (or any other desired element)
+            document.body.appendChild(googleFormBtn);
+                }
         
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
