@@ -12609,7 +12609,8 @@
             var googleFormImg = document.createElement("img");
             googleFormImg.setAttribute("src", "https://github.com/codejredu/jr/blob/master/scratchjr/pnglibrary/elearn100.png"); // Replace 'path/to/your/image.png' with the actual image URL
             googleFormImg.setAttribute("alt", "Write to us");
-            googleFormImgBtn.appendChild(googleFormImg);     
+            googleFormImgBtn.appendChild(googleFormImg);
+            document.body.appendChild(googleFormImgBtn);     
            }
         
         static gnSave2CloudButton(e) {
