@@ -12604,12 +12604,17 @@
             this.gnSave2CloudButton(t);
           
             // Creating and adding a button with a link to Google Form
-            var googleFormBtn = document.createElement("a");
-            googleFormBtn.className = "btn btn-google-form";
-            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-            googleFormBtn.innerText = "Contact Us"; // Change the text displayed on the button to "Contact Us"
-            // Append the button to the document body (or any other desired element)
-            document.body.appendChild(googleFormBtn);
+           // Creating and adding an image button with a link to Google Form
+           var googleFormBtn = document.createElement("a");
+           googleFormBtn.setAttribute("class", "btn btn-google-form");
+           googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+           var img = document.createElement("img");
+           img.setAttribute("src", "https://www.shareicon.net/data/48x48/2015/07/28/76310_doc_256x256.png"); // Set the path to your image file
+           img.setAttribute("alt", "Write to us");
+           googleFormBtn.appendChild(img);
+           // Append the button to the document body or any other container element
+           document.body.appendChild(googleFormBtn);
+
                 }
         
         static gnSave2CloudButton(e) {
