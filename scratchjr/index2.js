@@ -12610,7 +12610,7 @@
             button.style.padding = '10px';
             button.style.margin = '10px';
             // Add an event listener to open the link when the button is clicked
-            button.addEventListener('click', function() {    window.location.href = 'http://walla.co.il';});
+            button.addEventListener('click', function() {window.location.href = 'http://walla.co.il';});
             // Append the button to the body of the document
             document.body.appendChild(button);
            
