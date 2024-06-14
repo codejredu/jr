@@ -12605,15 +12605,15 @@
           
             // Creating and adding a button with a link to Google Form
             var googleFormBtn = document.createElement("a");
-googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-
-var img = document.createElement("img");
-img.src = "https://github.com/codejredu/jr/blob/master/scratchjr/assets/ui/btn-google-form.svg"; // Replace "path/to/your/image/button.png" with the actual path to your image button
-img.alt = "Write to us";
-googleFormBtn.appendChild(img);
-
-// Append the image button to an element with id "container" (you can change this id based on your HTML structure)
-document.getElementById("container").appendChild(googleFormBtn);
+            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+            
+            var img = document.createElement("img");
+            img.src = "https://github.com/codejredu/jr/blob/master/scratchjr/assets/ui/btn-google-form.svg"; // Replace "path/to/your/image/button.png" with the actual path to your image button
+            img.alt = "Write to us";
+            googleFormBtn.appendChild(img);
+            
+            // Append the image button to an element with id "container" (you can change this id based on your HTML structure)
+            document.getElementById("container").appendChild(googleFormBtn);
         }
         
         static gnSave2CloudButton(e) {
