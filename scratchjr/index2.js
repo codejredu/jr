@@ -12603,14 +12603,13 @@
             },
             this.gnSave2CloudButton(t);
           
-            // Creating and adding a button with a link to Google Form
-            var googleFormBtn = document.createElement("button");
-            googleFormBtn.className = "btn btn-google-form";
-            googleFormBtn.innerHTML = "Write to us";
-            googleFormBtn.addEventListener("click", function() {
-                window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform", "_blank");
-            });
-            document.body.appendChild(googleFormBtn);
+            // Creating and adding a graphical button with a link to Google Form
+var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
+googleFormBtn.onclick = function() {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+};
+googleFormBtn.innerText = "Write to us";
+   googleFormBtn.innerText = "Write to us";
         }
         
         static gnSave2CloudButton(e) {
