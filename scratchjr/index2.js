@@ -12604,11 +12604,12 @@
             this.gnSave2CloudButton(t);
           
             // Creating and adding a graphical button with a link to Google Form
-<button class="btn btn-google-form" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform');">
-    <img src="https://raw.githubusercontent.com/codejredu/jr/master/scratchjr/pnglibrary/Apphelpindex.png" alt="ELEARN" />
-    Write to us
-</button>
-
+var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
+googleFormBtn.onclick = function() {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+};
+googleFormBtn.innerText = "Write to us";
+googleFormBtn.style.border = "2px solid #4CAF50"; // Add a green border
 
         }
         
