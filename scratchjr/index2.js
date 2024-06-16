@@ -12609,7 +12609,8 @@ googleFormBtn.onclick = function() {
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
 };
 googleFormBtn.innerText = "Write to us";
-   googleFormBtn.innerText = "Write to us";
+googleFormBtn.style.border = "2px solid #4CAF50"; // Add a green border
+
         }
         
         static gnSave2CloudButton(e) {
