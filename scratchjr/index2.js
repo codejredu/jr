@@ -12604,9 +12604,13 @@
             this.gnSave2CloudButton(t);
           
             // Creating and adding a button with a link to Google Form
-            var googleFormBtn = Object(y.newHTML)("a", "https://github.com/codejredu/jr/blob/master/scratchjr/assets/ui/btn-google-form.svg", t);
-            googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-            googleFormBtn.innerText = "Write to us";
+            var googleFormBtn = document.createElement("a");
+googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+googleFormBtn.innerText = "Write to us";
+googleFormBtn.classList.add("btn", "btn-google-form");
+
+// Append the button to the document body or any other desired element
+document.body.appendChild(googleFormBtn);
         }
         
         static gnSave2CloudButton(e) {
