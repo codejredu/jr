@@ -12612,13 +12612,13 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "'WW'";
+googleFormBtn.innerText = "'?'";
 
 // הגדרת סגנון הכפתור
 googleFormBtn.style.width = "44px";
 googleFormBtn.style.height = "44px";
 googleFormBtn.style.position = "relative";
-googleFormBtn.style.top = "-15px"; // העלאת הכפתור ב-10 פיקסלים
+googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
