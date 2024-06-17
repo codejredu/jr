@@ -12615,6 +12615,7 @@ googleFormBtn.onclick = function() {
 googleFormBtn.innerText = "כתוב אלינו";
 
 // הגדרת סגנון הכפתור
+googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#F0E68C"; // רקע צהוב בהיר
 googleFormBtn.style.color = "#333"; // צבע טקסט שחור
