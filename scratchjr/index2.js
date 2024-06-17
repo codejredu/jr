@@ -12615,8 +12615,8 @@ googleFormBtn.onclick = function() {
 googleFormBtn.innerText = "?";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "38px";
-googleFormBtn.style.height = "38px";
+googleFormBtn.style.width = "42px";
+googleFormBtn.style.height = "42px";
 googleFormBtn.style.position = "relative";
 googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
 
