@@ -12617,6 +12617,7 @@ googleFormBtn.innerText = "?";
 // הגדרת סגנון הכפתור
 googleFormBtn.style.width = "44px";
 googleFormBtn.style.height = "44px";
+googleFormBtn.style.marginTop = "10px"; // מרווח עליון של 3 פיקסלים
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
