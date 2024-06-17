@@ -12612,11 +12612,11 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "כתוב אלינו";
+googleFormBtn.innerText = "?";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "32px";
-googleFormBtn.style.height = "32px";
+googleFormBtn.style.width = "64px";
+googleFormBtn.style.height = "64px";
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#F0E68C"; // רקע צהוב בהיר
