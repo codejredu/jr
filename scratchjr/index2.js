@@ -12612,7 +12612,7 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "?";
+googleFormBtn.innerText = "'w'";
 
 // הגדרת סגנון הכפתור
 googleFormBtn.style.width = "44px";
