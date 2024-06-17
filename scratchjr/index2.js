@@ -12603,14 +12603,21 @@
             },
             this.gnSave2CloudButton(t);
           
-            // Creating and adding a graphical button with a link to Google Form
+           // יצירת והוספת כפתור גרפי עם קישור לטופס Google
 var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
-googleFormBtn.onclick = function() {
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
-};
-googleFormBtn.innerText = "Write to us";
-googleFormBtn.style.border = "2px solid #4CAF50"; // Add a green border
 
+// הגדרת אירוע ה-onclick לפתיחת טופס Google
+googleFormBtn.onclick = function() {
+  window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+};
+
+// הגדרת טקסט הכפתור
+googleFormBtn.innerText = "כתוב אלינו";
+
+// הגדרת סגנון הכפתור
+googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
+googleFormBtn.style.backgroundColor = "#F0E68C"; // רקע צהוב בהיר
+googleFormBtn.style.color = "#333"; // צבע טקסט שחור
         }
         
         static gnSave2CloudButton(e) {
