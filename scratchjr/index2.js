@@ -12615,13 +12615,13 @@ googleFormBtn.onclick = function() {
 googleFormBtn.innerText = "'?'";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "44px";
-googleFormBtn.style.height = "44px";
+googleFormBtn.style.width = "38px";
+googleFormBtn.style.height = "38px";
 googleFormBtn.style.position = "relative";
 googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
-googleFormBtn.style.border = "2px solid #795548"; // גבול חום כהה
+googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
 googleFormBtn.style.color = "#333"; // צבע טקסט שחור
         }
