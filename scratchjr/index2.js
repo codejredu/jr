@@ -12612,11 +12612,11 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "?";
+googleFormBtn.innerText = "mail";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "42px";
-googleFormBtn.style.height = "42px";
+googleFormBtn.style.width = "64px";
+googleFormBtn.style.height = "64px";
 googleFormBtn.style.position = "relative";
 googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
 
