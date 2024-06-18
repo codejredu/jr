@@ -12615,8 +12615,8 @@ googleFormBtn.onclick = function() {
 googleFormBtn.innerText = "mail";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "64px";
-googleFormBtn.style.height = "64px";
+googleFormBtn.style.width = "48px";
+googleFormBtn.style.height = "48px";
 googleFormBtn.style.position = "relative";
 googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
 
