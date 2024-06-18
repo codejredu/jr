@@ -12612,13 +12612,13 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "mail";
+googleFormBtn.innerText = "help";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "48px";
+googleFormBtn.style.width = "55px";
 googleFormBtn.style.height = "48px";
 googleFormBtn.style.position = "relative";
-googleFormBtn.style.top = "-25px"; // העלאת הכפתור ב-10 פיקסלים
+googleFormBtn.style.top = "-35px"; // העלאת הכפתור ב-10 פיקסלים
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
