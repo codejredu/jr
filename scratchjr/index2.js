@@ -12608,7 +12608,7 @@ var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
 
 // הגדרת אירוע ה-onclick לפתיחת טופס Google
 googleFormBtn.onclick = function() {
-  window.open("https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform");
+  window.open("https://moshe310.wixsite.com/codejrenglish");
 };
 
 // הגדרת טקסט הכפתור
