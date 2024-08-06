@@ -12603,10 +12603,27 @@
             },
             this.gnSave2CloudButton(t);
           
-            // Creating and adding a button with a link to Google Form
-            googleFormBtn = y.newHTML("a", "btn btn-google-form", t)
-googleFormBtn.setAttribute("href", "https://docs.google.com/forms/d/e/1FAIpQLSfXR_SQpNZDXPuj0Jk5p_kWv7UuIDbz3dktcL-MR3e3kUgqrA/viewform")
-googleFormBtn.innerText = "Contact Us"  # Change the text here
+           // יצירת והוספת כפתור גרפי עם קישור לטופס Google
+var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
+
+// הגדרת אירוע ה-onclick לפתיחת טופס Google
+googleFormBtn.onclick = function() {
+  window.open("https://moshe310.wixsite.com/codejrenglish");
+};
+
+// הגדרת טקסט הכפתור
+googleFormBtn.innerText = "help";
+
+// הגדרת סגנון הכפתור
+googleFormBtn.style.width = "60px";
+googleFormBtn.style.height = "52px";
+googleFormBtn.style.position = "relative";
+googleFormBtn.style.top = "-32px"; // העלאת הכפתור ב-10 פיקסלים
+
+googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
+googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
+googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
+googleFormBtn.style.color = "#333"; // צבע טקסט שחור
         }
         
         static gnSave2CloudButton(e) {
