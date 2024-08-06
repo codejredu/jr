@@ -12623,7 +12623,7 @@ googleFormBtn.style.top = "-27px"; // העלאת הכפתור ב-10 פיקסלי
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
-googleFormBtn.style.color = "#333"; // צבע טקסט שחור
+googleFormBtn.style.color = "#ffffff"; // צבע טקסט שחור
         }
         
         static gnSave2CloudButton(e) {
