@@ -12612,8 +12612,7 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-googleFormBtn.innerText = "help";
-
+googleFormBtn.innerText = "Coding Cards";
 // הגדרת סגנון הכפתור
 googleFormBtn.style.width = "60px";
 googleFormBtn.style.height = "52px";
