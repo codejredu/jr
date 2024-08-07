@@ -12622,7 +12622,7 @@ googleFormBtn.style.top = "-27px"; // העלאת הכפתור ב-10 פיקסלי
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
-googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
+googleFormBtn.style.backgroundColor = "#9C8A7B"; // רקע צהוב בהיר
 googleFormBtn.style.color = "#ffffff"; // צבע טקסט שחור
         }
         
