@@ -12615,16 +12615,17 @@ googleFormBtn.onclick = function() {
 googleFormBtn.innerText = "Coding Cards";
 
 // הגדרת סגנון הכפתור
-googleFormBtn.style.width = "auto"; // התאמת הרוחב לתוכן
-googleFormBtn.style.height = "auto"; // התאמת הגובה לתוכן
-googleFormBtn.style.padding = "10px 15px"; // רווח פנימי כדי שהטקסט ייראה טוב
-googleFormBtn.style.fontSize = "16px"; // קביעת גודל פונט אחיד
-googleFormBtn.style.lineHeight = "20px"; // גובה שורה כדי ליישר את הטקסט במרכז
+googleFormBtn.style.width = "60px";
+googleFormBtn.style.height = "54px";
+googleFormBtn.style.lineHeight = "54px"; // גובה שורה זהה לגובה הכפתור, כך שהטקסט יהיה במרכז הכפתור
+googleFormBtn.style.verticalAlign = "middle"; // מיקום אנכי במרכז
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
 googleFormBtn.style.backgroundColor = "#9C8A7B"; // רקע צהוב בהיר
-googleFormBtn.style.color = "#ffffff"; // צבע טקסט לבן
+googleFormBtn.style.color = "#ffffff"; // צבע טקסט שחור
+googleFormBtn.style.display = "inline-block"; // שמירה על קו ישר עם כפתורים אחרים
+googleFormBtn.style.marginLeft = "10px"; // רווח קטן מימין לכפתור
         }
         
         static gnSave2CloudButton(e) {
