@@ -12575,71 +12575,52 @@
             D.stageArea(e),
             D.rightPanel(e)
         }
-        static leftPanel(e) {
-            var t = Object(y.newHTML)("div", "leftpanel", e)
-              , r = Object(y.newHTML)("div", "menu", t)
-              , n = Object(y.newHTML)("div", "flipme", r);
-            n.setAttribute("id", "flip"),
-            n.onpointerdown = function(e) {}
-            ,
-            D.layoutFileBtns(r),
-            D.layoutLibrary(t)
-        }
         static layoutFileBtns(e) {
             // Ensure y and its newHTML method are defined and accessible
-            if (!window.y || !window.y.newHTML) throw new Error("Dependency 'y' or its method 'newHTML' is not defined.");
-            if (!window.D) throw new Error("Dependency 'D' is not defined.");
+            if (!y || !y.newHTML) throw new Error("Dependency 'y' or its method 'newHTML' is not defined.");
         
-            const container = window.y.newHTML("div", "filebuttons", e);
-            const openFileSpan = window.y.newHTML("span", "btn btn-open", container);
-            const openFileInput = window.y.newHTML("input", "open-file", openFileSpan);
+            var t = y.newHTML("div", "filebuttons", e);
+            var r = y.newHTML("span", "btn btn-open", t);
+            var n = y.newHTML("input", "open-file", r);
         
-            openFileInput.setAttribute("type", "file");
-            openFileInput.setAttribute("accept", ".sjr");
-            openFileInput.addEventListener("change", function(event) {
-                const files = openFileInput.files;
-                if (files.length) window.D.dealwithUploadedFile(files[0]);
-                openFileInput.value = null;
-            });
+            n.setAttribute("type", "file");
+            n.setAttribute("accept", ".sjr");
+            n.onchange = function(e) {
+                const t = n.files;
+                if (t.length) D.dealwithUploadedFile(t[0]);
+                n.value = null;
+            };
         
-            const saveBtn = window.y.newHTML("button", "btn btn-save", container);
-            saveBtn.addEventListener("click", function(event) {
-                const projectName = [":שם הפרויקט"];
-                if (projectName) window.D.zipAndSaveCurrentProject(projectName, function() {});
-            });
+            y.newHTML("button", "btn btn-save", t).onclick = function(e) {
+                const t = [":שם הפרויקט"];
+                if (t) D.zipAndSaveCurrentProject(t, function() {});
+            };
         
-            this.gnSave2CloudButton(container);
+            this.gnSave2CloudButton(t);
         
             // Creating and adding a graphical button with a link to a Google Form
-            const googleFormBtn = window.y.newHTML("button", "btn btn-google-form", container);
+            var googleFormBtn = y.newHTML("button", "btn btn-google-form", t);
         
             // Setting the onclick event to open a Google Form
-            googleFormBtn.addEventListener("click", function() {
+            googleFormBtn.onclick = function() {
                 window.open("https://moshe310.wixsite.com/codejrenglish");
-            });
+            };
         
             // Setting the button text
             googleFormBtn.innerText = "Coding Cards";
         
-            // Setting the button style (consider moving these to a CSS file for better maintainability)
-            googleFormBtn.style.width = "60px";
-            googleFormBtn.style.height = "54px";
+            // Setting the button style
+            googleFormBtn.style.width = "120px"; // Increased width for better visibility
+            googleFormBtn.style.height = "54px"; // Consider using relative units for better responsiveness
             googleFormBtn.style.position = "relative";
-            googleFormBtn.style.top = "-26px";
-            googleFormBtn.style.borderRadius = "10px";
-            googleFormBtn.style.border = "0px solid #795548";
-            googleFormBtn.style.backgroundColor = "#9C8A7B";
-            googleFormBtn.style.color = "#ffffff";
+            googleFormBtn.style.top = "-26px"; // Adjusting the button position to appear higher
+            googleFormBtn.style.borderRadius = "10px"; // Rounding the button corners
+            googleFormBtn.style.border = "0px solid #795548"; // Setting a brown border
+            googleFormBtn.style.backgroundColor = "#9C8A7B"; // Setting a light yellow background
+            googleFormBtn.style.color = "#ffffff"; // Setting white text color
+            googleFormBtn.style.marginBottom = "10px"; // Adding margin to ensure it's higher than other buttons
         }
         
-        
-        
-        static gnSave2CloudButton(e) {
-            a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
-                D.zipAndSubmitCurrentProject("scratchjr", (function() {}
-                ))
-            })
-        }
         static dealwithUploadedFile(e) {
             const t = new FileReader;
             t.readAsDataURL(e),
