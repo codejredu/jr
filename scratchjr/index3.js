@@ -12586,47 +12586,50 @@
             D.layoutLibrary(t)
         }
         static layoutFileBtns(e) {
-            var t = Object(y.newHTML)("div", "filebuttons", e)
-              , r = Object(y.newHTML)("span", "btn btn-open", t)
-              , n = Object(y.newHTML)("input", "open-file", r);
-            n.setAttribute("type", "file"),
-            n.setAttribute("accept", ".sjr"),
+            // Ensure y and its newHTML method are defined and accessible
+            if (!y || !y.newHTML) throw new Error("Dependency 'y' or its method 'newHTML' is not defined.");
+        
+            var t = y.newHTML("div", "filebuttons", e);
+            var r = y.newHTML("span", "btn btn-open", t);
+            var n = y.newHTML("input", "open-file", r);
+        
+            n.setAttribute("type", "file");
+            n.setAttribute("accept", ".sjr");
             n.onchange = function(e) {
                 const t = n.files;
-                t.length && D.dealwithUploadedFile(t[0]),
-                n.value = null
-            },
-            Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
+                if (t.length) D.dealwithUploadedFile(t[0]);
+                n.value = null;
+            };
+        
+            y.newHTML("button", "btn btn-save", t).onclick = function(e) {
                 const t = [":שם הפרויקט"];
-                t && D.zipAndSaveCurrentProject(t, (function() {}
-                ))
-            },
+                if (t) D.zipAndSaveCurrentProject(t, function() {});
+            };
+        
             this.gnSave2CloudButton(t);
-          
-           // יצירת והוספת כפתור גרפי עם קישור לטופס Google
-var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
-
-// הגדרת אירוע ה-onclick לפתיחת טופס Google
-googleFormBtn.onclick = function() {
-  window.open("https://moshe310.wixsite.com/codejrenglish");
-};
-
-// הגדרת טקסט הכפתור
-googleFormBtn.innerText = "Coding Cards";
-
-// הגדרת סגנון הכפתור
-googleFormBtn.style.width = "60px";
-googleFormBtn.style.height = "54px";
-googleFormBtn.style.lineHeight = "54px"; // גובה שורה זהה לגובה הכפתור, כך שהטקסט יהיה במרכז הכפתור
-googleFormBtn.style.verticalAlign = "middle"; // מיקום אנכי במרכז
-
-googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
-googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
-googleFormBtn.style.backgroundColor = "#9C8A7B"; // רקע צהוב בהיר
-googleFormBtn.style.color = "#ffffff"; // צבע טקסט שחור
-googleFormBtn.style.display = "inline-block"; // שמירה על קו ישר עם כפתורים אחרים
-googleFormBtn.style.marginLeft = "10px"; // רווח קטן מימין לכפתור
+        
+            // Creating and adding a graphical button with a link to a Google Form
+            var googleFormBtn = y.newHTML("button", "btn btn-google-form", t);
+        
+            // Setting the onclick event to open a Google Form
+            googleFormBtn.onclick = function() {
+                window.open("https://moshe310.wixsite.com/codejrenglish");
+            };
+        
+            // Setting the button text
+            googleFormBtn.innerText = "Coding Cards";
+        
+            // Setting the button style
+            googleFormBtn.style.width = "60px";
+            googleFormBtn.style.height = "54px"; // Consider using relative units for better responsiveness
+            googleFormBtn.style.position = "relative";
+            googleFormBtn.style.top = "-26px"; // Adjusting the button position
+            googleFormBtn.style.borderRadius = "10px"; // Rounding the button corners
+            googleFormBtn.style.border = "0px solid #795548"; // Setting a brown border
+            googleFormBtn.style.backgroundColor = "#9C8A7B"; // Setting a light yellow background
+            googleFormBtn.style.color = "#ffffff"; // Setting white text color
         }
+        
         
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
