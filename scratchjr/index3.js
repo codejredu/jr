@@ -12612,23 +12612,20 @@ googleFormBtn.onclick = function() {
 };
 
 // הגדרת טקסט הכפתור
-// Ensure the button element is selected correctly
-var googleFormBtn = document.getElementById('googleFormBtn');
+googleFormBtn.innerText = "Coding Cards";
 
-if (googleFormBtn) {
-    googleFormBtn.innerText = "Coding Cards";
+// הגדרת סגנון הכפתור
+googleFormBtn.style.width = "auto"; // התאמת הרוחב לתוכן
+googleFormBtn.style.height = "auto"; // התאמת הגובה לתוכן
+googleFormBtn.style.padding = "10px 15px"; // רווח פנימי כדי שהטקסט ייראה טוב
+googleFormBtn.style.fontSize = "16px"; // קביעת גודל פונט אחיד
+googleFormBtn.style.lineHeight = "20px"; // גובה שורה כדי ליישר את הטקסט במרכז
 
-    // Setting the button style
-    googleFormBtn.style.width = "60px";
-    googleFormBtn.style.height = "54px";
-    googleFormBtn.style.position = "relative";
-    googleFormBtn.style.top = "-10px"; // Adjusting the button position upwards by 10 pixels
-
-    googleFormBtn.style.borderRadius = "10px"; // Rounding the button corners
-    googleFormBtn.style.border = "0px solid #795548"; // Setting a dark brown border
-    googleFormBtn.style.backgroundColor = "#9C8A7B"; // Setting a light yellow background
-    googleFormBtn.style.color = "#ffffff"; // Setting text color to white
-}
+googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
+googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
+googleFormBtn.style.backgroundColor = "#9C8A7B"; // רקע צהוב בהיר
+googleFormBtn.style.color = "#ffffff"; // צבע טקסט לבן
+        }
         
         static gnSave2CloudButton(e) {
             a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
