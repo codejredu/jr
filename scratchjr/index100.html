@@ -20,31 +20,44 @@
 </body>
 <script>
   function openFullScreen(url) {
-    var element = document.createElement('div');
-    element.style.position = 'fixed';
-    element.style.top = 0;
-    element.style.left = 0;
-    element.style.width = '100%';
-    element.style.height = '100%';
-    element.style.zIndex = 1000;
-    element.style.backgroundColor = '#000';
+  var element = document.createElement('div');
+  element.style.position = 'fixed';
+  element.style.top = 0;
+  element.style.left   
+ = 0;
 
-    var iframe = document.createElement('iframe');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.src = url;
+  // Set default width and height (optional)
+  element.style.width = '100%';
+  element.style.height = '100%';
 
-    element.appendChild(iframe);
-    document.body.appendChild(element);
+  element.style.zIndex = 1000;
+  element.style.backgroundColor = '#000';
 
-    element.addEventListener('click', function() {
-      element.parentNode.removeChild(element);
-    });
-  }
+  var iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.src = url;
 
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
+  element.appendChild(iframe);
+  document.body.appendChild(element);   
+
+
+  // Apply media queries to adjust size
+  element.style.cssText += `
+    @media (min-width: 768px) {
+      width: 80%;
+      height: 80%;
+    }
+    @media (max-width: 480px) {
+      width: 90%;
+      height: 90%;
+    }
+  `;
+
+  element.addEventListener('click', function() {
+    element.parentNode.removeChild(element);
   });
+}
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
