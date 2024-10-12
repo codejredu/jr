@@ -18,28 +18,76 @@
   <script type="text/javascript" src="index9.js"></script>
 </body>
 <script>
-  function openFullScreen(url) {
-    var element = document.createElement('div');
-    element.style.position = 'fixed';
-    element.style.top = 0;
-    element.style.left = 0;
-    element.style.width = '100%';
-    element.style.height = '100%';
-    element.style.zIndex = 1000;
-    element.style.backgroundColor = '#000';
+ function openFullScreen(url) {
+  const overlay = document.createElement('div');
+  const iframe = document.createElement('iframe');
 
-    var iframe = document.createElement('iframe');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.src = url;
+  // הגדרת סגנונות לאלמנט העוטף
+  Object.assign(overlay.style, {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%',
+    zIndex: '1000',
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  });
 
-    element.appendChild(iframe);
-    document.body.appendChild(element);
+  // הגדרת סגנונות ל-iframe
+  Object.assign(iframe.style, {
+    width: '95%',
+    height: '95%',
+    border: 'none',
+    boxShadow: '0 0 20px rgba(255, 255, 255, 0.2)'
+  });
 
-    element.addEventListener('click', function() {
-      element.parentNode.removeChild(element);
-    });
-  }
+  iframe.src = url;
+  overlay.appendChild(iframe);
+  document.body.appendChild(overlay);
+
+  // הוספת כפתור סגירה
+  const closeButton = document.createElement('button');
+  Object.assign(closeButton.style, {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    fontSize: '24px',
+    color: 'white',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer'
+  });
+  closeButton.textContent = '×';
+  overlay.appendChild(closeButton);
+
+  // פונקציה לסגירת החלון
+  const closeOverlay = () => {
+    document.body.removeChild(overlay);
+  };
+
+  // הוספת מאזינים לסגירה
+  closeButton.addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      closeOverlay();
+    }
+  });
+
+  // הוספת מאזין למקש ESC
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeOverlay();
+    }
+  });
+
+  // החזרת אובייקט עם פונקציית סגירה
+  return {
+    close: closeOverlay
+  };
+}
 
   document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
