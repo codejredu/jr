@@ -403,49 +403,52 @@
           , i = t.y - e.offsetTop;
         return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
     }
-    function setCanvasSize(e, t, r) {
-        e.width = t,
-        e.height = r,
-        e.style.width = t + "px",
-        e.style.height = r + "px"
-    }
-    // Ensure scaleMultiplier is defined globally or passed as a parameter
-var scaleMultiplier = 1; // Set a default or specify your scaleMultiplier
+    function setCanvasSize(canvas, width, height) {
+      canvas.width = width;
+      canvas.height = height;
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+  }
 
-function setCanvasSizeScaledToWindowDocumentHeight(canvasElement, width, height) {
-    var devicePixelRatio = window.devicePixelRatio || 1; // Fallback in case it's not supported
-    var scaledWidth = Math.floor(width * devicePixelRatio * scaleMultiplier);
-    var scaledHeight = Math.floor(height * devicePixelRatio * scaleMultiplier);
+  function setCanvasSizeScaledToWindowDocumentHeight(canvas, scaleMultiplier, documentHeight) {
+      const devicePixelRatio = window.devicePixelRatio || 1; // Fallback for older browsers
+      const scaledWidth = Math.floor(scaleMultiplier * devicePixelRatio);
+      const scaledHeight = Math.floor(documentHeight * devicePixelRatio);
 
-    canvasElement.width = scaledWidth;
-    canvasElement.height = scaledHeight;
-    canvasElement.style.width = scaledWidth + "px";
-    canvasElement.style.height = scaledHeight + "px";
-    canvasElement.style.zoom = scaleMultiplier / (devicePixelRatio || 1); // Ensure no division by zero
-}
+      canvas.width = scaledWidth;
+      canvas.height = scaledHeight;
+      canvas.style.width = scaledWidth + "px";
+      canvas.style.height = scaledHeight + "px";
+      canvas.style.zoom = scaleMultiplier / devicePixelRatio;
+  }
 
-function localx(element, initialOffset) {
-    var offset = initialOffset;
-    while (element && element.offsetTop != null) {
-        offset -= element.offsetLeft + element.clientLeft + (new DOMMatrix(window.getComputedStyle(element).transform)).m41;
-        element = element.parentNode;
-    }
-    return offset;
-}
+  function localX(element, initialY) {
+      let yOffset = initialY;
+      while (element && element.offsetTop !== null) {
+          const computedStyle = window.getComputedStyle(element);
+          const transformMatrix = new DOMMatrix(computedStyle.transform);
+          yOffset -= element.offsetLeft + element.clientLeft + transformMatrix.m41;
+          element = element.parentNode;
+      }
+      return yOffset;
+  }
 
-function globalx(element) {
-    var totalOffset = 0;
-    while (element && element.offsetLeft != null) {
-        var matrix = new DOMMatrix(window.getComputedStyle(element).transform);
-        var scaleX = matrix.m11;
+  function globalX(element) {
+      let totalX = 0;
+      while (element && element.offsetLeft !== null) {
+          const computedStyle = window.getComputedStyle(element);
+          const transformMatrix = new DOMMatrix(computedStyle.transform);
 
-        totalOffset += (element.clientWidth - scaleX * element.clientWidth) / 2;
-        totalOffset += matrix.m41; // Translation X
-        totalOffset += element.offsetLeft + element.clientLeft;
-        element = element.parentNode;
-    }
-    return totalOffset;
-}
+          const scaleX = transformMatrix.m11;
+          totalX += (element.clientWidth - scaleX * element.clientWidth) / 2;
+          totalX += transformMatrix.m41;
+          totalX += element.offsetLeft + element.clientLeft;
+
+          element = element.parentNode;
+      }
+      return totalX;
+  }
+
     function localy(e, t) {
         for (var r = t; e && null != e.offsetTop; )
             r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
