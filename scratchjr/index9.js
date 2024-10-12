@@ -403,120 +403,85 @@
           , i = t.y - e.offsetTop;
         return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
     }
-    function setCanvasSize(canvas, width, height) {
-      canvas.width = width;
-      canvas.height = height;
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
-  }
 
-  function setCanvasSizeScaledToWindowDocumentHeight(canvas, scaleMultiplier, documentHeight) {
-      const devicePixelRatio = window.devicePixelRatio || 1; // Fallback for older browsers
-      const scaledWidth = Math.floor(scaleMultiplier * devicePixelRatio);
-      const scaledHeight = Math.floor(documentHeight * devicePixelRatio);
-
-      canvas.width = scaledWidth;
-      canvas.height = scaledHeight;
-      canvas.style.width = scaledWidth + "px";
-      canvas.style.height = scaledHeight + "px";
-      canvas.style.zoom = scaleMultiplier / devicePixelRatio;
-  }
-
-  function localX(element, initialY) {
-      let yOffset = initialY;
-      while (element && element.offsetTop !== null) {
-          const computedStyle = window.getComputedStyle(element);
-          const transformMatrix = new DOMMatrix(computedStyle.transform);
-          yOffset -= element.offsetLeft + element.clientLeft + transformMatrix.m41;
-          element = element.parentNode;
-      }
-      return yOffset;
-  }
-
-  function globalX(element) {
-      let totalX = 0;
-      while (element && element.offsetLeft !== null) {
-          const computedStyle = window.getComputedStyle(element);
-          const transformMatrix = new DOMMatrix(computedStyle.transform);
-
-          const scaleX = transformMatrix.m11;
-          totalX += (element.clientWidth - scaleX * element.clientWidth) / 2;
-          totalX += transformMatrix.m41;
-          totalX += element.offsetLeft + element.clientLeft;
-
-          element = element.parentNode;
-      }
-      return totalX;
-  }
-
-    function localy(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
-            e = e.parentNode;
-        return r
+    // מחשב את המיקום האנכי היחסי של אלמנט ביחס לאלמנט אב
+function calculateRelativeVerticalPosition(element, startPosition) {
+    let position = startPosition;
+    while (element && element.offsetTop !== null) {
+        const style = window.getComputedStyle(element);
+        const transform = new DOMMatrix(style.transform);
+        position -= element.offsetTop + element.clientTop + transform.m42;
+        element = element.parentNode;
     }
-    function globaly(e) {
-        for (var t = 0; e && null != e.offsetTop; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m22;
-            t += (e.clientHeight - n * e.clientHeight) / 2,
-            t += r.m42,
-            t += e.offsetTop + e.clientTop,
-            e = e.parentNode
-        }
-        return t
+    return position;
+}
+
+// מחשב את המיקום האנכי הגלובלי של אלמנט
+function calculateGlobalVerticalPosition(element) {
+    let position = 0;
+    while (element && element.offsetTop !== null) {
+        const style = window.getComputedStyle(element);
+        const transform = new DOMMatrix(style.transform);
+        const scaleY = transform.m22;
+        position += (element.clientHeight - scaleY * element.clientHeight) / 2;
+        position += transform.m42 + element.offsetTop + element.clientTop;
+        element = element.parentNode;
     }
-    function setProps(e, t) {
-        for (var r in t)
-            e[r] = t[r]
-    }
-    function CSSTransition(e, t) {
-        var r = 1
-          , n = "ease"
-          , a = {
-            left: e.offsetLeft + "px",
-            top: e.offsetTop + "px"
-        };
-        t.duration && (r = t.duration),
-        t.transition && (n = t.transition),
-        t.style && (a = t.style);
-        var i = "";
-        for (var o in a)
-            i += o + " " + r + "s " + n + ", ";
-        i = i.substring(0, i.length - 2),
-        e.style.webkitTransition = i,
-        e.addEventListener("webkitTransitionEnd", (function() {
-            e.style.webkitTransition = "",
-            t.onComplete && t.onComplete()
-        }
-        ), !0),
-        setProps(e.style, a)
-    }
-    function CSSTransition3D(e, t) {
-        var r = 1
-          , n = "ease"
-          , a = {
-            left: e.left + "px",
-            top: e.top + "px"
-        };
-        if (t.duration && (r = t.duration),
-        t.transition && (n = t.transition),
-        t.style)
-            for (var i in t.style)
-                a[i] = t.style[i];
-        var o = "-webkit-transform " + r + "s " + n
-          , s = "translate3d(" + a.left + "," + a.top + ",0px)";
-        e.addEventListener("webkitTransitionEnd", (function() {
-            e.style.webkitTransition = "";
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
-            e.left = r.m41,
-            e.top = r.m42,
-            t.onComplete && t.onComplete()
-        }
-        ), !0),
-        e.style.webkitTransition = o,
-        e.style.webkitTransform = s
-    }
+    return position;
+}
+
+// מעדכן מאפיינים של אובייקט
+function updateProperties(target, source) {
+    Object.assign(target, source);
+}
+
+// מבצע אנימציית CSS
+function applyCSSTransition(element, options) {
+    const duration = options.duration || 1;
+    const easing = options.transition || 'ease';
+    const styles = options.style || {
+        left: `${element.offsetLeft}px`,
+        top: `${element.offsetTop}px`
+    };
+
+    const transitionProperties = Object.keys(styles)
+        .map(prop => `${prop} ${duration}s ${easing}`)
+        .join(', ');
+
+    element.style.transition = transitionProperties;
+
+    element.addEventListener('transitionend', () => {
+        element.style.transition = '';
+        options.onComplete?.();
+    }, { once: true });
+
+    Object.assign(element.style, styles);
+}
+
+// מבצע אנימציית CSS בתלת-מימד
+function applyCSSTransition3D(element, options) {
+    const duration = options.duration || 1;
+    const easing = options.transition || 'ease';
+    const styles = {
+        left: `${element.left}px`,
+        top: `${element.top}px`,
+        ...options.style
+    };
+
+    const transform = `translate3d(${styles.left}, ${styles.top}, 0px)`;
+
+    element.style.transition = `transform ${duration}s ${easing}`;
+
+    element.addEventListener('transitionend', () => {
+        element.style.transition = '';
+        const computedTransform = new DOMMatrix(getComputedStyle(element).transform);
+        element.left = computedTransform.m41;
+        element.top = computedTransform.m42;
+        options.onComplete?.();
+    }, { once: true });
+
+    element.style.transform = transform;
+}
     function drawThumbnail(e, t) {
         var r = e.naturalWidth ? e.naturalWidth : e.width
           , n = e.naturalHeight ? e.naturalHeight : e.height
