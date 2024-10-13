@@ -69,218 +69,120 @@
     ,
     r.p = "",
     r(r.s = 165)
-}([function(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-    var frame;
-    __webpack_require__.r(__webpack_exports__),
-    __webpack_require__.d(__webpack_exports__, "frame", (function() {
-        return frame
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isTablet", (function() {
-        return isTablet
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "DEGTOR", (function() {
-        return DEGTOR
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "scaleMultiplier", (function() {
-        return scaleMultiplier
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isiOS", (function() {
-        return isiOS
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isAndroid", (function() {
-        return isAndroid
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "libInit", (function() {
-        return libInit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocess", (function() {
-        return preprocess
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", (function() {
-        return preprocessAndLoad
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", (function() {
-        return preprocessAndLoadCss
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rl", (function() {
-        return rl
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newDiv", (function() {
-        return newDiv
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newImage", (function() {
-        return newImage
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newCanvas", (function() {
-        return newCanvas
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newHTML", (function() {
-        return newHTML
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newP", (function() {
-        return newP
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitRect", (function() {
-        return hitRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hit3DRect", (function() {
-        return hit3DRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitTest", (function() {
-        return hitTest
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSize", (function() {
-        return setCanvasSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSizeScaledToWindowDocumentHeight", (function() {
-        return setCanvasSizeScaledToWindowDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localx", (function() {
-        return localx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globalx", (function() {
-        return globalx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localy", (function() {
-        return localy
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globaly", (function() {
-        return globaly
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setProps", (function() {
-        return setProps
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition", (function() {
-        return CSSTransition
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition3D", (function() {
-        return CSSTransition3D
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawThumbnail", (function() {
-        return drawThumbnail
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawScaled", (function() {
-        return drawScaled
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "fitInRect", (function() {
-        return fitInRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getFit", (function() {
-        return getFit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentHeight", (function() {
-        return getDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentWidth", (function() {
-        return getDocumentWidth
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getStringSize", (function() {
-        return getStringSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "writeText", (function() {
-        return writeText
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "gn", (function() {
-        return gn
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newForm", (function() {
-        return newForm
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newTextInput", (function() {
-        return newTextInput
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getUrlVars", (function() {
-        return getUrlVars
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdFor", (function() {
-        return getIdFor
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdForCamera", (function() {
-        return getIdForCamera
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgb2hsb", (function() {
-        return rgb2hsb
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToHex", (function() {
-        return rgbToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbaToHex", (function() {
-        return rgbaToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToString", (function() {
-        return rgbToString
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getRGB", (function() {
-        return getRGB
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getHex", (function() {
-        return getHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "findKeyframesRule", (function() {
-        return findKeyframesRule
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "colorToRGBA", (function() {
-        return colorToRGBA
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vh", (function() {
-        return css_vh
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vw", (function() {
-        return css_vw
-    }
-    ));
+    (function(module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+
+        // Define all the variables and functions being exported
+        var frame; // Placeholder for frame variable
+        var isTablet; // Placeholder for isTablet variable/function
+        var DEGTOR; // Placeholder for DEGTOR variable
+        var scaleMultiplier; // Placeholder for scaleMultiplier variable
+        var isiOS; // Placeholder for isiOS variable/function
+        var isAndroid; // Placeholder for isAndroid variable/function
+        var libInit; // Placeholder for libInit function
+        var preprocess; // Placeholder for preprocess function
+        var preprocessAndLoad; // Placeholder for preprocessAndLoad function
+        var preprocessAndLoadCss; // Placeholder for preprocessAndLoadCss function
+        var rl; // Placeholder for rl variable/function
+        var newDiv; // Placeholder for newDiv function
+        var newImage; // Placeholder for newImage function
+        var newCanvas; // Placeholder for newCanvas function
+        var newHTML; // Placeholder for newHTML function
+        var newP; // Placeholder for newP function
+        var hitRect; // Placeholder for hitRect function
+        var hit3DRect; // Placeholder for hit3DRect function
+        var hitTest; // Placeholder for hitTest function
+        var setCanvasSize; // Placeholder for setCanvasSize function
+        var setCanvasSizeScaledToWindowDocumentHeight; // Placeholder for function
+        var localx; // Placeholder for localx variable/function
+        var globalx; // Placeholder for globalx variable/function
+        var localy; // Placeholder for localy variable/function
+        var globaly; // Placeholder for globaly variable/function
+        var setProps; // Placeholder for setProps function
+        var CSSTransition; // Placeholder for CSSTransition function
+        var CSSTransition3D; // Placeholder for CSSTransition3D function
+        var drawThumbnail; // Placeholder for drawThumbnail function
+        var drawScaled; // Placeholder for drawScaled function
+        var fitInRect; // Placeholder for fitInRect function
+        var getFit; // Placeholder for getFit function
+        var getDocumentHeight; // Placeholder for getDocumentHeight function
+        var getDocumentWidth; // Placeholder for getDocumentWidth function
+        var getStringSize; // Placeholder for getStringSize function
+        var writeText; // Placeholder for writeText function
+        var gn; // Placeholder for gn function
+        var newForm; // Placeholder for newForm function
+        var newTextInput; // Placeholder for newTextInput function
+        var getUrlVars; // Placeholder for getUrlVars function
+        var getIdFor; // Placeholder for getIdFor function
+        var getIdForCamera; // Placeholder for getIdForCamera function
+        var rgb2hsb; // Placeholder for rgb2hsb function
+        var rgbToHex; // Placeholder for rgbToHex function
+        var rgbaToHex; // Placeholder for rgbaToHex function
+        var rgbToString; // Placeholder for rgbToString function
+        var getRGB; // Placeholder for getRGB function
+        var getHex; // Placeholder for getHex function
+        var findKeyframesRule; // Placeholder for findKeyframesRule function
+        var colorToRGBA; // Placeholder for colorToRGBA function
+        var css_vh; // Placeholder for css_vh function
+        var css_vw; // Placeholder for css_vw function
+
+        // Exporting the defined variables and functions
+        __webpack_require__.r(__webpack_exports__);
+        __webpack_require__.d(__webpack_exports__, "frame", function() { return frame; });
+        __webpack_require__.d(__webpack_exports__, "isTablet", function() { return isTablet; });
+        __webpack_require__.d(__webpack_exports__, "DEGTOR", function() { return DEGTOR; });
+        __webpack_require__.d(__webpack_exports__, "scaleMultiplier", function() { return scaleMultiplier; });
+        __webpack_require__.d(__webpack_exports__, "isiOS", function() { return isiOS; });
+        __webpack_require__.d(__webpack_exports__, "isAndroid", function() { return isAndroid; });
+        __webpack_require__.d(__webpack_exports__, "libInit", function() { return libInit; });
+        __webpack_require__.d(__webpack_exports__, "preprocess", function() { return preprocess; });
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", function() { return preprocessAndLoad; });
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", function() { return preprocessAndLoadCss; });
+        __webpack_require__.d(__webpack_exports__, "rl", function() { return rl; });
+        __webpack_require__.d(__webpack_exports__, "newDiv", function() { return newDiv; });
+        __webpack_require__.d(__webpack_exports__, "newImage", function() { return newImage; });
+        __webpack_require__.d(__webpack_exports__, "newCanvas", function() { return newCanvas; });
+        __webpack_require__.d(__webpack_exports__, "newHTML", function() { return newHTML; });
+        __webpack_require__.d(__webpack_exports__, "newP", function() { return newP; });
+        __webpack_require__.d(__webpack_exports__, "hitRect", function() { return hitRect; });
+        __webpack_require__.d(__webpack_exports__, "hit3DRect", function() { return hit3DRect; });
+        __webpack_require__.d(__webpack_exports__, "hitTest", function() { return hitTest; });
+        __webpack_require__.d(__webpack_exports__, "setCanvasSize", function() { return setCanvasSize; });
+        __webpack_require__.d(__webpack_exports__, "setCanvasSizeScaledToWindowDocumentHeight", function() { return setCanvasSizeScaledToWindowDocumentHeight; });
+        __webpack_require__.d(__webpack_exports__, "localx", function() { return localx; });
+        __webpack_require__.d(__webpack_exports__, "globalx", function() { return globalx; });
+        __webpack_require__.d(__webpack_exports__, "localy", function() { return localy; });
+        __webpack_require__.d(__webpack_exports__, "globaly", function() { return globaly; });
+        __webpack_require__.d(__webpack_exports__, "setProps", function() { return setProps; });
+        __webpack_require__.d(__webpack_exports__, "CSSTransition", function() { return CSSTransition; });
+        __webpack_require__.d(__webpack_exports__, "CSSTransition3D", function() { return CSSTransition3D; });
+        __webpack_require__.d(__webpack_exports__, "drawThumbnail", function() { return drawThumbnail; });
+        __webpack_require__.d(__webpack_exports__, "drawScaled", function() { return drawScaled; });
+        __webpack_require__.d(__webpack_exports__, "fitInRect", function() { return fitInRect; });
+        __webpack_require__.d(__webpack_exports__, "getFit", function() { return getFit; });
+        __webpack_require__.d(__webpack_exports__, "getDocumentHeight", function() { return getDocumentHeight; });
+        __webpack_require__.d(__webpack_exports__, "getDocumentWidth", function() { return getDocumentWidth; });
+        __webpack_require__.d(__webpack_exports__, "getStringSize", function() { return getStringSize; });
+        __webpack_require__.d(__webpack_exports__, "writeText", function() { return writeText; });
+        __webpack_require__.d(__webpack_exports__, "gn", function() { return gn; });
+        __webpack_require__.d(__webpack_exports__, "newForm", function() { return newForm; });
+        __webpack_require__.d(__webpack_exports__, "newTextInput", function() { return newTextInput; });
+        __webpack_require__.d(__webpack_exports__, "getUrlVars", function() { return getUrlVars; });
+        __webpack_require__.d(__webpack_exports__, "getIdFor", function() { return getIdFor; });
+        __webpack_require__.d(__webpack_exports__, "getIdForCamera", function() { return getIdForCamera; });
+        __webpack_require__.d(__webpack_exports__, "rgb2hsb", function() { return rgb2hsb; });
+        __webpack_require__.d(__webpack_exports__, "rgbToHex", function() { return rgbToHex; });
+        __webpack_require__.d(__webpack_exports__, "rgbaToHex", function() { return rgbaToHex; });
+        __webpack_require__.d(__webpack_exports__, "rgbToString", function() { return rgbToString; });
+        __webpack_require__.d(__webpack_exports__, "getRGB", function() { return getRGB; });
+        __webpack_require__.d(__webpack_exports__, "getHex", function() { return getHex; });
+        __webpack_require__.d(__webpack_exports__, "findKeyframesRule", function() { return findKeyframesRule; });
+        __webpack_require__.d(__webpack_exports__, "colorToRGBA", function() { return colorToRGBA; });
+        __webpack_require__.d(__webpack_exports__, "css_vh", function() { return css_vh; });
+        __webpack_require__.d(__webpack_exports__, "css_vw", function() { return css_vw; });
+
+    })(module, __webpack_exports__, __webpack_require__);
+
     const isTablet = "undefined" != window.orientation
       , DEGTOR = Math.PI / 180
       , scaleMultiplier = 1
@@ -404,84 +306,7 @@
         return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
     }
 
-    // מחשב את המיקום האנכי היחסי של אלמנט ביחס לאלמנט אב
-function calculateRelativeVerticalPosition(element, startPosition) {
-    let position = startPosition;
-    while (element && element.offsetTop !== null) {
-        const style = window.getComputedStyle(element);
-        const transform = new DOMMatrix(style.transform);
-        position -= element.offsetTop + element.clientTop + transform.m42;
-        element = element.parentNode;
-    }
-    return position;
-}
 
-// מחשב את המיקום האנכי הגלובלי של אלמנט
-function calculateGlobalVerticalPosition(element) {
-    let position = 0;
-    while (element && element.offsetTop !== null) {
-        const style = window.getComputedStyle(element);
-        const transform = new DOMMatrix(style.transform);
-        const scaleY = transform.m22;
-        position += (element.clientHeight - scaleY * element.clientHeight) / 2;
-        position += transform.m42 + element.offsetTop + element.clientTop;
-        element = element.parentNode;
-    }
-    return position;
-}
-
-// מעדכן מאפיינים של אובייקט
-function updateProperties(target, source) {
-    Object.assign(target, source);
-}
-
-// מבצע אנימציית CSS
-function applyCSSTransition(element, options) {
-    const duration = options.duration || 1;
-    const easing = options.transition || 'ease';
-    const styles = options.style || {
-        left: `${element.offsetLeft}px`,
-        top: `${element.offsetTop}px`
-    };
-
-    const transitionProperties = Object.keys(styles)
-        .map(prop => `${prop} ${duration}s ${easing}`)
-        .join(', ');
-
-    element.style.transition = transitionProperties;
-
-    element.addEventListener('transitionend', () => {
-        element.style.transition = '';
-        options.onComplete?.();
-    }, { once: true });
-
-    Object.assign(element.style, styles);
-}
-
-// מבצע אנימציית CSS בתלת-מימד
-function applyCSSTransition3D(element, options) {
-    const duration = options.duration || 1;
-    const easing = options.transition || 'ease';
-    const styles = {
-        left: `${element.left}px`,
-        top: `${element.top}px`,
-        ...options.style
-    };
-
-    const transform = `translate3d(${styles.left}, ${styles.top}, 0px)`;
-
-    element.style.transition = `transform ${duration}s ${easing}`;
-
-    element.addEventListener('transitionend', () => {
-        element.style.transition = '';
-        const computedTransform = new DOMMatrix(getComputedStyle(element).transform);
-        element.left = computedTransform.m41;
-        element.top = computedTransform.m42;
-        options.onComplete?.();
-    }, { once: true });
-
-    element.style.transform = transform;
-}
     function drawThumbnail(e, t) {
         var r = e.naturalWidth ? e.naturalWidth : e.width
           , n = e.naturalHeight ? e.naturalHeight : e.height
