@@ -404,23 +404,35 @@
         return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
     }
     function setCanvasSize(e, t, r) {
-        const devicePixelRatio = window.devicePixelRatio || 1;
-        e.width = t * devicePixelRatio;
-        e.height = r * devicePixelRatio;
-        e.style.width = t + "px";
-        e.style.height = r + "px";
-        e.getContext('2d').setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        e.width = t,
+        e.height = r,
+        e.style.width = t + "px",
+        e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
-        var n = window.devicePixelRatio * scaleMultiplier
-          , a = Math.floor(t * n)
-          , i = Math.floor(r * n);
-        e.width = a,
-        e.height = i,
-        e.style.width = a + "px",
-        e.style.height = i + "px",
-        e.style.zoom = scaleMultiplier / n
+    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r, scaleMultiplier) {
+        // Ensure scaleMultiplier is defined and valid
+        if (typeof scaleMultiplier !== 'number' || scaleMultiplier <= 0) {
+            console.error('Invalid scaleMultiplier. It must be a positive number.');
+            return;
+        }
+    
+        // Calculate the device pixel ratio
+        var n = (window.devicePixelRatio || 1) * scaleMultiplier; // Fallback to 1 if devicePixelRatio is not available
+        var a = Math.floor(t * n); // Scaled width
+        var i = Math.floor(r * n); // Scaled height
+    
+        // Set the canvas dimensions
+        e.width = a;
+        e.height = i;
+    
+        // Set the style dimensions
+        e.style.width = a + "px";
+        e.style.height = i + "px";
+    
+        // Set the zoom level
+        e.style.zoom = scaleMultiplier / (window.devicePixelRatio || 1); // Ensure zoom is calculated correctly
     }
+    
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
             r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
