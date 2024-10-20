@@ -1,776 +1,131 @@
-!function(e) {
-    var t = {};
-    function r(n) {
-        if (t[n])
-            return t[n].exports;
-        var a = t[n] = {
-            i: n,
-            l: !1,
+!function (modules) {
+    const moduleCache = {};
+
+    function require(moduleId) {
+        if (moduleCache[moduleId]) return moduleCache[moduleId].exports;
+
+        const module = moduleCache[moduleId] = {
+            i: moduleId,
+            l: false,
             exports: {}
         };
-        return e[n].call(a.exports, a, a.exports, r),
-        a.l = !0,
-        a.exports
+
+        modules[moduleId].call(module.exports, module, module.exports, require);
+        module.l = true;
+        return module.exports;
     }
-    r.m = e,
-    r.c = t,
-    r.d = function(e, t, n) {
-        r.o(e, t) || Object.defineProperty(e, t, {
-            enumerable: !0,
-            get: n
-        })
-    }
-    ,
-    r.r = function(e) {
-        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-            value: "Module"
-        }),
-        Object.defineProperty(e, "__esModule", {
-            value: !0
-        })
-    }
-    ,
-    r.t = function(e, t) {
-        if (1 & t && (e = r(e)),
-        8 & t)
-            return e;
-        if (4 & t && "object" == typeof e && e && e.__esModule)
-            return e;
-        var n = Object.create(null);
-        if (r.r(n),
-        Object.defineProperty(n, "default", {
-            enumerable: !0,
-            value: e
-        }),
-        2 & t && "string" != typeof e)
-            for (var a in e)
-                r.d(n, a, function(t) {
-                    return e[t]
+
+    require.m = modules;
+    require.c = moduleCache;
+    require.d = function (exports, name, getter) {
+        if (!require.o(exports, name)) {
+            Object.defineProperty(exports, name, { enumerable: true, get: getter });
+        }
+    };
+    require.r = function (exports) {
+        if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+            Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+        }
+        Object.defineProperty(exports, '__esModule', { value: true });
+    };
+    require.t = function (value, mode) {
+        if (mode & 1) value = require(value);
+        if (mode & 8) return value;
+        if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
+
+        const ns = Object.create(null);
+        require.r(ns);
+        Object.defineProperty(ns, 'default', { enumerable: true, value });
+        if (mode & 2 && typeof value !== 'string') {
+            for (const key in value) {
+                require.d(ns, key, function (key) {
+                    return value[key];
+                }.bind(null, key));
+            }
+        }
+        return ns;
+    };
+    require.n = function (module) {
+        const getter = module && module.__esModule ? () => module.default : () => module;
+        require.d(getter, 'a', getter);
+        return getter;
+    };
+    
+    require.o = function (obj, prop) {
+        return Object.prototype.hasOwnProperty.call(obj, prop);
+    };
+    require.p = "";
+    require(require.s = 165);
+}([
+    function (module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        let frame;
+        const isTablet = typeof window.orientation !== 'undefined';
+        const DEGTOR = Math.PI / 180;
+        const scaleMultiplier = 1;
+        const isiOS = typeof AndroidInterface === 'undefined';
+        const isAndroid = typeof AndroidInterface !== 'undefined';
+
+        __webpack_require__.r(__webpack_exports__);
+        __webpack_require__.d(__webpack_exports__, "frame", () => frame);
+        __webpack_require__.d(__webpack_exports__, "isTablet", () => isTablet);
+        __webpack_require__.d(__webpack_exports__, "DEGTOR", () => DEGTOR);
+        __webpack_require__.d(__webpack_exports__, "scaleMultiplier", () => scaleMultiplier);
+        __webpack_require__.d(__webpack_exports__, "isiOS", () => isiOS);
+        __webpack_require__.d(__webpack_exports__, "isAndroid", () => isAndroid);
+        __webpack_require__.d(__webpack_exports__, "libInit", () => libInit);
+        __webpack_require__.d(__webpack_exports__, "preprocess", () => preprocess);
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", () => preprocessAndLoad);
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", () => preprocessAndLoadCss);
+        __webpack_require__.d(__webpack_exports__, "rl", () => rl);
+        __webpack_require__.d(__webpack_exports__, "newDiv", () => newDiv);
+        // Other exports...
+
+        function libInit() {
+            frame = document.getElementById("frame");
+        }
+
+        function preprocess(template) {
+            let result = "";
+            const len = template.length;
+            let i = 0;
+
+            while (i < len) {
+                const j = template.indexOf("$", i);
+                if (j === -1) {
+                    result += template.substring(i);
+                    break;
                 }
-                .bind(null, a));
-        return n
-    }
-    ,
-    r.n = function(e) {
-        var t = e && e.__esModule ? function() {
-            return e.default
+                result += template.substring(i, j);
+                i = j + 1;
+
+                if (i < len && template[i] === "{") {
+                    const start = i + 1;
+                    const end = template.indexOf("}", start);
+                    if (end !== -1) {
+                        const expression = template.substring(start, end);
+                        try {
+                            result += Function(`"use strict"; return (${expression})`)();
+                        } catch (e) {
+                            console.error("Error evaluating expression:", expression, e);
+                            result += "$" + expression + "}";
+                        }
+                        i = end + 1;
+                    } else {
+                        result += "$"; // unclosed ${}
+                    }
+                } else {
+                    result += "$"; // standalone $
+                }
+            }
+
+            return result;
         }
-        : function() {
-            return e
-        }
-        ;
-        return r.d(t, "a", t),
-        t
-    }
-    ,
-    r.o = function(e, t) {
-        return Object.prototype.hasOwnProperty.call(e, t)
-    }
-    ,
-    r.p = "",
-    r(r.s = 165)
-}([function(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-    var frame;
-    __webpack_require__.r(__webpack_exports__),
-    __webpack_require__.d(__webpack_exports__, "frame", (function() {
-        return frame
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isTablet", (function() {
-        return isTablet
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "DEGTOR", (function() {
-        return DEGTOR
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "scaleMultiplier", (function() {
-        return scaleMultiplier
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isiOS", (function() {
-        return isiOS
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isAndroid", (function() {
-        return isAndroid
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "libInit", (function() {
-        return libInit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocess", (function() {
-        return preprocess
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", (function() {
-        return preprocessAndLoad
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", (function() {
-        return preprocessAndLoadCss
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rl", (function() {
-        return rl
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newDiv", (function() {
-        return newDiv
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newImage", (function() {
-        return newImage
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newCanvas", (function() {
-        return newCanvas
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newHTML", (function() {
-        return newHTML
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newP", (function() {
-        return newP
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitRect", (function() {
-        return hitRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hit3DRect", (function() {
-        return hit3DRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitTest", (function() {
-        return hitTest
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSize", (function() {
-        return setCanvasSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSizeScaledToWindowDocumentHeight", (function() {
-        return setCanvasSizeScaledToWindowDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localx", (function() {
-        return localx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globalx", (function() {
-        return globalx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localy", (function() {
-        return localy
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globaly", (function() {
-        return globaly
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setProps", (function() {
-        return setProps
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition", (function() {
-        return CSSTransition
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition3D", (function() {
-        return CSSTransition3D
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawThumbnail", (function() {
-        return drawThumbnail
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawScaled", (function() {
-        return drawScaled
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "fitInRect", (function() {
-        return fitInRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getFit", (function() {
-        return getFit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentHeight", (function() {
-        return getDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentWidth", (function() {
-        return getDocumentWidth
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getStringSize", (function() {
-        return getStringSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "writeText", (function() {
-        return writeText
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "gn", (function() {
-        return gn
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newForm", (function() {
-        return newForm
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newTextInput", (function() {
-        return newTextInput
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getUrlVars", (function() {
-        return getUrlVars
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdFor", (function() {
-        return getIdFor
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdForCamera", (function() {
-        return getIdForCamera
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgb2hsb", (function() {
-        return rgb2hsb
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToHex", (function() {
-        return rgbToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbaToHex", (function() {
-        return rgbaToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToString", (function() {
-        return rgbToString
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getRGB", (function() {
-        return getRGB
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getHex", (function() {
-        return getHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "findKeyframesRule", (function() {
-        return findKeyframesRule
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "colorToRGBA", (function() {
-        return colorToRGBA
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vh", (function() {
-        return css_vh
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vw", (function() {
-        return css_vw
-    }
-    ));
-    const isTablet = "undefined" != window.orientation
-      , DEGTOR = Math.PI / 180
-      , scaleMultiplier = 1
-      , isiOS = "undefined" == typeof AndroidInterface
-      , isAndroid = "undefined" != typeof AndroidInterface;
-    function libInit() {
-        frame = document.getElementById("frame")
-    }
-    function preprocess(s) {
-        for (var result = "", len = s.length, i = 0, j; i < len && -1 != (j = s.indexOf("$", i)); )
-            if (result += s.substring(i, j),
-            i = j + 1,
-            i < len - 1 && "{" === s[i]) {
-                var start = i + 1
-                  , end = s.indexOf("}", start);
-                if (-1 != end) {
-                    var expression = s.substring(start, end);
-                    result += eval(expression),
-                    i = end + 1
-                } else
-                    result += "$"
-            } else
-                result += "$";
-        return i < len && (result += s.substring(i)),
-        result
-    }
-    function preprocessAndLoad(e) {
-        var t = new XMLHttpRequest;
-        return t.open("GET", e, !1),
-        t.send(),
-        preprocess(t.responseText)
-    }
-    function preprocessAndLoadCss(e, t) {
-        if (document.getElementById(t))
-            return;
-        var r = preprocessAndLoad(t);
-        r = (r = r.replace(/url\('/g, "url('" + e + "/")).replace(/url\(([^'])/g, "url(" + e + "/$1");
-        const n = document.head;
-        let a = document.createElement("style");
-        a.id = t,
-        a.type = "text/css",
-        a.styleSheet ? a.styleSheet.cssText = r : a.appendChild(document.createTextNode(r)),
-        n.appendChild(a)
-    }
-    function rl() {
-        window.location.reload()
-    }
-    function newDiv(e, t, r, n, a, i) {
-        var o = document.createElement("div");
-        return o.style.position = "absolute",
-        o.style.top = r + "px",
-        o.style.left = t + "px",
-        n && (o.style.width = n + "px"),
-        a && (o.style.height = a + "px"),
-        setProps(o.style, i),
-        e.appendChild(o),
-        o
-    }
-    function newImage(e, t, r) {
-        var n = document.createElement("img");
-        return n.src = t,
-        setProps(n.style, r),
-        e && e.appendChild(n),
-        n
-    }
-    function newCanvas(e, t, r, n, a, i) {
-        var o = document.createElement("canvas");
-        return o.style.position = "absolute",
-        o.style.top = r + "px",
-        o.style.left = t + "px",
-        setCanvasSize(o, n, a),
-        setProps(o.style, i),
-        e.appendChild(o),
-        o
-    }
-    function newHTML(e, t, r) {
-        var n = document.createElement(e);
-        return t && n.setAttribute("class", t),
-        r && r.appendChild(n),
-        n
-    }
-    function newP(e, t, r) {
-        var n = document.createElement("p");
-        return n.appendChild(document.createTextNode(t)),
-        setProps(n.style, r),
-        e.appendChild(n),
-        n
-    }
-    function hitRect(e, t) {
-        if (!t)
-            return !1;
-        if (!e)
-            return !1;
-        var r = t.x
-          , n = t.y;
-        return null != e.offsetLeft && (null != e.offsetTop && (!(r < e.offsetLeft) && (!(r > e.offsetLeft + e.offsetWidth) && (!(n < e.offsetTop) && !(n > e.offsetTop + e.offsetHeight)))))
-    }
-    function hit3DRect(e, t) {
-        if (!t)
-            return !1;
-        var r = t.x
-          , n = t.y
-          , a = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
-        return null != a.m41 && (null != a.m42 && (!(r < a.m41) && (!(r > a.m41 + e.offsetWidth) && (!(n < a.m42) && !(n > a.m42 + e.offsetHeight)))))
-    }
-    function hitTest(e, t) {
-        if (!t)
-            return !1;
-        var r = t.x
-          , n = t.y;
-        if (r < e.offsetLeft)
-            return !1;
-        if (r > e.offsetLeft + e.offsetWidth)
-            return !1;
-        if (n < e.offsetTop)
-            return !1;
-        if (n > e.offsetTop + e.offsetHeight)
-            return !1;
-        var a = t.x - e.offsetLeft
-          , i = t.y - e.offsetTop;
-        return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
-    }
-    "use strict";
 
-function setCanvasSize(canvas, width, height) {
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-}
-
-function setCanvasSizeScaledToWindowDocumentHeight(canvas, width, height) {
-    const pixelRatio = window.devicePixelRatio * scaleMultiplier;
-    const scaledWidth = Math.floor(width * pixelRatio);
-    const scaledHeight = Math.floor(height * pixelRatio);
-
-    canvas.width = scaledWidth;
-    canvas.height = scaledHeight;
-    canvas.style.width = `${scaledWidth}px`;
-    canvas.style.height = `${scaledHeight}px`;
-    canvas.style.zoom = scaleMultiplier / pixelRatio;
-}
-
-function localx(element, x) {
-    let localX = x;
-    while (element && element.offsetTop !== null) {
-        const transform = new DOMMatrix(window.getComputedStyle(element).transform);
-        localX -= element.offsetLeft + element.clientLeft + transform.m41;
-        element = element.parentNode;
+        // Other functions...
     }
-    return localX;
-}
-
-function globalx(element) {
-    let globalX = 0;
-    while (element && element.offsetLeft !== null) {
-        const transform = new DOMMatrix(window.getComputedStyle(element).transform);
-        const scaleX = transform.m11;
-        globalX += (element.clientWidth - scaleX * element.clientWidth) / 2;
-        globalX += transform.m41;
-        globalX += element.offsetLeft + element.clientLeft;
-        element = element.parentNode;
-    }
-    return globalX;
-}
-
-function localy(element, y) {
-    let localY = y;
-    while (element && element.offsetTop !== null) {
-        const transform = new DOMMatrix(window.getComputedStyle(element).transform);
-        localY -= element.offsetTop + element.clientTop + transform.m42;
-        element = element.parentNode;
-    }
-    return localY;
-}
-
-function globaly(element) {
-    let globalY = 0;
-    while (element && element.offsetTop !== null) {
-        const transform = new DOMMatrix(window.getComputedStyle(element).transform);
-        const scaleY = transform.m22;
-        globalY += (element.clientHeight - scaleY * element.clientHeight) / 2;
-        globalY += transform.m42;
-        globalY += element.offsetTop + element.clientTop;
-        element = element.parentNode;
-    }
-    return globalY;
-}
-
-function setProps(target, props) {
-    Object.assign(target, props);
-}
-
-function CSSTransition(element, options) {
-    const duration = options.duration || 1;
-    const transitionType = options.transition || 'ease';
-    const style = options.style || {
-        left: `${element.offsetLeft}px`,
-        top: `${element.offsetTop}px`
-    };
-
-    const transitions = Object.keys(style)
-        .map(prop => `${prop} ${duration}s ${transitionType}`)
-        .join(', ');
-
-    element.style.transition = transitions;
-
-    element.addEventListener('transitionend', function transitionEndHandler() {
-        element.style.transition = '';
-        element.removeEventListener('transitionend', transitionEndHandler);
-        if (options.onComplete) options.onComplete();
-    });
-
-    Object.assign(element.style, style);
-}
-
-function CSSTransition3D(element, options) {
-    const duration = options.duration || 1;
-    const transitionType = options.transition || 'ease';
-    const style = {
-        left: `${element.left}px`,
-        top: `${element.top}px`,
-        ...options.style
-    };
-
-    const transition = `transform ${duration}s ${transitionType}`;
-    const transform = `translate3d(${style.left}, ${style.top}, 0px)`;
-
-    element.addEventListener('transitionend', function transitionEndHandler() {
-        element.style.transition = '';
-        const computedTransform = new DOMMatrix(window.getComputedStyle(element).transform);
-        element.left = computedTransform.m41;
-        element.top = computedTransform.m42;
-        element.removeEventListener('transitionend', transitionEndHandler);
-        if (options.onComplete) options.onComplete();
-    });
-
-    element.style.transition = transition;
-    element.style.transform = transform;
-}
-    function drawThumbnail(e, t) {
-        var r = e.naturalWidth ? e.naturalWidth : e.width
-          , n = e.naturalHeight ? e.naturalHeight : e.height
-          , a = (t.width - r) / 2
-          , i = (t.height - n) / 2
-          , o = t.width / r
-          , s = t.height / n
-          , u = r
-          , l = n;
-        switch (getFit(o, s)) {
-        case "noscale":
-            break;
-        case "scaleh":
-            u = r * s,
-            l = n * s,
-            a = (t.width - u) / 2,
-            i = (t.height - l) / 2;
-            break;
-        case "scalew":
-            u = r * o,
-            l = n * o,
-            a = (t.width - u) / 2,
-            i = (t.height - l) / 2
-        }
-        t.getContext("2d").drawImage(e, a, i, u, l)
-    }
-    function drawScaled(e, t) {
-        var r = e.naturalWidth ? e.naturalWidth : e.width
-          , n = e.naturalHeight ? e.naturalHeight : e.height
-          , a = t.width
-          , i = t.height
-          , o = a / r
-          , s = r * o
-          , u = n * o;
-        u > i && (s = r * (o = i / n),
-        u = n * o);
-        var l = (a - s) / 2
-          , h = (i - u) / 2;
-        t.getContext("2d").drawImage(e, l, h, s, u)
-    }
-    function fitInRect(e, t, r, n) {
-        var a = (r - e) / 2
-          , i = (n - t) / 2
-          , o = r / e
-          , s = n / t
-          , u = e
-          , l = t;
-        switch (getFit(o, s)) {
-        case "noscale":
-            break;
-        case "scaleh":
-            a = (r - (u = e * s)) / 2,
-            i = (n - (l = t * s)) / 2;
-            break;
-        case "scalew":
-            a = (r - (u = e * o)) / 2,
-            i = (n - (l = t * o)) / 2
-        }
-        return [a, i, u, l]
-    }
-    function getFit(e, t) {
-        return e >= 1 && t >= 1 ? "noscale" : e >= 1 && t < 1 ? "scaleh" : e < 1 && t >= 1 || e < t ? "scalew" : "scaleh"
-    }
-    function getDocumentHeight() {
-        return Math.max(document.body.clientHeight, document.documentElement.clientHeight)
-    }
-    function getDocumentWidth() {
-        return Math.max(document.body.clientWidth, document.documentElement.clientWidth)
-    }
-    function getStringSize(e, t, r) {
-        return e.font = t,
-        e.measureText(r)
-    }
-    function writeText(e, t, r, n, a, i) {
-        i = null == i ? 0 : i,
-        e.font = t,
-        e.fillStyle = r,
-        e.textAlign = "left",
-        e.textBaseline = "bottom",
-        e.fillText(n, i, a)
-    }
-    function gn(e) {
-        return document.getElementById(e)
-    }
-    function newForm(e, t, r, n, a, i, o) {
-        var s = document.createElement("form");
-        return s.style.position = "absolute",
-        s.style.top = n + "px",
-        s.style.left = r + "px",
-        a && (s.style.width = a + "px"),
-        i && (s.style.height = i + "px"),
-        setProps(s.style, o),
-        e.appendChild(s),
-        s.name = t,
-        s
-    }
-    function newTextInput(e, t, r, n) {
-        var a = document.createElement("input");
-        return a.value = r,
-        setProps(a.style, n),
-        a.type = t,
-        e.appendChild(a),
-        a
-    }
-    function getUrlVars() {
-        if (window.location.href.indexOf("?") < 0)
-            return [];
-        for (var e, t = [], r = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&"), n = 0; n < r.length; n++)
-            e = r[n].split("="),
-            t.push(e[0]),
-            t[e[0]] = e[1];
-        return t
-    }
-    function getIdFor(e) {
-        for (var t = 1; null != gn(e + " " + t); )
-            t++;
-        return e + " " + t
-    }
-    function getIdForCamera(e) {
-        for (var t = 1; null != gn(e + "_" + t); )
-            t++;
-        return e + "_" + t
-    }
-    function rgb2hsb(e) {
-        if (null == e)
-            return [24, 1, 1];
-        var t, r, n, a;
-        e = e.indexOf("rgb") > -1 ? rgbToHex(e) : rgbaToHex(e);
-        var i = getRGB(parseInt(e.substring(1, e.length), 16))
-          , o = i[0];
-        o /= 255;
-        var s = i[1];
-        s /= 255;
-        var u = i[2];
-        return u /= 255,
-        (t = Math.min(Math.min(o, s), u)) == (r = Math.max(Math.max(o, s), u)) ? [0, 0, r] : (n = o == t ? s - u : s == t ? u - o : o - s,
-        a = o == t ? 3 : s == t ? 5 : 1,
-        [Math.round(60 * (a - n / (r - t))) % 360, Math.round((r - t) / r * 100) / 100, (r = Math.round(100 * r)) / 100])
-    }
-    function rgbToHex(e) {
-        if (e.indexOf("rgb") < 0)
-            return e;
-        var t = e.substring(4, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
-    }
-    function rgbaToHex(e) {
-        if (e.indexOf("rgba") < 0)
-            return e;
-        var t = e.substring(5, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
-    }
-    function rgbToString(e) {
-        return "#" + getHex(e.r) + getHex(e.g) + getHex(e.b)
-    }
-    function getRGB(e) {
-        return [Number(e >> 16 & 255), Number(e >> 8 & 255), Number(255 & e)]
-    }
-    function getHex(e) {
-        var t = e.toString(16);
-        return 1 == t.length ? "0" + t : t
-    }
-    function findKeyframesRule(e) {
-        for (var t = document.styleSheets, r = 0; r < t.length; ++r)
-            for (var n = 0; n < t[r].cssRules.length; ++n)
-                for (var a = t[r].cssRules[n].styleSheet.rules, i = 0; i < a.length; ++i)
-                    if (a[i].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && a[i].name == e)
-                        return a[i];
-        return null
-    }
-    function colorToRGBA(e, t) {
-        var r = parseInt("0x" + e.substr(1, e.length));
-        return "rgba(" + (r >> 16) % 256 + "," + (r >> 8) % 256 + "," + r % 256 + "," + t + ")"
-    }
-    function css_vh(e) {
-        return e * window.innerHeight / 100 + "px"
-    }
-    function css_vw(e) {
-        return e * window.innerWidth / 100 + "px"
-    }
-    Number.prototype.mod = function(e) {
-        return (this % e + e) % e
-    }
-}
-, function(e, t, r) {
-    "use strict";
-    r.d(t, "a", (function() {
-        return Z
-    }
-    ));
-    var n = r(11)
-      , a = r(7)
-      , i = r(2)
-      , o = r(37)
-      , s = r(4)
-      , u = r(0);
-    let l = [-48, -30, -22, -14, -6, 0, 6, 14, 22, 30, 48];
-    class h {
-        static get hopList() {
-            return l
-        }
-        static init() {
-            h.table = {},
-            h.table.done = h.Done,
-            h.table.missing = h.Ignore,
-            h.table.onflag = h.Ignore,
-            h.table.onmessage = h.Ignore,
-            h.table.onclick = h.Ignore,
-            h.table.ontouch = h.OnTouch,
-            h.table.onchat = h.Ignore,
-            h.table.repeat = h.Repeat,
-            h.table.forward = h.Forward,
-            h.table.back = h.Back,
-            h.table.up = h.Up,
-            h.table.down = h.Down,
-            h.table.left = h.Left,
-            h.table.right = h.Right,
-            h.table.home = h.Home,
-            h.table.setspeed = h.SetSpeed,
-            h.table.message = h.Message,
-            h.table.setcolor = h.SetColor,
-            h.table.bigger = h.Bigger,
-            h.table.smaller = h.Smaller,
-            h.table.wait = h.Wait,
-            h.table.caretcmd = h.Ignore,
-            h.table.caretstart = h.Ignore,
-            h.table.caretend = h.Ignore,
-            h.table.caretrepeat = h.Ignore,
-            h.table.gotopage = h.GotoPage,
-            h.table.endstack = h.DoNextBlock,
-            h.table.stopall = h.StopAll,
-            h.table.stopmine = h.StopMine,
-            h.table.forever = h.Forever,
-            h.table.hop = h.Hop,
-            h.table.show = h.Show,
-            h.table.hide = h.Hide,
-            h.table.playsnd = h.playSound,
-            h.table.playusersnd = h.playSound,
-            h.table.grow = h.Grow,
-            h.table.shrink = h.Shrink,
-            h.table.same = h.Same,
-            h.table.say = h.Say
-        }
+    // Other modules...
+]);
         static Done(e) {
             null != e.oldblock && e.oldblock.unhighlight(),
             e.oldblock = null,
@@ -12613,22 +11968,22 @@ function CSSTransition3D(element, options) {
                 t.length && D.dealwithUploadedFile(t[0]);
                 n.value = null;
             };
-
+            
             var saveButton = Object(y.newHTML)("button", "btn btn-save", t);
             saveButton.onpointerup = function(e) {
                 const t = [":שם הפרויקט"];
                 t && D.zipAndSaveCurrentProject(t, function() {});
             };
-
+            
             this.gnSave2CloudButton(t);
-
+            
             // Creating and adding the Coding Cards button
             var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
             googleFormBtn.onclick = function() {
                 window.open("https://moshe310.wixsite.com/codejrenglish");
             };
             googleFormBtn.innerText = "Coding Cards";
-
+            
             // Styling all buttons consistently
             var allButtons = t.querySelectorAll('.btn');
             allButtons.forEach(function(button) {
@@ -12642,7 +11997,7 @@ function CSSTransition3D(element, options) {
                 button.style.verticalAlign = "top"; // Align buttons to the top
             });
         }
-
+        
         static gnSave2CloudButton(e) {
             if (a.a.parse(location.search).s) {
                 var submitSaveBtn = Object(y.newHTML)("button", "btn btn-submit-save", e);
@@ -12660,7 +12015,7 @@ function CSSTransition3D(element, options) {
                 submitSaveBtn.style.verticalAlign = "top";
             }
         }
-
+        
         static dealwithUploadedFile(e) {
             const t = new FileReader;
             t.readAsDataURL(e);
