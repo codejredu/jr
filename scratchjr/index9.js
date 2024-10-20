@@ -417,21 +417,19 @@
         }
     
         // Calculate the device pixel ratio
-        var n = (window.devicePixelRatio || 1) * scaleMultiplier; // Fallback to 1 if devicePixelRatio is not available
-        var a = Math.floor(t * n); // Scaled width
-        var i = Math.floor(r * n); // Scaled height
+        var n = window.devicePixelRatio || 1; // Fallback to 1 if devicePixelRatio is not available
+        var scaledWidth = Math.floor(t * scaleMultiplier); // Scaled width based on scaleMultiplier
+        var scaledHeight = Math.floor(r * scaleMultiplier); // Scaled height based on scaleMultiplier
     
-        // Set the canvas dimensions
-        e.width = a;
-        e.height = i;
+        // Set the canvas dimensions (internal pixel size)
+        e.width = scaledWidth * n; // Set internal width according to device pixel ratio
+        e.height = scaledHeight * n; // Set internal height according to device pixel ratio
     
-        // Set the style dimensions
-        e.style.width = a + "px";
-        e.style.height = i + "px";
-    
-        // Set the zoom level
-        e.style.zoom = scaleMultiplier / (window.devicePixelRatio || 1); // Ensure zoom is calculated correctly
+        // Set the style dimensions to match the scaled pixel dimensions
+        e.style.width = scaledWidth + "px"; // Set style width to scaled width
+        e.style.height = scaledHeight + "px"; // Set style height to scaled height
     }
+    
     
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
