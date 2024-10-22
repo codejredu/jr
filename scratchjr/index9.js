@@ -281,48 +281,27 @@
         return css_vw
     }
     ));
-   // קביעת קבועים וזיהוי פלטפורמה
-const isTablet = window.orientation !== undefined;
-const DEGREES_TO_RADIANS = Math.PI / 180;
-const SCALE_MULTIPLIER = 1;
-const isiOS = typeof AndroidInterface === 'undefined';
-const isAndroid = typeof AndroidInterface !== 'undefined';
+    const isTablet = "undefined" != window.orientation,
+    DEGTOR = Math.PI / 180,
+    scaleMultiplier = 1,
+    isiOS = "undefined" == typeof AndroidInterface,
+    isAndroid = "undefined" != typeof AndroidInterface;
 
-/**
- * אתחול המסגרת
- */
 function libInit() {
     frame = document.getElementById("frame");
 }
 
-/**
- * מעבד מחרוזת עם תבניות דינמיות
- * @param {string} source - המחרוזת המקורית לעיבוד
- * @returns {string} - המחרוזת המעובדת
- */
-function preprocess(source) {
-    let result = "";
-    let position = 0;
-    const length = source.length;
-
-    while (position < length) {
-        const dollarIndex = source.indexOf("$", position);
-        if (dollarIndex === -1) {
-            result += source.substring(position);
-            break;
-        }
-
-        result += source.substring(position, dollarIndex);
-        position = dollarIndex + 1;
-
-        if (position < length - 1 && source[position] === "{") {
-            const expressionStart = position + 1;
-            const expressionEnd = source.indexOf("}", expressionStart);
-
-            if (expressionEnd !== -1) {
-                const expression = source.substring(expressionStart, expressionEnd);
-                result += eval(expression); // שים לב: שימוש ב-eval עלול להיות מסוכן
-                position = expressionEnd + 1;
+function preprocess(s) {
+    for (var result = "", len = s.length, i = 0, j; i < len && -1 != (j = s.indexOf("$", i));) {
+        if (result += s.substring(i, j),
+            i = j + 1,
+            i < len - 1 && "{" === s[i]) {
+            var start = i + 1,
+                end = s.indexOf("}", start);
+            if (-1 != end) {
+                var expression = s.substring(start, end);
+                result += eval(expression),
+                i = end + 1;
             } else {
                 result += "$";
             }
@@ -330,56 +309,31 @@ function preprocess(source) {
             result += "$";
         }
     }
-
-    return result;
+    return i < len && (result += s.substring(i)),
+    result;
 }
 
-/**
- * טוען קובץ ומעבד אותו
- * @param {string} url - כתובת הקובץ לטעינה
- * @returns {string} - התוכן המעובד
- */
-function preprocessAndLoad(url) {
-    const request = new XMLHttpRequest();
-    request.open("GET", url, false); // שים לב: שימוש בבקשה סינכרונית לא מומלץ
-    request.send();
-    return preprocess(request.responseText);
+function preprocessAndLoad(e) {
+    var t = new XMLHttpRequest;
+    t.open("GET", e, false);
+    t.send();
+    return preprocess(t.responseText);
 }
 
-/**
- * טוען ומעבד קובץ CSS
- * @param {string} basePath - נתיב בסיס לתמונות
- * @param {string} cssPath - נתיב לקובץ CSS
- */
-function preprocessAndLoadCss(basePath, cssPath) {
-    if (document.getElementById(cssPath)) {
+function preprocessAndLoadCss(e, t) {
+    if (document.getElementById(t)) {
         return;
     }
-
-    let cssContent = preprocessAndLoad(cssPath);
-    
-    // עדכון נתיבי URL בקובץ CSS
-    cssContent = cssContent
-        .replace(/url\('/g, `url('${basePath}/`)
-        .replace(/url\(([^'])/g, `url(${basePath}/$1`);
-
-    // יצירת אלמנט style והוספתו ל-head
-    const head = document.head;
-    const styleElement = document.createElement("style");
-    styleElement.id = cssPath;
-    styleElement.type = "text/css";
-
-    if (styleElement.styleSheet) {
-        styleElement.styleSheet.cssText = cssContent; // עבור IE
-    } else {
-        styleElement.appendChild(document.createTextNode(cssContent));
-    }
-
-    head.appendChild(styleElement);
+    var r = preprocessAndLoad(t);
+    r = r.replace(/url\('/g, "url('" + e + "/")
+        .replace(/url\(([^'])/g, "url(" + e + "/$1");
+    const n = document.head;
+    let a = document.createElement("style");
+    a.id = t;
+    a.type = "text/css";
+    a.styleSheet ? a.styleSheet.cssText = r : a.appendChild(document.createTextNode(r));
+    n.appendChild(a);
 }
-    function rl() {
-        window.location.reload()
-    }
     function newDiv(e, t, r, n, a, i) {
         var o = document.createElement("div");
         return o.style.position = "absolute",
