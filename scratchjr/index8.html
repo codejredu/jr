@@ -19,7 +19,12 @@
 </body>
 <script>
   function openFullScreen(url) {
-    var element = document.createElement('div');
+    // Check if an iframe is already open
+    if (document.getElementById('fullscreen-iframe')) {
+      return; // Prevent opening multiple iframes
+    }
+
+    const element = document.createElement('div');
     element.style.position = 'fixed';
     element.style.top = 0;
     element.style.left = 0;
@@ -28,17 +33,22 @@
     element.style.zIndex = 1000;
     element.style.backgroundColor = '#000';
 
-    var iframe = document.createElement('iframe');
+    const iframe = document.createElement('iframe');
+    iframe.id = 'fullscreen-iframe'; // Give the iframe an ID for future reference
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.src = url;
+    iframe.sandbox = "allow-same-origin allow-scripts"; // Example of sandboxing
 
     element.appendChild(iframe);
     document.body.appendChild(element);
 
-    element.addEventListener('click', function() {
+    const closeFullscreen = function() {
       element.parentNode.removeChild(element);
-    });
+      element.removeEventListener('click', closeFullscreen); // Cleanup event listener
+    };
+
+    element.addEventListener('click', closeFullscreen);
   }
 
   document.addEventListener('contextmenu', function (e) {
@@ -46,7 +56,7 @@
   });
 
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-X3HG3NKWG8');
 
@@ -60,13 +70,14 @@
     }
   }
 
-  if (!inIframe()) {
-    window.addEventListener("load", () => {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!inIframe()) {
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("sw.js");
       }
-    });
-  }
+    }
+  });
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
 </html>
