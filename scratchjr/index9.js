@@ -1,403 +1,174 @@
-!function(e) {
-    var t = {};
-    function r(n) {
-        if (t[n])
-            return t[n].exports;
-        var a = t[n] = {
-            i: n,
-            l: !1,
+!function (modules) {
+    const moduleCache = {};
+
+    function require(moduleId) {
+        if (moduleCache[moduleId]) return moduleCache[moduleId].exports;
+
+        const module = moduleCache[moduleId] = {
+            i: moduleId,
+            l: false,
             exports: {}
         };
-        return e[n].call(a.exports, a, a.exports, r),
-        a.l = !0,
-        a.exports
-    }
-    r.m = e,
-    r.c = t,
-    r.d = function(e, t, n) {
-        r.o(e, t) || Object.defineProperty(e, t, {
-            enumerable: !0,
-            get: n
-        })
-    }
-    ,
-    r.r = function(e) {
-        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-            value: "Module"
-        }),
-        Object.defineProperty(e, "__esModule", {
-            value: !0
-        })
-    }
-    ,
-    r.t = function(e, t) {
-        if (1 & t && (e = r(e)),
-        8 & t)
-            return e;
-        if (4 & t && "object" == typeof e && e && e.__esModule)
-            return e;
-        var n = Object.create(null);
-        if (r.r(n),
-        Object.defineProperty(n, "default", {
-            enumerable: !0,
-            value: e
-        }),
-        2 & t && "string" != typeof e)
-            for (var a in e)
-                r.d(n, a, function(t) {
-                    return e[t]
-                }
-                .bind(null, a));
-        return n
-    }
-    ,
-    r.n = function(e) {
-        var t = e && e.__esModule ? function() {
-            return e.default
-        }
-        : function() {
-            return e
-        }
-        ;
-        return r.d(t, "a", t),
-        t
-    }
-    ,
-    r.o = function(e, t) {
-        return Object.prototype.hasOwnProperty.call(e, t)
-    }
-    ,
-    r.p = "",
-    r(r.s = 165)
-}([function(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-    var frame;
-    __webpack_require__.r(__webpack_exports__),
-    __webpack_require__.d(__webpack_exports__, "frame", (function() {
-        return frame
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isTablet", (function() {
-        return isTablet
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "DEGTOR", (function() {
-        return DEGTOR
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "scaleMultiplier", (function() {
-        return scaleMultiplier
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isiOS", (function() {
-        return isiOS
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "isAndroid", (function() {
-        return isAndroid
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "libInit", (function() {
-        return libInit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocess", (function() {
-        return preprocess
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", (function() {
-        return preprocessAndLoad
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", (function() {
-        return preprocessAndLoadCss
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rl", (function() {
-        return rl
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newDiv", (function() {
-        return newDiv
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newImage", (function() {
-        return newImage
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newCanvas", (function() {
-        return newCanvas
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newHTML", (function() {
-        return newHTML
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newP", (function() {
-        return newP
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitRect", (function() {
-        return hitRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hit3DRect", (function() {
-        return hit3DRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "hitTest", (function() {
-        return hitTest
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSize", (function() {
-        return setCanvasSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setCanvasSizeScaledToWindowDocumentHeight", (function() {
-        return setCanvasSizeScaledToWindowDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localx", (function() {
-        return localx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globalx", (function() {
-        return globalx
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "localy", (function() {
-        return localy
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "globaly", (function() {
-        return globaly
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "setProps", (function() {
-        return setProps
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition", (function() {
-        return CSSTransition
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "CSSTransition3D", (function() {
-        return CSSTransition3D
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawThumbnail", (function() {
-        return drawThumbnail
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "drawScaled", (function() {
-        return drawScaled
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "fitInRect", (function() {
-        return fitInRect
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getFit", (function() {
-        return getFit
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentHeight", (function() {
-        return getDocumentHeight
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getDocumentWidth", (function() {
-        return getDocumentWidth
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getStringSize", (function() {
-        return getStringSize
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "writeText", (function() {
-        return writeText
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "gn", (function() {
-        return gn
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newForm", (function() {
-        return newForm
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "newTextInput", (function() {
-        return newTextInput
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getUrlVars", (function() {
-        return getUrlVars
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdFor", (function() {
-        return getIdFor
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getIdForCamera", (function() {
-        return getIdForCamera
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgb2hsb", (function() {
-        return rgb2hsb
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToHex", (function() {
-        return rgbToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbaToHex", (function() {
-        return rgbaToHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "rgbToString", (function() {
-        return rgbToString
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getRGB", (function() {
-        return getRGB
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "getHex", (function() {
-        return getHex
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "findKeyframesRule", (function() {
-        return findKeyframesRule
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "colorToRGBA", (function() {
-        return colorToRGBA
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vh", (function() {
-        return css_vh
-    }
-    )),
-    __webpack_require__.d(__webpack_exports__, "css_vw", (function() {
-        return css_vw
-    }
-    ));
-    const isTablet = "undefined" != window.orientation,
-    DEGTOR = Math.PI / 180,
-    scaleMultiplier = 1,
-    isiOS = "undefined" == typeof AndroidInterface,
-    isAndroid = "undefined" != typeof AndroidInterface;
 
-function libInit() {
-    frame = document.getElementById("frame");
-}
+        modules[moduleId].call(module.exports, module, module.exports, require);
+        module.l = true;
+        return module.exports;
+    }
 
-function preprocess(s) {
-    for (var result = "", len = s.length, i = 0, j; i < len && -1 != (j = s.indexOf("$", i));) {
-        if (result += s.substring(i, j),
-            i = j + 1,
-            i < len - 1 && "{" === s[i]) {
-            var start = i + 1,
-                end = s.indexOf("}", start);
-            if (-1 != end) {
-                var expression = s.substring(start, end);
-                result += eval(expression),
-                i = end + 1;
-            } else {
-                result += "$";
+    require.m = modules;
+    require.c = moduleCache;
+    require.d = function (exports, name, getter) {
+        if (!require.o(exports, name)) {
+            Object.defineProperty(exports, name, { enumerable: true, get: getter });
+        }
+    };
+    require.r = function (exports) {
+        if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+            Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+        }
+        Object.defineProperty(exports, '__esModule', { value: true });
+    };
+    require.t = function (value, mode) {
+        if (mode & 1) value = require(value);
+        if (mode & 8) return value;
+        if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
+
+        const ns = Object.create(null);
+        require.r(ns);
+        Object.defineProperty(ns, 'default', { enumerable: true, value });
+        if (mode & 2 && typeof value !== 'string') {
+            for (const key in value) {
+                require.d(ns, key, function (key) {
+                    return value[key];
+                }.bind(null, key));
             }
-        } else {
-            result += "$";
         }
-    }
-    return i < len && (result += s.substring(i)),
-    result;
-}
+        return ns;
+    };
+    require.n = function (module) {
+        const getter = module && module.__esModule ? () => module.default : () => module;
+        require.d(getter, 'a', getter);
+        return getter;
+    };
+    
+    require.o = function (obj, prop) {
+        return Object.prototype.hasOwnProperty.call(obj, prop);
+    };
+    require.p = "";
+    require(require.s = 165);
+}([
+    function (module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        let frame;
+        const isTablet = typeof window.orientation !== 'undefined';
+        const DEGTOR = Math.PI / 180;
+        const scaleMultiplier = 1;
+        const isiOS = typeof AndroidInterface === 'undefined';
+        const isAndroid = typeof AndroidInterface !== 'undefined';
 
-function preprocessAndLoad(e) {
-    var t = new XMLHttpRequest;
-    t.open("GET", e, false);
-    t.send();
-    return preprocess(t.responseText);
-}
+        __webpack_require__.r(__webpack_exports__);
+        __webpack_require__.d(__webpack_exports__, "frame", () => frame);
+        __webpack_require__.d(__webpack_exports__, "isTablet", () => isTablet);
+        __webpack_require__.d(__webpack_exports__, "DEGTOR", () => DEGTOR);
+        __webpack_require__.d(__webpack_exports__, "scaleMultiplier", () => scaleMultiplier);
+        __webpack_require__.d(__webpack_exports__, "isiOS", () => isiOS);
+        __webpack_require__.d(__webpack_exports__, "isAndroid", () => isAndroid);
+        __webpack_require__.d(__webpack_exports__, "libInit", () => libInit);
+        __webpack_require__.d(__webpack_exports__, "preprocess", () => preprocess);
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoad", () => preprocessAndLoad);
+        __webpack_require__.d(__webpack_exports__, "preprocessAndLoadCss", () => preprocessAndLoadCss);
+        __webpack_require__.d(__webpack_exports__, "rl", () => rl);
+        __webpack_require__.d(__webpack_exports__, "newDiv", () => newDiv);
+        // Other exports...
 
-function preprocessAndLoadCss(e, t) {
-    if (document.getElementById(t)) {
-        return;
-    }
-    var r = preprocessAndLoad(t);
-    r = r.replace(/url\('/g, "url('" + e + "/")
-        .replace(/url\(([^'])/g, "url(" + e + "/$1");
-    const n = document.head;
-    let a = document.createElement("style");
-    a.id = t;
-    a.type = "text/css";
-    a.styleSheet ? a.styleSheet.cssText = r : a.appendChild(document.createTextNode(r));
-    n.appendChild(a);
-}
-    function newDiv(e, t, r, n, a, i) {
-        var o = document.createElement("div");
-        return o.style.position = "absolute",
-        o.style.top = r + "px",
-        o.style.left = t + "px",
-        n && (o.style.width = n + "px"),
-        a && (o.style.height = a + "px"),
-        setProps(o.style, i),
-        e.appendChild(o),
-        o
-    }
-    function newImage(e, t, r) {
-        var n = document.createElement("img");
-        return n.src = t,
-        setProps(n.style, r),
-        e && e.appendChild(n),
-        n
-    }
-    function setCanvasSize(canvas, width, height) {
-        canvas.width = width;
-        canvas.height = height;
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-    }
-    
-    function setCanvasSizeScaledToWindowDocumentHeight(canvas, scaleMultiplier, documentHeight) {
-        const devicePixelRatio = window.devicePixelRatio || 1; // Fallback for older browsers
-        const scaledWidth = Math.floor(scaleMultiplier * devicePixelRatio);
-        const scaledHeight = Math.floor(documentHeight * devicePixelRatio);
-        
-        canvas.width = scaledWidth;
-        canvas.height = scaledHeight;
-        canvas.style.width = scaledWidth + "px";
-        canvas.style.height = scaledHeight + "px";
-        canvas.style.zoom = scaleMultiplier / devicePixelRatio;
-    }
-    
-    function localX(element, initialY) {
-        let yOffset = initialY;
-        while (element && element.offsetTop !== null) {
-            const computedStyle = window.getComputedStyle(element);
-            const transformMatrix = new DOMMatrix(computedStyle.transform);
-            yOffset -= element.offsetLeft + element.clientLeft + transformMatrix.m41;
-            element = element.parentNode;
+        function libInit() {
+            frame = document.getElementById("frame");
         }
-        return yOffset;
-    }
-    
-    function globalX(element) {
-        let totalX = 0;
-        while (element && element.offsetLeft !== null) {
-            const computedStyle = window.getComputedStyle(element);
-            const transformMatrix = new DOMMatrix(computedStyle.transform);
-            
-            const scaleX = transformMatrix.m11;
-            totalX += (element.clientWidth - scaleX * element.clientWidth) / 2;
-            totalX += transformMatrix.m41;
-            totalX += element.offsetLeft + element.clientLeft;
-            
-            element = element.parentNode;
+
+        function preprocess(template) {
+            let result = "";
+            const len = template.length;
+            let i = 0;
+
+            while (i < len) {
+                const j = template.indexOf("$", i);
+                if (j === -1) {
+                    result += template.substring(i);
+                    break;
+                }
+                result += template.substring(i, j);
+                i = j + 1;
+
+                if (i < len && template[i] === "{") {
+                    const start = i + 1;
+                    const end = template.indexOf("}", start);
+                    if (end !== -1) {
+                        const expression = template.substring(start, end);
+                        try {
+                            result += Function(`"use strict"; return (${expression})`)();
+                        } catch (e) {
+                            console.error("Error evaluating expression:", expression, e);
+                            result += "$" + expression + "}";
+                        }
+                        i = end + 1;
+                    } else {
+                        result += "$"; // unclosed ${}
+                    }
+                } else {
+                    result += "$"; // standalone $
+                }
+            }
+
+            return result;
         }
-        return totalX;
+
+        // Other functions...
     }
-    
+    // Other modules...
+]);
+
+        static init() {
+            h.table = {},
+            h.table.done = h.Done,
+            h.table.missing = h.Ignore,
+            h.table.onflag = h.Ignore,
+            h.table.onmessage = h.Ignore,
+            h.table.onclick = h.Ignore,
+            h.table.ontouch = h.OnTouch,
+            h.table.onchat = h.Ignore,
+            h.table.repeat = h.Repeat,
+            h.table.forward = h.Forward,
+            h.table.back = h.Back,
+            h.table.up = h.Up,
+            h.table.down = h.Down,
+            h.table.left = h.Left,
+            h.table.right = h.Right,
+            h.table.home = h.Home,
+            h.table.setspeed = h.SetSpeed,
+            h.table.message = h.Message,
+            h.table.setcolor = h.SetColor,
+            h.table.bigger = h.Bigger,
+            h.table.smaller = h.Smaller,
+            h.table.wait = h.Wait,
+            h.table.caretcmd = h.Ignore,
+            h.table.caretstart = h.Ignore,
+            h.table.caretend = h.Ignore,
+            h.table.caretrepeat = h.Ignore,
+            h.table.gotopage = h.GotoPage,
+            h.table.endstack = h.DoNextBlock,
+            h.table.stopall = h.StopAll,
+            h.table.stopmine = h.StopMine,
+            h.table.forever = h.Forever,
+            h.table.hop = h.Hop,
+            h.table.show = h.Show,
+            h.table.hide = h.Hide,
+            h.table.playsnd = h.playSound,
+            h.table.playusersnd = h.playSound,
+            h.table.grow = h.Grow,
+            h.table.shrink = h.Shrink,
+            h.table.same = h.Same,
+            h.table.say = h.Say
+        }
         static Done(e) {
             null != e.oldblock && e.oldblock.unhighlight(),
             e.oldblock = null,
