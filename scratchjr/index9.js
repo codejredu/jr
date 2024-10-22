@@ -352,414 +352,52 @@ function preprocessAndLoadCss(e, t) {
         e && e.appendChild(n),
         n
     }
-    function newCanvas(e, t, r, n, a, i) {
-        var o = document.createElement("canvas");
-        return o.style.position = "absolute",
-        o.style.top = r + "px",
-        o.style.left = t + "px",
-        setCanvasSize(o, n, a),
-        setProps(o.style, i),
-        e.appendChild(o),
-        o
+    function setCanvasSize(canvas, width, height) {
+        canvas.width = width;
+        canvas.height = height;
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
     }
-    function newHTML(e, t, r) {
-        var n = document.createElement(e);
-        return t && n.setAttribute("class", t),
-        r && r.appendChild(n),
-        n
+    
+    function setCanvasSizeScaledToWindowDocumentHeight(canvas, scaleMultiplier, documentHeight) {
+        const devicePixelRatio = window.devicePixelRatio || 1; // Fallback for older browsers
+        const scaledWidth = Math.floor(scaleMultiplier * devicePixelRatio);
+        const scaledHeight = Math.floor(documentHeight * devicePixelRatio);
+        
+        canvas.width = scaledWidth;
+        canvas.height = scaledHeight;
+        canvas.style.width = scaledWidth + "px";
+        canvas.style.height = scaledHeight + "px";
+        canvas.style.zoom = scaleMultiplier / devicePixelRatio;
     }
-    function newP(e, t, r) {
-        var n = document.createElement("p");
-        return n.appendChild(document.createTextNode(t)),
-        setProps(n.style, r),
-        e.appendChild(n),
-        n
-    }
-    function hitRect(e, t) {
-        if (!t)
-            return !1;
-        if (!e)
-            return !1;
-        var r = t.x
-          , n = t.y;
-        return null != e.offsetLeft && (null != e.offsetTop && (!(r < e.offsetLeft) && (!(r > e.offsetLeft + e.offsetWidth) && (!(n < e.offsetTop) && !(n > e.offsetTop + e.offsetHeight)))))
-    }
-    function hit3DRect(e, t) {
-        if (!t)
-            return !1;
-        var r = t.x
-          , n = t.y
-          , a = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
-        return null != a.m41 && (null != a.m42 && (!(r < a.m41) && (!(r > a.m41 + e.offsetWidth) && (!(n < a.m42) && !(n > a.m42 + e.offsetHeight)))))
-    }
-    function hitTest(e, t) {
-        if (!t)
-            return !1;
-        var r = t.x
-          , n = t.y;
-        if (r < e.offsetLeft)
-            return !1;
-        if (r > e.offsetLeft + e.offsetWidth)
-            return !1;
-        if (n < e.offsetTop)
-            return !1;
-        if (n > e.offsetTop + e.offsetHeight)
-            return !1;
-        var a = t.x - e.offsetLeft
-          , i = t.y - e.offsetTop;
-        return 0 != e.getContext("2d").getImageData(a, i, 1, 1).data[3]
-    }
-    function setCanvasSize(e, t, r) {
-        e.width = t,
-        e.height = r,
-        e.style.width = t + "px",
-        e.style.height = r + "px"
-    }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
-        var n = window.devicePixelRatio * scaleMultiplier
-          , a = Math.floor(t * n)
-          , i = Math.floor(r * n);
-        e.width = a,
-        e.height = i,
-        e.style.width = a + "px",
-        e.style.height = i + "px",
-        e.style.zoom = scaleMultiplier / n
-    }
-    function localx(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
-            e = e.parentNode;
-        return r
-    }
-    function globalx(e) {
-        for (var t = 0; e && null != e.offsetLeft; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m11;
-            t += (e.clientWidth - n * e.clientWidth) / 2,
-            t += r.m41,
-            t += e.offsetLeft + e.clientLeft,
-            e = e.parentNode
+    
+    function localX(element, initialY) {
+        let yOffset = initialY;
+        while (element && element.offsetTop !== null) {
+            const computedStyle = window.getComputedStyle(element);
+            const transformMatrix = new DOMMatrix(computedStyle.transform);
+            yOffset -= element.offsetLeft + element.clientLeft + transformMatrix.m41;
+            element = element.parentNode;
         }
-        return t
+        return yOffset;
     }
-    function localy(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
-            e = e.parentNode;
-        return r
-    }
-    function globaly(e) {
-        for (var t = 0; e && null != e.offsetTop; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m22;
-            t += (e.clientHeight - n * e.clientHeight) / 2,
-            t += r.m42,
-            t += e.offsetTop + e.clientTop,
-            e = e.parentNode
+    
+    function globalX(element) {
+        let totalX = 0;
+        while (element && element.offsetLeft !== null) {
+            const computedStyle = window.getComputedStyle(element);
+            const transformMatrix = new DOMMatrix(computedStyle.transform);
+            
+            const scaleX = transformMatrix.m11;
+            totalX += (element.clientWidth - scaleX * element.clientWidth) / 2;
+            totalX += transformMatrix.m41;
+            totalX += element.offsetLeft + element.clientLeft;
+            
+            element = element.parentNode;
         }
-        return t
+        return totalX;
     }
-    function setProps(e, t) {
-        for (var r in t)
-            e[r] = t[r]
-    }
-    function CSSTransition(e, t) {
-        var r = 1
-          , n = "ease"
-          , a = {
-            left: e.offsetLeft + "px",
-            top: e.offsetTop + "px"
-        };
-        t.duration && (r = t.duration),
-        t.transition && (n = t.transition),
-        t.style && (a = t.style);
-        var i = "";
-        for (var o in a)
-            i += o + " " + r + "s " + n + ", ";
-        i = i.substring(0, i.length - 2),
-        e.style.webkitTransition = i,
-        e.addEventListener("webkitTransitionEnd", (function() {
-            e.style.webkitTransition = "",
-            t.onComplete && t.onComplete()
-        }
-        ), !0),
-        setProps(e.style, a)
-    }
-    function CSSTransition3D(e, t) {
-        var r = 1
-          , n = "ease"
-          , a = {
-            left: e.left + "px",
-            top: e.top + "px"
-        };
-        if (t.duration && (r = t.duration),
-        t.transition && (n = t.transition),
-        t.style)
-            for (var i in t.style)
-                a[i] = t.style[i];
-        var o = "-webkit-transform " + r + "s " + n
-          , s = "translate3d(" + a.left + "," + a.top + ",0px)";
-        e.addEventListener("webkitTransitionEnd", (function() {
-            e.style.webkitTransition = "";
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
-            e.left = r.m41,
-            e.top = r.m42,
-            t.onComplete && t.onComplete()
-        }
-        ), !0),
-        e.style.webkitTransition = o,
-        e.style.webkitTransform = s
-    }
-    function drawThumbnail(e, t) {
-        var r = e.naturalWidth ? e.naturalWidth : e.width
-          , n = e.naturalHeight ? e.naturalHeight : e.height
-          , a = (t.width - r) / 2
-          , i = (t.height - n) / 2
-          , o = t.width / r
-          , s = t.height / n
-          , u = r
-          , l = n;
-        switch (getFit(o, s)) {
-        case "noscale":
-            break;
-        case "scaleh":
-            u = r * s,
-            l = n * s,
-            a = (t.width - u) / 2,
-            i = (t.height - l) / 2;
-            break;
-        case "scalew":
-            u = r * o,
-            l = n * o,
-            a = (t.width - u) / 2,
-            i = (t.height - l) / 2
-        }
-        t.getContext("2d").drawImage(e, a, i, u, l)
-    }
-    function drawScaled(e, t) {
-        var r = e.naturalWidth ? e.naturalWidth : e.width
-          , n = e.naturalHeight ? e.naturalHeight : e.height
-          , a = t.width
-          , i = t.height
-          , o = a / r
-          , s = r * o
-          , u = n * o;
-        u > i && (s = r * (o = i / n),
-        u = n * o);
-        var l = (a - s) / 2
-          , h = (i - u) / 2;
-        t.getContext("2d").drawImage(e, l, h, s, u)
-    }
-    function fitInRect(e, t, r, n) {
-        var a = (r - e) / 2
-          , i = (n - t) / 2
-          , o = r / e
-          , s = n / t
-          , u = e
-          , l = t;
-        switch (getFit(o, s)) {
-        case "noscale":
-            break;
-        case "scaleh":
-            a = (r - (u = e * s)) / 2,
-            i = (n - (l = t * s)) / 2;
-            break;
-        case "scalew":
-            a = (r - (u = e * o)) / 2,
-            i = (n - (l = t * o)) / 2
-        }
-        return [a, i, u, l]
-    }
-    function getFit(e, t) {
-        return e >= 1 && t >= 1 ? "noscale" : e >= 1 && t < 1 ? "scaleh" : e < 1 && t >= 1 || e < t ? "scalew" : "scaleh"
-    }
-    function getDocumentHeight() {
-        return Math.max(document.body.clientHeight, document.documentElement.clientHeight)
-    }
-    function getDocumentWidth() {
-        return Math.max(document.body.clientWidth, document.documentElement.clientWidth)
-    }
-    function getStringSize(e, t, r) {
-        return e.font = t,
-        e.measureText(r)
-    }
-    function writeText(e, t, r, n, a, i) {
-        i = null == i ? 0 : i,
-        e.font = t,
-        e.fillStyle = r,
-        e.textAlign = "left",
-        e.textBaseline = "bottom",
-        e.fillText(n, i, a)
-    }
-    function gn(e) {
-        return document.getElementById(e)
-    }
-    function newForm(e, t, r, n, a, i, o) {
-        var s = document.createElement("form");
-        return s.style.position = "absolute",
-        s.style.top = n + "px",
-        s.style.left = r + "px",
-        a && (s.style.width = a + "px"),
-        i && (s.style.height = i + "px"),
-        setProps(s.style, o),
-        e.appendChild(s),
-        s.name = t,
-        s
-    }
-    function newTextInput(e, t, r, n) {
-        var a = document.createElement("input");
-        return a.value = r,
-        setProps(a.style, n),
-        a.type = t,
-        e.appendChild(a),
-        a
-    }
-    function getUrlVars() {
-        if (window.location.href.indexOf("?") < 0)
-            return [];
-        for (var e, t = [], r = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&"), n = 0; n < r.length; n++)
-            e = r[n].split("="),
-            t.push(e[0]),
-            t[e[0]] = e[1];
-        return t
-    }
-    function getIdFor(e) {
-        for (var t = 1; null != gn(e + " " + t); )
-            t++;
-        return e + " " + t
-    }
-    function getIdForCamera(e) {
-        for (var t = 1; null != gn(e + "_" + t); )
-            t++;
-        return e + "_" + t
-    }
-    function rgb2hsb(e) {
-        if (null == e)
-            return [24, 1, 1];
-        var t, r, n, a;
-        e = e.indexOf("rgb") > -1 ? rgbToHex(e) : rgbaToHex(e);
-        var i = getRGB(parseInt(e.substring(1, e.length), 16))
-          , o = i[0];
-        o /= 255;
-        var s = i[1];
-        s /= 255;
-        var u = i[2];
-        return u /= 255,
-        (t = Math.min(Math.min(o, s), u)) == (r = Math.max(Math.max(o, s), u)) ? [0, 0, r] : (n = o == t ? s - u : s == t ? u - o : o - s,
-        a = o == t ? 3 : s == t ? 5 : 1,
-        [Math.round(60 * (a - n / (r - t))) % 360, Math.round((r - t) / r * 100) / 100, (r = Math.round(100 * r)) / 100])
-    }
-    function rgbToHex(e) {
-        if (e.indexOf("rgb") < 0)
-            return e;
-        var t = e.substring(4, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
-    }
-    function rgbaToHex(e) {
-        if (e.indexOf("rgba") < 0)
-            return e;
-        var t = e.substring(5, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
-    }
-    function rgbToString(e) {
-        return "#" + getHex(e.r) + getHex(e.g) + getHex(e.b)
-    }
-    function getRGB(e) {
-        return [Number(e >> 16 & 255), Number(e >> 8 & 255), Number(255 & e)]
-    }
-    function getHex(e) {
-        var t = e.toString(16);
-        return 1 == t.length ? "0" + t : t
-    }
-    function findKeyframesRule(e) {
-        for (var t = document.styleSheets, r = 0; r < t.length; ++r)
-            for (var n = 0; n < t[r].cssRules.length; ++n)
-                for (var a = t[r].cssRules[n].styleSheet.rules, i = 0; i < a.length; ++i)
-                    if (a[i].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && a[i].name == e)
-                        return a[i];
-        return null
-    }
-    function colorToRGBA(e, t) {
-        var r = parseInt("0x" + e.substr(1, e.length));
-        return "rgba(" + (r >> 16) % 256 + "," + (r >> 8) % 256 + "," + r % 256 + "," + t + ")"
-    }
-    function css_vh(e) {
-        return e * window.innerHeight / 100 + "px"
-    }
-    function css_vw(e) {
-        return e * window.innerWidth / 100 + "px"
-    }
-    Number.prototype.mod = function(e) {
-        return (this % e + e) % e
-    }
-}
-, function(e, t, r) {
-    "use strict";
-    r.d(t, "a", (function() {
-        return Z
-    }
-    ));
-    var n = r(11)
-      , a = r(7)
-      , i = r(2)
-      , o = r(37)
-      , s = r(4)
-      , u = r(0);
-    let l = [-48, -30, -22, -14, -6, 0, 6, 14, 22, 30, 48];
-    class h {
-        static get hopList() {
-            return l
-        }
-        static init() {
-            h.table = {},
-            h.table.done = h.Done,
-            h.table.missing = h.Ignore,
-            h.table.onflag = h.Ignore,
-            h.table.onmessage = h.Ignore,
-            h.table.onclick = h.Ignore,
-            h.table.ontouch = h.OnTouch,
-            h.table.onchat = h.Ignore,
-            h.table.repeat = h.Repeat,
-            h.table.forward = h.Forward,
-            h.table.back = h.Back,
-            h.table.up = h.Up,
-            h.table.down = h.Down,
-            h.table.left = h.Left,
-            h.table.right = h.Right,
-            h.table.home = h.Home,
-            h.table.setspeed = h.SetSpeed,
-            h.table.message = h.Message,
-            h.table.setcolor = h.SetColor,
-            h.table.bigger = h.Bigger,
-            h.table.smaller = h.Smaller,
-            h.table.wait = h.Wait,
-            h.table.caretcmd = h.Ignore,
-            h.table.caretstart = h.Ignore,
-            h.table.caretend = h.Ignore,
-            h.table.caretrepeat = h.Ignore,
-            h.table.gotopage = h.GotoPage,
-            h.table.endstack = h.DoNextBlock,
-            h.table.stopall = h.StopAll,
-            h.table.stopmine = h.StopMine,
-            h.table.forever = h.Forever,
-            h.table.hop = h.Hop,
-            h.table.show = h.Show,
-            h.table.hide = h.Hide,
-            h.table.playsnd = h.playSound,
-            h.table.playusersnd = h.playSound,
-            h.table.grow = h.Grow,
-            h.table.shrink = h.Shrink,
-            h.table.same = h.Same,
-            h.table.say = h.Say
-        }
+    
         static Done(e) {
             null != e.oldblock && e.oldblock.unhighlight(),
             e.oldblock = null,
