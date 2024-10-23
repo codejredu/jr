@@ -1,7 +1,7 @@
 var cacheName = `scratchjr-1.0.0`;
 var contentToCache = [
     '/vendors/snap/snap.svg-min.js',
-    '/index9.js'
+    '/index.js'
 ];
 
 self.addEventListener("install", (e) => {
