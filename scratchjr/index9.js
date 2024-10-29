@@ -2436,7 +2436,8 @@
         static createSizeSelector(e) {
             var t = Object(E.newHTML)("div", "section space", e);
             t.setAttribute("id", "sizeSelector");
-            L.forEach((r) => { var n = Object(E.newHTML)("div", "pensizeholder", t);
+            for (var r = 0; r < L.length; r++) {
+                var n = Object(E.newHTML)("div", "pensizeholder", t);
                 n.key = r,
                 n.onpointerdown = function(e) {
                     e.preventDefault(),
@@ -2444,7 +2445,7 @@
                     var t = Number(this.key);
                     B = L[Number(this.key)],
                     q.selectPenSize(t)
-                 });
+                }
                 ;
                 var a = Object(E.newHTML)("div", "line t" + r, n);
                 q.drawPenSizeInColor(a)
@@ -2478,11 +2479,12 @@
         static addSidePalette(e, t, r) {
             var n = Object(E.newHTML)("div", "paintpalette short", e);
             n.setAttribute("id", t);
-            r.forEach((a) => { var i = Object(E.newHTML)("div", "element off", n)
+            for (var a = 0; a < r.length; a++) {
+                var i = Object(E.newHTML)("div", "element off", n)
                   , o = Object(E.newHTML)("div", "tool " + r[a] + " off", i);
                 o.setAttribute("key", r[a]),
                 o.onpointerdown = q.setMode
-             });
+            }
         }
         static cameraToolsOn() {
             Object(E.gn)("backdrop").setAttribute("class", "modal-backdrop fade dark"),
@@ -2550,14 +2552,15 @@
               , r = Object(E.newHTML)("div", "swatchpalette-container", e)
               , n = Object(E.newHTML)("div", "swatchpalette", r);
             n.setAttribute("id", "swatches");
-            t.forEach((a) => { var i = Object(E.newHTML)("div", "swatchbucket", n)
+            for (var a = 0; a < t.length; a++) {
+                var i = Object(E.newHTML)("div", "swatchbucket", n)
                   , o = Object(E.newHTML)("div", "swatchframe", i);
                 Object(E.newHTML)("div", "swatchcolor", o).style.background = t[a],
                 o = Object(E.newHTML)("div", "splasharea off", i),
                 q.setSplashColor(o, k, t[a]),
                 q.addImageUrl(o, O),
                 i.onpointerdown = q.selectSwatch
-             });
+            }
             q.setSwatchColor(Object(E.gn)("swatches").childNodes[t.indexOf("#1C1C1C")])
         }
         static setSplashColor(e, t, r) {
@@ -2881,18 +2884,20 @@
             return t ? e && t ? "modify" : "add" : "none"
         }
         static skipUnwantedElements(e, t) {
-            e.childNodes.forEach((r) => { var n = e.childNodes[r];
+            for (var r = 0; r < e.childNodes.length; r++) {
+                var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("g" == n.nodeName && "layer1" == n.id ? (q.skipUnwantedElements(n, t),
                 n.removeAttribute("id") && n.removeAttribute("id")) : t.push(n)))
-             });
+            }
             return t
         }
         static reassingIds(e) {
-            e.childNodes.forEach((t) => { var r = e.childNodes[t];
+            for (var t = 0; t < e.childNodes.length; t++) {
+                var r = e.childNodes[t];
                 "yes" == r.parentNode.getAttribute("fixed") && r.setAttribute("fixed", "yes"),
                 r.getAttribute("id") || r.setAttribute("id", Object(E.getIdFor)(r.nodeName)),
                 "g" == r.nodeName && q.reassingIds(r)
-             });
+            }
         }
         static createCharFromXML(e) {
             M = e.indexOf("Scratch Jr") > -1;
@@ -2923,10 +2928,11 @@
             }
         }
         static getComponents(e, t) {
-            e.childNodes.forEach((r) => { var n = e.childNodes[r];
+            for (var r = 0; r < e.childNodes.length; r++) {
+                var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("g" == n.nodeName ? (q.getComponents(n, t),
                 n.getAttribute("id") && n.removeAttribute("id")) : t.push(n)))
-             });
+            }
             return t
         }
     }
@@ -3672,9 +3678,10 @@
         static getPathBox(e) {
             var t, r = e.getAttribute("d").match(/[M][^M]*/g);
             r || (r = [e.getAttribute("d")]);
-            r.forEach((n) => { var a = p.getOnePathBox(r[n]);
+            for (var n = 0; n < r.length; n++) {
+                var a = p.getOnePathBox(r[n]);
                 a.isEmpty() || (t = t ? a.union(t) : a)
-             });
+            }
             return t
         }
         static getOnePathBox(e) {
@@ -3731,7 +3738,8 @@
                 var n = []
                   , a = [];
                 if (!(p.getCount(r) > 175)) {
-                    t.forEach((o) => { if (p.getCount(r) > 175)
+                    for (var o = 0; o < t.length; o++) {
+                        if (p.getCount(r) > 175)
                             return;
                         var s = p.getClonedElement(Object(i.gn)("layer1"), t[o]);
                         if (s && "g" != s.tagName) {
@@ -3741,7 +3749,7 @@
                                 var u = t[o].getAttribute("id").split("Border")[0]
                                   , l = n.indexOf(u);
                                 l > -1 && s.setAttribute("id", a[l] + "Border")
-                             });
+                            }
                             if (t[o].getAttribute("relatedto")) {
                                 var c = n.indexOf(t[o].getAttribute("relatedto"));
                                 c > -1 && s.setAttribute("relatedto", a[c])
@@ -3754,7 +3762,8 @@
             }
         }
         static removeDuplicates(e) {
-            e.forEach((t) => { var r = Object(i.gn)(e[t]);
+            for (var t = 0; t < e.length; t++) {
+                var r = Object(i.gn)(e[t]);
                 if (r && (r.parentNode && "path" == r.tagName))
                     for (var n = t + 1; n < e.length; n++) {
                         var a = Object(i.gn)(e[n]);
@@ -3763,7 +3772,7 @@
                                 var o = a.id.substring(String("pathborder_").length, a.id.length)
                                   , s = Object(i.gn)("group_" + o);
                                 s && s.parentNode.removeChild(s)
-                             });
+                            }
                             a.parentNode.removeChild(a)
                         }
                     }
@@ -5718,10 +5727,11 @@
               , n = a.a.getCommandList(r)
               , i = [];
             if (n) {
-                n.forEach((o) => { var s = n[o];
+                for (var o = 0; o < n.length; o++) {
+                    var s = n[o];
                     s = u.getModifiedCmd(s, t),
                     i.push(s)
-                 });
+                }
                 var l = a.a.arrayToString(i);
                 e.setAttribute("d", l)
             }
@@ -7082,12 +7092,13 @@
         static getHitIndex(e, t, r) {
             e.save(),
             e.beginPath();
-            t.forEach((n) => { if (a.a.drawCommand(e, t[n]),
+            for (var n = 0; n < t.length; n++) {
+                if (a.a.drawCommand(e, t[n]),
                 e.stroke(),
                 r = u.a.floor(r),
                 0 != e.getImageData(r.x, r.y, 1, 1).data[3])
                     return n
-             });
+            }
             return e.stroke(),
             e.restore(),
             -1
@@ -7266,13 +7277,14 @@
             if (v.withinBounds(n, a))
                 return r;
             v.isClockWise(e.getAttribute("d")) || e.setAttribute("d", v.flip(e));
-            t.forEach((i) => { var s = t[i];
+            for (var i = 0; i < t.length; i++) {
+                var s = t[i];
                 if ("image" != s.tagName.toLowerCase())
                     if ("clipPath" != s.tagName)
                         if (!(v.getContactPoints(e, s).length < 2))
                             s.id.indexOf("staticbkg") < 0 && "yes" != s.getAttribute("stencil") || v.withinBounds(n, a) && (v.endsSameSide(e) || (v.isClockWise(s.getAttribute("d")) && s.setAttribute("d", v.flip(s)),
                             v.createStencil(e, s) && (r = !0)))
-             });
+            }
             return r
         }
         static createStencil(e, t) {
@@ -7701,11 +7713,12 @@
             return !1
         }
         static anyCrossing(e, t) {
-            e.forEach((r) => { if (t != e[r])
+            for (var r = 0; r < e.length; r++) {
+                if (t != e[r])
                     if ("g" != e[r].nodeName)
                         if (v.getPathCrossing(e[r], t).length > 0)
                             return !0
-             });
+            }
             return !1
         }
         static getPathCrossing(e, t) {
@@ -7940,10 +7953,11 @@
             }(e, t)
         }
         static getImages(e, t) {
-            e.childNodes.forEach((r) => { var n = e.childNodes[r];
+            for (var r = 0; r < e.childNodes.length; r++) {
+                var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("image" == n.nodeName && t.push(n),
                 "g" == n.nodeName && m.getImages(n, t)))
-             });
+            }
             return t
         }
         static getImageDataURL(e, t) {
@@ -8070,12 +8084,13 @@
                 for (var u = o.json, l = 0; l < u.pages.length; l++) {
                     var h = u[u.pages[l]];
                     s("backgrounds", h.md5);
-                    h.sprites.forEach((v) => { var _ = h[h.sprites[v]];
+                    for (var v = 0; v < h.sprites.length; v++) {
+                        var _ = h[h.sprites[v]];
                         if ("sprite" == _.type) {
                             s("characters", _.md5);
                             for (var b = 0; b < _.sounds.length; b++)
                                 s("sounds", _.sounds[b])
-                         });
+                        }
                     }
                 }
                 c = new n,
@@ -8145,10 +8160,11 @@
             m.query(a.default.database, o, (function(a) {
                 var o = null;
                 a = JSON.parse(a);
-                a.forEach((s) => { var u = m.parseProjectData(a[s]).name
+                for (var s = 0; s < a.length; s++) {
+                    var u = m.parseProjectData(a[s]).name
                       , l = n(u);
                     i.name == l.name && (o = null != l.number ? l.number + 1 : 2)
-                 });
+                }
                 null != o && (!i.number || o > i.number) ? e.name = i.name + " " + o : r && (e.name = i.name + " 1"),
                 t(e)
             }
@@ -8340,7 +8356,8 @@
                 e.removeChild(e.childNodes[0]);
             var t = void 0;
             let r;
-            n.a.stage.pages.forEach((a) => { var i = n.a.stage.pages[a];
+            for (var a = 0; a < n.a.stage.pages.length; a++) {
+                var i = n.a.stage.pages[a];
                 i.num = a + 1,
                 r = i.pageThumbnail(e),
                 r.prev = t,
@@ -8348,7 +8365,7 @@
                 i.id == n.a.stage.currentPage.id ? f.highlighPage(r) : f.unhighlighPage(r),
                 o.a.updateScriptsPageBlocks(JSON.parse(i.sprites)),
                 t = r
-             });
+            }
             if (!(n.a.stage.pages.length > 3) && n.a.isEditable()) {
                 var s = f.emptyPage(e);
                 s.prev = t,
@@ -12430,9 +12447,10 @@
             h.a.updateSprites()
         }
         updatePageBlocks() {
-            o.a.stage.pages.forEach((e) => { var t = o.a.stage.pages[e];
+            for (var e = 0; e < o.a.stage.pages.length; e++) {
+                var t = o.a.stage.pages[e];
                 p.a.updateScriptsPageBlocks(JSON.parse(t.sprites))
-             });
+            }
         }
         removeFromPage(e) {
             var t = e.id
@@ -13196,25 +13214,27 @@
             var t = s.a.fontcolors
               , r = Object(y.newHTML)("div", "textuicolormenu off", e);
             r.setAttribute("id", "textcolormenu");
-            t.forEach((n) => { var a = Object(y.newHTML)("div", "textcolorbucket", r)
+            for (var n = 0; n < t.length; n++) {
+                var a = Object(y.newHTML)("div", "textcolorbucket", r)
                   , i = Object(y.newHTML)("div", "swatchframe", a);
                 Object(y.newHTML)("div", "swatchcolor", i).style.background = t[n],
                 i = Object(y.newHTML)("div", "splasharea off", a),
                 T.a.setSplashColor(i, T.a.splash, t[n]),
                 T.a.addImageUrl(i, T.a.splashshade),
                 a.onpointerdown = D.setTextColor
-             });
+            }
             D.setMenuTextColor(Object(y.gn)("textcolormenu").childNodes[9])
         }
         static createTextSizeMenu(e) {
             var t = s.a.fontsizes
               , r = Object(y.newHTML)("div", "textuifont off", e);
             r.setAttribute("id", "textfontsizes");
-            t.forEach((n) => { var a = Object(y.newHTML)("div", "textuisize t" + (n + 1), r);
+            for (var n = 0; n < t.length; n++) {
+                var a = Object(y.newHTML)("div", "textuisize t" + (n + 1), r);
                 a.fs = t[n],
                 Object(y.newHTML)("span", void 0, a).textContent = "A",
                 a.onpointerdown = D.setTextSize
-             });
+            }
             D.setMenuTextSize(Object(y.gn)("textfontsizes").childNodes[5])
         }
         static setMenuTextColor(e) {
@@ -18259,9 +18279,10 @@
             d.a.cleanCarets(),
             _.a.sndFX("cut.wav"),
             this.dragList.length > 0 && n.a.runtime.stopThreadBlock(this.dragList[0].findFirst());
-            this.dragList.forEach((e) => { var t = this.dragList[e];
+            for (var e = 0; e < this.dragList.length; e++) {
+                var t = this.dragList[e];
                 null != t.blocktype && t.div.parentNode.removeChild(t.div)
-             });
+            }
         }
         recreateStrip(e) {
             for (var t = [], r = null, a = ["repeat"], i = 0; i < e.length; i++)
@@ -19797,9 +19818,10 @@
             ))) : this.clearBackground();
             for (var r = e.sprites, n = 0; n < r.length; n++)
                 a.a.recreateObject(this, r[n], e[r[n]], s);
-            e.layers.forEach((i) => { var o = Object(m.gn)(e.layers[i]);
+            for (var i = 0; i < e.layers.length; i++) {
+                var o = Object(m.gn)(e.layers[i]);
                 o && this.div.appendChild(o)
-             });
+            }
             function s() {
                 t && a.a.mediaCount < 1 && t()
             }
@@ -43393,12 +43415,13 @@
         }
         ), i = function() {
             function e(e, t) {
-                t.forEach((r) => { var n = t[r];
+                for (var r = 0; r < t.length; r++) {
+                    var n = t[r];
                     n.enumerable = n.enumerable || !1,
                     n.configurable = !0,
                     "value"in n && (n.writable = !0),
                     Object.defineProperty(e, n.key, n)
-                 });
+                }
             }
             return function(t, r, n) {
                 return r && e(t.prototype, r),
@@ -53484,12 +53507,13 @@
         e
     }
     function i(e, t) {
-        t.forEach((r) => { var n = t[r];
+        for (var r = 0; r < t.length; r++) {
+            var n = t[r];
             n.enumerable = n.enumerable || !1,
             n.configurable = !0,
             "value"in n && (n.writable = !0),
             Object.defineProperty(e, n.key, n)
-         });
+        }
     }
     var o = r(31).Buffer
       , s = r(242).inspect
@@ -57320,12 +57344,13 @@
         e
     }
     function i(e, t) {
-        t.forEach((r) => { var n = t[r];
+        for (var r = 0; r < t.length; r++) {
+            var n = t[r];
             n.enumerable = n.enumerable || !1,
             n.configurable = !0,
             "value"in n && (n.writable = !0),
             Object.defineProperty(e, n.key, n)
-         });
+        }
     }
     var o = r(31).Buffer
       , s = r(289).inspect
@@ -68126,3 +68151,62 @@
     }
 }
 ]);
+
+
+
+// Responsive JavaScript adjustments for adapting to different screen sizes
+!function(e) {
+    var t = {};
+    function r(n) {
+        if (t[n])
+            return t[n].exports;
+        var a = t[n] = {
+            i: n,
+            l: !1,
+            exports: {}
+        };
+        return e[n].call(a.exports, a, a.exports, r),
+        a.l = !0,
+        a.exports
+    }
+    r.m = e,
+    r.c = t,
+    r.d = function(e, t, n) {
+        r.o(e, t) || Object.defineProperty(e, t, {
+            enumerable: !0,
+            get: n
+        })
+    };
+
+    // Setup screen resizing adjustments
+    window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // Define base CSS variable adjustments
+        document.documentElement.style.setProperty('--vw', `${width * 0.01}px`);
+        document.documentElement.style.setProperty('--vh', `${height * 0.01}px`);
+    });
+
+    // Responsive canvas size scaling function
+    function setResponsiveCanvasSize(element, widthRatio, heightRatio) {
+        const scaleFactor = Math.min(window.innerWidth / widthRatio, window.innerHeight / heightRatio);
+        element.style.width = `${widthRatio * scaleFactor}px`;
+        element.style.height = `${heightRatio * scaleFactor}px`;
+    }
+
+    // Use `setResponsiveCanvasSize` where canvas size adjustments are needed
+    function resizeCanvas() {
+        const canvas = document.querySelector('canvas');
+        if (canvas) {
+            setResponsiveCanvasSize(canvas, 100, 100);  // example of 100vw by 100vh scaling
+        }
+    }
+
+    // Initial call on load
+    window.addEventListener("load", resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
+
+}(window);
+
+// Additional helper functions and settings if needed
