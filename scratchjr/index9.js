@@ -68,27 +68,17 @@
     }
     ,
     r.p = "",
-    r(r.s = 165);
- 
-    // Function to adjust screen based on resolution
-    function adjustScreen() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        console.log(`Screen adjusted to width: ${width}, height: ${height}`);
-        // Add your layout adjustment logic here
-    }
- 
-    // Event listener for window resize
-    window.addEventListener('resize', adjustScreen);
- 
-    // Initial call to set the screen on load
-    adjustScreen();
+    r(r.s = 165)
 }([function(module, __webpack_exports__, __webpack_require__) {
     "use strict";
     var frame;
     __webpack_require__.r(__webpack_exports__),
     __webpack_require__.d(__webpack_exports__, "frame", (function() {
         return frame
+    }
+    )),
+    __webpack_require__.d(__webpack_exports__, "isTablet", (function() {
+        return isTablet
     }
     )),
     __webpack_require__.d(__webpack_exports__, "DEGTOR", (function() {
@@ -297,7 +287,7 @@
       , isiOS = "undefined" == typeof AndroidInterface
       , isAndroid = "undefined" != typeof AndroidInterface;
     function libInit() {
-        frame = document.getElementById("frame")
+        frame = let "frame"_cached = document.getElementById("frame");
     }
     function preprocess(s) {
         for (var result = "", len = s.length, i = 0, j; i < len && -1 != (j = s.indexOf("$", i)); )
@@ -324,7 +314,7 @@
         preprocess(t.responseText)
     }
     function preprocessAndLoadCss(e, t) {
-        if (document.getElementById(t))
+        if (let t_cached = document.getElementById(t);)
             return;
         var r = preprocessAndLoad(t);
         r = (r = r.replace(/url\('/g, "url('" + e + "/")).replace(/url\(([^'])/g, "url(" + e + "/$1");
@@ -393,7 +383,7 @@
             return !1;
         var r = t.x
           , n = t.y
-          , a = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+          , a = new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform);
         return null != a.m41 && (null != a.m42 && (!(r < a.m41) && (!(r > a.m41 + e.offsetWidth) && (!(n < a.m42) && !(n > a.m42 + e.offsetHeight)))))
     }
     function hitTest(e, t) {
@@ -431,13 +421,13 @@
     }
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
+            r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform).m41,
             e = e.parentNode;
         return r
     }
     function globalx(e) {
         for (var t = 0; e && null != e.offsetLeft; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
+            var r = new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform)
               , n = r.m11;
             t += (e.clientWidth - n * e.clientWidth) / 2,
             t += r.m41,
@@ -448,13 +438,13 @@
     }
     function localy(e, t) {
         for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
+            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform).m42,
             e = e.parentNode;
         return r
     }
     function globaly(e) {
         for (var t = 0; e && null != e.offsetTop; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
+            var r = new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform)
               , n = r.m22;
             t += (e.clientHeight - n * e.clientHeight) / 2,
             t += r.m42,
@@ -505,7 +495,7 @@
           , s = "translate3d(" + a.left + "," + a.top + ",0px)";
         e.addEventListener("webkitTransitionEnd", (function() {
             e.style.webkitTransition = "";
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+            var r = new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform);
             e.left = r.m41,
             e.top = r.m42,
             t.onComplete && t.onComplete()
@@ -596,7 +586,7 @@
         e.fillText(n, i, a)
     }
     function gn(e) {
-        return document.getElementById(e)
+        return let e_cached = document.getElementById(e);
     }
     function newForm(e, t, r, n, a, i, o) {
         var s = document.createElement("form");
@@ -1142,14 +1132,13 @@
             if (Z.stage) {
                 var r = Z.stage.currentPage;
                 if (r && r.div)
-                    for (var n = 0; n < r.div.childElementCount; n++) {
-                        var a = r.div.childNodes[n].owner;
+                    r.div.childElementCount.forEach(n => { var a = r.div.childNodes[n].owner;
                         if (a) {
                             var i = Object(u.gn)(a.id + "_scripts");
                             if (i)
                                 for (var o = i.owner.getBlocksType(e), s = 0; s < o.length; s++)
                                     t(o[s], a)
-                        }
+                         });
                     }
             }
         }
@@ -1969,16 +1958,16 @@
             m.default.stopserver(m.default.trace)
         }
         static goBack() {
-            if (0 === X.length) {
+            0 === X.length ? 
                 var e = document.createEvent("TouchEvent");
                 e.initTouchEvent(),
                 e.preventDefault(),
                 e.stopPropagation(),
                 Z.saveAndFlip(e)
-            } else {
+             : 
                 (0,
                 X[X.length - 1])()
-            }
+            ;
         }
     }
 }
@@ -2073,7 +2062,7 @@
             J = e
         }
         static init(e, t) {
-            w = document.getElementById("paintframe"),
+            w = let "paintframe"_cached = document.getElementById("paintframe");,
             w.style.width = e + "px",
             w.style.height = t + "px",
             a.a.loadCount++,
@@ -2273,12 +2262,11 @@
             q.selectPenSize(L.indexOf(B))
         }
         static selectButtonFromDiv(e, t) {
-            for (var r = 0; r < e.childElementCount; r++) {
-                var n = e.childNodes[r];
+            e.childElementCount.forEach(r => { var n = e.childNodes[r];
                 n.childNodes[0].getAttribute("key") == t ? (n.setAttribute("class", q.getClass(n, "on")),
                 n.childNodes[0].getAttribute("class") && n.childNodes[0].setAttribute("class", q.getClass(n.childNodes[0], "on"))) : (n.setAttribute("class", q.getClass(n, "off")),
                 n.childNodes[0].getAttribute("class") && n.childNodes[0].setAttribute("class", q.getClass(n.childNodes[0], "off")))
-            }
+             });
         }
         static getClass(e, t) {
             var r = e.getAttribute("class").split(" ");
@@ -2446,8 +2434,7 @@
         static createSizeSelector(e) {
             var t = Object(E.newHTML)("div", "section space", e);
             t.setAttribute("id", "sizeSelector");
-            for (var r = 0; r < L.length; r++) {
-                var n = Object(E.newHTML)("div", "pensizeholder", t);
+            L.length.forEach(r => { var n = Object(E.newHTML)("div", "pensizeholder", t);
                 n.key = r,
                 n.onpointerdown = function(e) {
                     e.preventDefault(),
@@ -2455,7 +2442,7 @@
                     var t = Number(this.key);
                     B = L[Number(this.key)],
                     q.selectPenSize(t)
-                }
+                 });
                 ;
                 var a = Object(E.newHTML)("div", "line t" + r, n);
                 q.drawPenSizeInColor(a)
@@ -2469,10 +2456,9 @@
         static updateStrokes() {
             var e = Object(E.gn)("sizeSelector");
             if (e)
-                for (var t = 0; t < e.childElementCount; t++) {
-                    var r = e.childNodes[t];
+                e.childElementCount.forEach(t => { var r = e.childNodes[t];
                     q.drawPenSizeInColor(r.childNodes[0])
-                }
+                 });
         }
         static selectPenSize(e) {
             for (var t = Object(E.gn)("sizeSelector"), r = 0; r < t.childElementCount; r++) {
@@ -2489,12 +2475,11 @@
         static addSidePalette(e, t, r) {
             var n = Object(E.newHTML)("div", "paintpalette short", e);
             n.setAttribute("id", t);
-            for (var a = 0; a < r.length; a++) {
-                var i = Object(E.newHTML)("div", "element off", n)
+            r.length.forEach(a => { var i = Object(E.newHTML)("div", "element off", n)
                   , o = Object(E.newHTML)("div", "tool " + r[a] + " off", i);
                 o.setAttribute("key", r[a]),
                 o.onpointerdown = q.setMode
-            }
+             });
         }
         static cameraToolsOn() {
             Object(E.gn)("backdrop").setAttribute("class", "modal-backdrop fade dark"),
@@ -2562,15 +2547,14 @@
               , r = Object(E.newHTML)("div", "swatchpalette-container", e)
               , n = Object(E.newHTML)("div", "swatchpalette", r);
             n.setAttribute("id", "swatches");
-            for (var a = 0; a < t.length; a++) {
-                var i = Object(E.newHTML)("div", "swatchbucket", n)
+            t.length.forEach(a => { var i = Object(E.newHTML)("div", "swatchbucket", n)
                   , o = Object(E.newHTML)("div", "swatchframe", i);
                 Object(E.newHTML)("div", "swatchcolor", o).style.background = t[a],
                 o = Object(E.newHTML)("div", "splasharea off", i),
                 q.setSplashColor(o, k, t[a]),
                 q.addImageUrl(o, O),
                 i.onpointerdown = q.selectSwatch
-            }
+             });
             q.setSwatchColor(Object(E.gn)("swatches").childNodes[t.indexOf("#1C1C1C")])
         }
         static setSplashColor(e, t, r) {
@@ -2894,20 +2878,18 @@
             return t ? e && t ? "modify" : "add" : "none"
         }
         static skipUnwantedElements(e, t) {
-            for (var r = 0; r < e.childNodes.length; r++) {
-                var n = e.childNodes[r];
+            e.childNodes.length.forEach(r => { var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("g" == n.nodeName && "layer1" == n.id ? (q.skipUnwantedElements(n, t),
                 n.removeAttribute("id") && n.removeAttribute("id")) : t.push(n)))
-            }
+             });
             return t
         }
         static reassingIds(e) {
-            for (var t = 0; t < e.childNodes.length; t++) {
-                var r = e.childNodes[t];
+            e.childNodes.length.forEach(t => { var r = e.childNodes[t];
                 "yes" == r.parentNode.getAttribute("fixed") && r.setAttribute("fixed", "yes"),
                 r.getAttribute("id") || r.setAttribute("id", Object(E.getIdFor)(r.nodeName)),
                 "g" == r.nodeName && q.reassingIds(r)
-            }
+             });
         }
         static createCharFromXML(e) {
             M = e.indexOf("Scratch Jr") > -1;
@@ -2931,18 +2913,16 @@
             M || q.selectButton("paintbucket")
         }
         static doAbsolute(e) {
-            for (var t = 0; t < e.childElementCount; t++) {
-                var r = e.childNodes[t];
+            e.childElementCount.forEach(t => { var r = e.childNodes[t];
                 "path" == r.tagName && o.a.setAbsolutePath(r),
                 "g" == r.tagName && q.doAbsolute(e.childNodes[t])
-            }
+             });
         }
         static getComponents(e, t) {
-            for (var r = 0; r < e.childNodes.length; r++) {
-                var n = e.childNodes[r];
+            e.childNodes.length.forEach(r => { var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("g" == n.nodeName ? (q.getComponents(n, t),
                 n.getAttribute("id") && n.removeAttribute("id")) : t.push(n)))
-            }
+             });
             return t
         }
     }
@@ -3119,7 +3099,7 @@
         }
         static move3D(e, t, r) {
             if (e) {
-                var n = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+                var n = new WebKitCSSMatrix(let e_style = window.getComputedStyle(e);.webkitTransform);
                 e.top = r + n.m42,
                 e.left = t + n.m41,
                 e.style.webkitTransform = "translate3d(" + e.left + "px," + e.top + "px, 0)"
@@ -3476,10 +3456,9 @@
         }
         static cleanup(e) {
             if (0 != e.childElementCount)
-                for (var t = 0; t < e.childElementCount; t++) {
-                    var r = e.childNodes[t];
+                e.childElementCount.forEach(t => { var r = e.childNodes[t];
                     "g" == r.tagName && p.cleanup(r)
-                }
+                 });
             else
                 "layer1" != e.id && e.parentNode.removeChild(e)
         }
@@ -3688,10 +3667,9 @@
         static getPathBox(e) {
             var t, r = e.getAttribute("d").match(/[M][^M]*/g);
             r || (r = [e.getAttribute("d")]);
-            for (var n = 0; n < r.length; n++) {
-                var a = p.getOnePathBox(r[n]);
+            r.length.forEach(n => { var a = p.getOnePathBox(r[n]);
                 a.isEmpty() || (t = t ? a.union(t) : a)
-            }
+             });
             return t
         }
         static getOnePathBox(e) {
@@ -3733,10 +3711,9 @@
             var t = 0;
             if ("g" == e.tagName) {
                 t += e.childElementCount;
-                for (var r = 0; r < e.childElementCount; r++) {
-                    var n = e.childNodes[r];
+                e.childElementCount.forEach(r => { var n = e.childNodes[r];
                     "g" == n.tagName && (t += p.getCount(n))
-                }
+                 });
             }
             return t
         }
@@ -3748,8 +3725,7 @@
                 var n = []
                   , a = [];
                 if (!(p.getCount(r) > 175)) {
-                    for (var o = 0; o < t.length; o++) {
-                        if (p.getCount(r) > 175)
+                    t.length.forEach(o => { if (p.getCount(r) > 175)
                             return;
                         var s = p.getClonedElement(Object(i.gn)("layer1"), t[o]);
                         if (s && "g" != s.tagName) {
@@ -3759,7 +3735,7 @@
                                 var u = t[o].getAttribute("id").split("Border")[0]
                                   , l = n.indexOf(u);
                                 l > -1 && s.setAttribute("id", a[l] + "Border")
-                            }
+                             });
                             if (t[o].getAttribute("relatedto")) {
                                 var c = n.indexOf(t[o].getAttribute("relatedto"));
                                 c > -1 && s.setAttribute("relatedto", a[c])
@@ -3772,8 +3748,7 @@
             }
         }
         static removeDuplicates(e) {
-            for (var t = 0; t < e.length; t++) {
-                var r = Object(i.gn)(e[t]);
+            e.length.forEach(t => { var r = Object(i.gn)(e[t]);
                 if (r && (r.parentNode && "path" == r.tagName))
                     for (var n = t + 1; n < e.length; n++) {
                         var a = Object(i.gn)(e[n]);
@@ -3782,7 +3757,7 @@
                                 var o = a.id.substring(String("pathborder_").length, a.id.length)
                                   , s = Object(i.gn)("group_" + o);
                                 s && s.parentNode.removeChild(s)
-                            }
+                             });
                             a.parentNode.removeChild(a)
                         }
                     }
@@ -3845,10 +3820,9 @@
             r
         }
         static changeShape(e, t) {
-            for (var r = 0; r < e.childElementCount; r++) {
-                var n = e.childNodes[r];
+            e.childElementCount.forEach(r => { var n = e.childNodes[r];
                 "g" == n.tagName ? p.changeShape(n, t) : p.setObjectWaterMark(n, t)
-            }
+             });
         }
         static removeExtras(e) {
             for (var t = 0, r = t < e.childElementCount; r; ) {
@@ -3946,9 +3920,8 @@
             g.drawImage(e.svg, t)
         }
         static drawLayers(e, t, r) {
-            for (var n = 0; n < e.childElementCount; n++) {
-                r(e.childNodes[n], t)
-            }
+            e.childElementCount.forEach(n => { r(e.childNodes[n], t)
+             });
         }
         static drawImage(e, t) {
             for (var r = 0; r < e.childElementCount; r++)
@@ -3996,10 +3969,9 @@
                 g.drawElementOutline(e.childNodes[r], t)
         }
         static drawWaterMark(e, t) {
-            for (var r = 0; r < e.childElementCount; r++) {
-                var n = e.childNodes[r];
+            e.childElementCount.forEach(r => { var n = e.childNodes[r];
                 "g" == n.tagName ? g.drawWaterMark(n, t) : g.drawObjectWaterMark(n, t)
-            }
+             });
         }
         static drawObjectWaterMark(e, t) {
             if ("image" != e.nodeName && "clipPath" != e.nodeName) {
@@ -5737,11 +5709,10 @@
               , n = a.a.getCommandList(r)
               , i = [];
             if (n) {
-                for (var o = 0; o < n.length; o++) {
-                    var s = n[o];
+                n.length.forEach(o => { var s = n[o];
                     s = u.getModifiedCmd(s, t),
                     i.push(s)
-                }
+                 });
                 var l = a.a.arrayToString(i);
                 e.setAttribute("d", l)
             }
@@ -6945,7 +6916,7 @@
             null != r && r.parentNode.removeChild(r),
             (r = document.createElementNS(h.a.xmlns, "g")).setAttribute("style", "pointer-events:none"),
             r.setAttribute("id", "pathdots"),
-            document.getElementById("layer1").parentNode.appendChild(r);
+            let "layer1"_cached = document.getElementById("layer1");.parentNode.appendChild(r);
             for (var n = v.getPathDotsElem(r, t), i = 0; i < n.length; i++)
                 n[i].setAttribute("parentid", e.id);
             e.setAttribute("style", "pointer-events:visibleStroke;");
@@ -7102,13 +7073,12 @@
         static getHitIndex(e, t, r) {
             e.save(),
             e.beginPath();
-            for (var n = 0; n < t.length; n++) {
-                if (a.a.drawCommand(e, t[n]),
+            t.length.forEach(n => { if (a.a.drawCommand(e, t[n]),
                 e.stroke(),
                 r = u.a.floor(r),
                 0 != e.getImageData(r.x, r.y, 1, 1).data[3])
                     return n
-            }
+             });
             return e.stroke(),
             e.restore(),
             -1
@@ -7287,14 +7257,13 @@
             if (v.withinBounds(n, a))
                 return r;
             v.isClockWise(e.getAttribute("d")) || e.setAttribute("d", v.flip(e));
-            for (var i = 0; i < t.length; i++) {
-                var s = t[i];
+            t.length.forEach(i => { var s = t[i];
                 if ("image" != s.tagName.toLowerCase())
                     if ("clipPath" != s.tagName)
                         if (!(v.getContactPoints(e, s).length < 2))
                             s.id.indexOf("staticbkg") < 0 && "yes" != s.getAttribute("stencil") || v.withinBounds(n, a) && (v.endsSameSide(e) || (v.isClockWise(s.getAttribute("d")) && s.setAttribute("d", v.flip(s)),
                             v.createStencil(e, s) && (r = !0)))
-            }
+             });
             return r
         }
         static createStencil(e, t) {
@@ -7723,12 +7692,11 @@
             return !1
         }
         static anyCrossing(e, t) {
-            for (var r = 0; r < e.length; r++) {
-                if (t != e[r])
+            e.length.forEach(r => { if (t != e[r])
                     if ("g" != e[r].nodeName)
                         if (v.getPathCrossing(e[r], t).length > 0)
                             return !0
-            }
+             });
             return !1
         }
         static getPathCrossing(e, t) {
@@ -7963,11 +7931,10 @@
             }(e, t)
         }
         static getImages(e, t) {
-            for (var r = 0; r < e.childNodes.length; r++) {
-                var n = e.childNodes[r];
+            e.childNodes.length.forEach(r => { var n = e.childNodes[r];
                 "metadata" != n.nodeName && ("defs" != n.nodeName && "sodipodi:namedview" != n.nodeName && "#comment" != n.nodeName && ("image" == n.nodeName && t.push(n),
                 "g" == n.nodeName && m.getImages(n, t)))
-            }
+             });
             return t
         }
         static getImageDataURL(e, t) {
@@ -8094,13 +8061,12 @@
                 for (var u = o.json, l = 0; l < u.pages.length; l++) {
                     var h = u[u.pages[l]];
                     s("backgrounds", h.md5);
-                    for (var v = 0; v < h.sprites.length; v++) {
-                        var _ = h[h.sprites[v]];
+                    h.sprites.length.forEach(v => { var _ = h[h.sprites[v]];
                         if ("sprite" == _.type) {
                             s("characters", _.md5);
                             for (var b = 0; b < _.sounds.length; b++)
                                 s("sounds", _.sounds[b])
-                        }
+                         });
                     }
                 }
                 c = new n,
@@ -8170,11 +8136,10 @@
             m.query(a.default.database, o, (function(a) {
                 var o = null;
                 a = JSON.parse(a);
-                for (var s = 0; s < a.length; s++) {
-                    var u = m.parseProjectData(a[s]).name
+                a.length.forEach(s => { var u = m.parseProjectData(a[s]).name
                       , l = n(u);
                     i.name == l.name && (o = null != l.number ? l.number + 1 : 2)
-                }
+                 });
                 null != o && (!i.number || o > i.number) ? e.name = i.name + " " + o : r && (e.name = i.name + " 1"),
                 t(e)
             }
@@ -8366,8 +8331,7 @@
                 e.removeChild(e.childNodes[0]);
             var t = void 0;
             let r;
-            for (var a = 0; a < n.a.stage.pages.length; a++) {
-                var i = n.a.stage.pages[a];
+            n.a.stage.pages.length.forEach(a => { var i = n.a.stage.pages[a];
                 i.num = a + 1,
                 r = i.pageThumbnail(e),
                 r.prev = t,
@@ -8375,7 +8339,7 @@
                 i.id == n.a.stage.currentPage.id ? f.highlighPage(r) : f.unhighlighPage(r),
                 o.a.updateScriptsPageBlocks(JSON.parse(i.sprites)),
                 t = r
-            }
+             });
             if (!(n.a.stage.pages.length > 3) && n.a.isEditable()) {
                 var s = f.emptyPage(e);
                 s.prev = t,
@@ -8492,18 +8456,18 @@
         }
         static positionMe(e, t) {
             var r = e >= Object(c.gn)("pagecc").childElementCount ? void 0 : Object(c.gn)("pagecc").childNodes[e];
-            if (r) {
+            r ? 
                 var n = r.prev;
                 r.prev = t,
                 t.next = r,
                 n && (n.next = t,
                 t.prev = n)
-            } else {
+             : 
                 var a = f.findLast();
                 a.next = t,
                 t.prev = a,
                 t.next = void 0
-            }
+            ;
         }
         static repositionThumb(e, t) {
             var r = f.getPagePos(t);
@@ -8724,22 +8688,20 @@
                 var s = a.a.getHittedThumb(t, Object(c.gn)("pagecc"), window.devicePixelRatio);
                 s && !s.owner && (s = void 0),
                 s && f.overpage(s);
-                for (var u = 0; u < Object(c.gn)("pagecc").childElementCount; u++) {
-                    var h = Object(c.gn)("pagecc").childNodes[u];
+                Object(c.gn)("pagecc").childElementCount.forEach(u => { var h = Object(c.gn)("pagecc").childNodes[u];
                     if (h.owner) {
                         var d = Object(c.gn)(h.owner);
                         s && s.id != h.id && (d.owner.id == n.a.stage.currentPage.id ? f.highlighPage(h) : f.unhighlighPage(h))
-                    }
+                     });
                 }
             } else
                 f.removePagesCaret()
         }
         static removePagesCaret() {
-            for (var e = 0; e < Object(c.gn)("pagecc").childElementCount; e++) {
-                var t = Object(c.gn)("pagecc").childNodes[e];
+            Object(c.gn)("pagecc").childElementCount.forEach(e => { var t = Object(c.gn)("pagecc").childNodes[e];
                 if (t.owner)
                     Object(c.gn)(t.owner).owner.id == n.a.stage.currentPage.id ? f.highlighPage(t) : f.unhighlighPage(t)
-            }
+             });
         }
         static drop(e, t) {
             switch (e.preventDefault(),
@@ -9652,10 +9614,9 @@
                       , a = e.sigBytes;
                     if (this.clamp(),
                     n % 4)
-                        for (var i = 0; i < a; i++) {
-                            var o = r[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+                        a.forEach(i => { var o = r[i >>> 2] >>> 24 - i % 4 * 8 & 255;
                             t[n + i >>> 2] |= o << 24 - (n + i) % 4 * 8
-                        }
+                         });
                     else
                         for (i = 0; i < a; i += 4)
                             t[n + i >>> 2] = r[i >>> 2];
@@ -9834,8 +9795,7 @@
             }
         }
         static clearDragGroup() {
-            for (var e = 0; e < Object(_.gn)("layer1").childElementCount; e++) {
-                var t = Object(_.gn)("layer1").childNodes[e]
+            Object(_.gn)("layer1").childElementCount.forEach(e => { var t = Object(_.gn)("layer1").childNodes[e]
                   , r = l.a.getRotation(t);
                 if (0 != r.angle) {
                     var n = [];
@@ -9843,7 +9803,7 @@
                         var a = t.childNodes[e];
                         a && (l.a.rotateFromPoint(r, a),
                         n.push(a))
-                    }
+                     });
                     for (let e = 0; e < t.childElementCount; e++)
                         Object(_.gn)("layer1").appendChild(n[e]);
                     Object(_.gn)("layer1").removeChild(t)
@@ -10869,10 +10829,9 @@
             g.drawElements(t, e))
         }
         static drawElements(e, t) {
-            for (var r = 0; r < e.childElementCount; r++) {
-                var n = e.childNodes[r];
+            e.childElementCount.forEach(r => { var n = e.childNodes[r];
                 "pathdots" != n.id && ("image" != n.tagName && "clipPath" != n.tagName && ("g" == n.nodeName ? g.drawElements(n, t) : g.drawElement(n, t)))
-            }
+             });
         }
         static drawElement(e, t) {
             var r = g.getRGB(p)
@@ -11034,10 +10993,9 @@
         }
         static addFromBelow(e, t, r, n) {
             r = Math.min(e.childElementCount, r);
-            for (var a = 0; a < r; a++) {
-                var i = e.childNodes[a];
+            r.forEach(a => { var i = e.childNodes[a];
                 "yes" != i.getAttribute("stencil") && ("yes" != i.getAttribute("fixed") && "clipPath" != i.nodeName && "image" != i.nodeName && (n.indexOf(i) > -1 || "none" == i.getAttribute("fill") && p.overlapBox(t, i) > .5 && n.indexOf(i) < 0 && (n = n.concat(p.getRelated(i)))))
-            }
+             });
             return n
         }
         static getRelated(e) {
@@ -11074,11 +11032,10 @@
         }
         static getContainedMost(e, t, r, n) {
             e = t.parentNode;
-            for (var a = 0; a < r; a++) {
-                var i = e.childNodes[a];
+            r.forEach(a => { var i = e.childNodes[a];
                 if (i.id != t.id && p.overlapBoxBy(t, i, n))
                     return a
-            }
+             });
             return null
         }
         static overlapBox(e, t) {
@@ -11585,7 +11542,7 @@
               , h = Object(l.localy)(u.a.dragthumbnail.parentNode, t)
               , c = u.a.dragmousex - Object(l.globalx)(u.a.dragDiv) - s + u.a.dragthumbnail.left
               , d = u.a.dragmousey - Object(l.globaly)(u.a.dragDiv) - h + u.a.dragthumbnail.top
-              , f = new WebKitCSSMatrix(window.getComputedStyle(u.a.dragthumbnail).webkitTransform);
+              , f = new WebKitCSSMatrix(let u.a.dragthumbnail_style = window.getComputedStyle(u.a.dragthumbnail);.webkitTransform);
             d -= i,
             c -= o,
             u.a.dragcanvas = u.a.dragthumbnail,
@@ -11602,7 +11559,7 @@
                 n.a.getActiveScript().owner.prepareCaret(p);
                 for (var m = 1; m < a.dragList.length; m++) {
                     p = a.dragList[m];
-                    var v = new WebKitCSSMatrix(window.getComputedStyle(p.div).webkitTransform)
+                    var v = new WebKitCSSMatrix(let p.div_style = window.getComputedStyle(p.div);.webkitTransform)
                       , _ = v.m41 - f.m41
                       , b = v.m42 - f.m42;
                     p.moveBlock(_, b),
@@ -11625,10 +11582,9 @@
             o.a.getLandingPlace(s.dragList[0].div, r)) {
             case "library":
                 (a = o.a.getHittedThumb(s.dragList[0].div, Object(l.gn)("spritecc"))) && Object(l.gn)(a.owner).owner.type == n.a.getSprite().type ? i.a.quickHighlight(a) : a = void 0;
-                for (var c = 0; c < Object(l.gn)("spritecc").childElementCount; c++) {
-                    var d = Object(l.gn)("spritecc").childNodes[c];
+                Object(l.gn)("spritecc").childElementCount.forEach(c => { var d = Object(l.gn)("spritecc").childNodes[c];
                     "FORM" != d.nodeName && (a && a.id != d.id && i.a.quickRestore(d))
-                }
+                 });
                 break;
             default:
                 g.removeLibCaret()
@@ -11694,10 +11650,9 @@
             g.removeLibCaret()
         }
         static removeLibCaret() {
-            for (var e = 0; e < Object(l.gn)("spritecc").childElementCount; e++) {
-                var t = Object(l.gn)("spritecc").childNodes[e];
+            Object(l.gn)("spritecc").childElementCount.forEach(e => { var t = Object(l.gn)("spritecc").childNodes[e];
                 "FORM" != t.nodeName && i.a.quickRestore(t)
-            }
+             });
         }
         static dragBackground(e) {
             if (!(c.a.openMenu || l.isTablet && e.touches && e.touches.length > 1)) {
@@ -12457,10 +12412,9 @@
             h.a.updateSprites()
         }
         updatePageBlocks() {
-            for (var e = 0; e < o.a.stage.pages.length; e++) {
-                var t = o.a.stage.pages[e];
+            o.a.stage.pages.length.forEach(e => { var t = o.a.stage.pages[e];
                 p.a.updateScriptsPageBlocks(JSON.parse(t.sprites))
-            }
+             });
         }
         removeFromPage(e) {
             var t = e.id
@@ -13224,27 +13178,25 @@
             var t = s.a.fontcolors
               , r = Object(y.newHTML)("div", "textuicolormenu off", e);
             r.setAttribute("id", "textcolormenu");
-            for (var n = 0; n < t.length; n++) {
-                var a = Object(y.newHTML)("div", "textcolorbucket", r)
+            t.length.forEach(n => { var a = Object(y.newHTML)("div", "textcolorbucket", r)
                   , i = Object(y.newHTML)("div", "swatchframe", a);
                 Object(y.newHTML)("div", "swatchcolor", i).style.background = t[n],
                 i = Object(y.newHTML)("div", "splasharea off", a),
                 T.a.setSplashColor(i, T.a.splash, t[n]),
                 T.a.addImageUrl(i, T.a.splashshade),
                 a.onpointerdown = D.setTextColor
-            }
+             });
             D.setMenuTextColor(Object(y.gn)("textcolormenu").childNodes[9])
         }
         static createTextSizeMenu(e) {
             var t = s.a.fontsizes
               , r = Object(y.newHTML)("div", "textuifont off", e);
             r.setAttribute("id", "textfontsizes");
-            for (var n = 0; n < t.length; n++) {
-                var a = Object(y.newHTML)("div", "textuisize t" + (n + 1), r);
+            t.length.forEach(n => { var a = Object(y.newHTML)("div", "textuisize t" + (n + 1), r);
                 a.fs = t[n],
                 Object(y.newHTML)("span", void 0, a).textContent = "A",
                 a.onpointerdown = D.setTextSize
-            }
+             });
             D.setMenuTextSize(Object(y.gn)("textfontsizes").childNodes[5])
         }
         static setMenuTextColor(e) {
@@ -14403,17 +14355,17 @@
                     if ((t -= 2) < 0)
                         break;
                     i.push(r >> 6 | 192, 63 & r | 128)
-                } else if (r < 65536) {
+                } else r < 65536 ? 
                     if ((t -= 3) < 0)
                         break;
                     i.push(r >> 12 | 224, r >> 6 & 63 | 128, 63 & r | 128)
-                } else {
+                 : 
                     if (!(r < 1114112))
                         throw new Error("Invalid code point");
                     if ((t -= 4) < 0)
                         break;
                     i.push(r >> 18 | 240, r >> 12 & 63 | 128, r >> 6 & 63 | 128, 63 & r | 128)
-                }
+                ;
             }
             return i
         }
@@ -15848,21 +15800,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -16535,14 +16487,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -16589,11 +16540,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -17686,10 +17636,9 @@
             i.setAttribute("id", "soundbox");
             var o = Object(u.newHTML)("div", "soundvolume", i);
             o.setAttribute("id", "soundvolume");
-            for (var s = 0; s < 13; s++) {
-                var l = Object(u.newHTML)("div", "indicator", o);
+            13.forEach(s => { var l = Object(u.newHTML)("div", "indicator", o);
                 Object(u.newHTML)("div", "soundlevel", l)
-            }
+             });
             var h = Object(u.newHTML)("div", "soundcontrols", i);
             h.setAttribute("id", "soundcontrols");
             for (var c = [["record", _.record], ["stop", _.stopSnd], ["play", _.playSnd]], d = 0; d < c.length; d++)
@@ -18289,10 +18238,9 @@
             d.a.cleanCarets(),
             _.a.sndFX("cut.wav"),
             this.dragList.length > 0 && n.a.runtime.stopThreadBlock(this.dragList[0].findFirst());
-            for (var e = 0; e < this.dragList.length; e++) {
-                var t = this.dragList[e];
+            this.dragList.length.forEach(e => { var t = this.dragList[e];
                 null != t.blocktype && t.div.parentNode.removeChild(t.div)
-            }
+             });
         }
         recreateStrip(e) {
             for (var t = [], r = null, a = ["repeat"], i = 0; i < e.length; i++)
@@ -19828,10 +19776,9 @@
             ))) : this.clearBackground();
             for (var r = e.sprites, n = 0; n < r.length; n++)
                 a.a.recreateObject(this, r[n], e[r[n]], s);
-            for (var i = 0; i < e.layers.length; i++) {
-                var o = Object(m.gn)(e.layers[i]);
+            e.layers.length.forEach(i => { var o = Object(m.gn)(e.layers[i]);
                 o && this.div.appendChild(o)
-            }
+             });
             function s() {
                 t && a.a.mediaCount < 1 && t()
             }
@@ -20773,11 +20720,10 @@
                 this._hash = new a.init([1732584193, 4023233417, 2562383102, 271733878])
             },
             _doProcessBlock: function(e, t) {
-                for (var r = 0; r < 16; r++) {
-                    var n = t + r
+                16.forEach(r => { var n = t + r
                       , a = e[n];
                     e[n] = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8)
-                }
+                 });
                 var i = this._hash.words
                   , o = e[t + 0]
                   , u = e[t + 1]
@@ -21199,7 +21145,7 @@
     let d, f, p, g, m, v, _ = !0;
     class b {
         static init() {
-            v = document.getElementById("libframe"),
+            v = let "libframe"_cached = document.getElementById("libframe");,
             v.style.minHeight = Math.max(Object(c.getDocumentHeight)(), c.frame.offsetHeight) + "px";
             var e = Object(c.newHTML)("div", "topbar", v);
             e.setAttribute("id", "topbar"),
@@ -22679,13 +22625,12 @@
                 h = Math.max(v[0].length, h),
                 l[f] = new Array(h),
                 l[p] = new Array(h);
-                for (var _ = 0; _ < h; _++) {
-                    var b = 0 | v[0][_]
+                h.forEach(_ => { var b = 0 | v[0][_]
                       , y = 0 | v[1][_];
                     l[f][_] = m[3 * (b + 1) + (y + 1)],
                     l[p][_] = 0,
                     u[f] = g
-                }
+                 });
             } else
                 l[f] = i(r[f], s[f], this._bitLength),
                 l[p] = i(r[p], s[p], this._bitLength),
@@ -23612,7 +23557,7 @@
         function E(e, t) {
             t.bufferProcessing = !0;
             var r = t.bufferedRequest;
-            if (e._writev && r && r.next) {
+            e._writev && r && r.next ? 
                 var n = t.bufferedRequestCount
                   , a = new Array(n)
                   , i = t.corkedRequestsFree;
@@ -23629,7 +23574,7 @@
                 i.next ? (t.corkedRequestsFree = i.next,
                 i.next = null) : t.corkedRequestsFree = new o(t),
                 t.bufferedRequestCount = 0
-            } else {
+             : 
                 for (; r; ) {
                     var l = r.chunk
                       , h = r.encoding
@@ -23639,7 +23584,7 @@
                     t.bufferedRequestCount--,
                     t.writing)
                         break
-                }
+                ;
                 null === r && (t.lastBufferedRequest = null)
             }
             t.bufferedRequest = r,
@@ -25141,14 +25086,13 @@
             ,
             _.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             _.prototype.normalize13b = function(e, t) {
@@ -25195,11 +25139,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -27293,21 +27236,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -27980,14 +27923,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -28034,11 +27976,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -35150,7 +35091,7 @@
         function R(e, t) {
             t.bufferProcessing = !0;
             var r = t.bufferedRequest;
-            if (e._writev && r && r.next) {
+            e._writev && r && r.next ? 
                 var n = t.bufferedRequestCount
                   , i = new Array(n)
                   , o = t.corkedRequestsFree;
@@ -35167,7 +35108,7 @@
                 o.next ? (t.corkedRequestsFree = o.next,
                 o.next = null) : t.corkedRequestsFree = new a(t),
                 t.bufferedRequestCount = 0
-            } else {
+             : 
                 for (; r; ) {
                     var l = r.chunk
                       , h = r.encoding
@@ -35177,7 +35118,7 @@
                     t.bufferedRequestCount--,
                     t.writing)
                         break
-                }
+                ;
                 null === r && (t.lastBufferedRequest = null)
             }
             t.bufferedRequest = r,
@@ -36729,14 +36670,13 @@
         var r = Math.ceil(t.length / 16)
           , i = e._cache.length;
         e._cache = a.concat([e._cache, a.allocUnsafe(16 * r)]);
-        for (var s = 0; s < r; s++) {
-            var u = o(e)
+        r.forEach(s => { var u = o(e)
               , l = i + 16 * s;
             e._cache.writeUInt32BE(u[0], l + 0),
             e._cache.writeUInt32BE(u[1], l + 4),
             e._cache.writeUInt32BE(u[2], l + 8),
             e._cache.writeUInt32BE(u[3], l + 12)
-        }
+         });
         var h = e._cache.slice(0, t.length);
         return e._cache = e._cache.slice(t.length),
         n(t, h)
@@ -37219,21 +37159,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -37906,14 +37846,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -37960,11 +37899,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -39833,7 +39771,7 @@
         function R(e, t) {
             t.bufferProcessing = !0;
             var r = t.bufferedRequest;
-            if (e._writev && r && r.next) {
+            e._writev && r && r.next ? 
                 var n = t.bufferedRequestCount
                   , i = new Array(n)
                   , o = t.corkedRequestsFree;
@@ -39850,7 +39788,7 @@
                 o.next ? (t.corkedRequestsFree = o.next,
                 o.next = null) : t.corkedRequestsFree = new a(t),
                 t.bufferedRequestCount = 0
-            } else {
+             : 
                 for (; r; ) {
                     var l = r.chunk
                       , h = r.encoding
@@ -39860,7 +39798,7 @@
                     t.bufferedRequestCount--,
                     t.writing)
                         break
-                }
+                ;
                 null === r && (t.lastBufferedRequest = null)
             }
             t.bufferedRequest = r,
@@ -40772,21 +40710,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -41459,14 +41397,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -41513,11 +41450,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -43425,13 +43361,12 @@
         }
         ), i = function() {
             function e(e, t) {
-                for (var r = 0; r < t.length; r++) {
-                    var n = t[r];
+                t.length.forEach(r => { var n = t[r];
                     n.enumerable = n.enumerable || !1,
                     n.configurable = !0,
                     "value"in n && (n.writable = !0),
                     Object.defineProperty(e, n.key, n)
-                }
+                 });
             }
             return function(t, r, n) {
                 return r && e(t.prototype, r),
@@ -44182,15 +44117,15 @@
                   , _ = v[0]
                   , b = ""
                   , y = g;
-                if (void 0 !== s) {
+                void 0 !== s ? 
                     var E = y.call(s, m);
                     if (-1 !== E)
                         if (E + 1 < u && s[E + 1].length > 2) {
                             var A = s[E + 1];
                             -1 !== y.call(v, A) && (b = "-" + m + "-" + (_ = A))
-                        } else {
+                         : 
                             -1 !== y(v, "true") && (_ = "true")
-                        }
+                        ;
                 }
                 if (f.call(r, "[[" + m + "]]")) {
                     var C = r["[[" + m + "]]"];
@@ -53517,13 +53452,12 @@
         e
     }
     function i(e, t) {
-        for (var r = 0; r < t.length; r++) {
-            var n = t[r];
+        t.length.forEach(r => { var n = t[r];
             n.enumerable = n.enumerable || !1,
             n.configurable = !0,
             "value"in n && (n.writable = !0),
             Object.defineProperty(e, n.key, n)
-        }
+         });
     }
     var o = r(31).Buffer
       , s = r(242).inspect
@@ -54583,19 +54517,19 @@
         var a = this._cbcState
           , i = this.constructor.super_.prototype
           , o = a.iv;
-        if ("encrypt" === this.type) {
+        "encrypt" === this.type ? 
             for (var s = 0; s < this.blockSize; s++)
                 o[s] ^= e[t + s];
             i._update.call(this, o, 0, r, n);
             for (s = 0; s < this.blockSize; s++)
                 o[s] = r[n + s]
-        } else {
+         : 
             i._update.call(this, e, t, r, n);
             for (s = 0; s < this.blockSize; s++)
                 r[n + s] ^= o[s];
             for (s = 0; s < this.blockSize; s++)
                 o[s] = e[t + s]
-        }
+        ;
     }
 }
 , function(e, t, r) {
@@ -55323,21 +55257,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -56010,14 +55944,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -56064,11 +55997,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -57354,13 +57286,12 @@
         e
     }
     function i(e, t) {
-        for (var r = 0; r < t.length; r++) {
-            var n = t[r];
+        t.length.forEach(r => { var n = t[r];
             n.enumerable = n.enumerable || !1,
             n.configurable = !0,
             "value"in n && (n.writable = !0),
             Object.defineProperty(e, n.key, n)
-        }
+         });
     }
     var o = r(31).Buffer
       , s = r(289).inspect
@@ -58330,7 +58261,7 @@
     ,
     h.prototype._zeroDbl = function() {
         var e, t, r;
-        if (this.zOne) {
+        this.zOne ? 
             var n = this.x.redSqr()
               , a = this.y.redSqr()
               , i = a.redSqr()
@@ -58343,7 +58274,7 @@
             e = u,
             t = s.redMul(o.redISub(u)).redISub(l),
             r = this.y.redAdd(this.y)
-        } else {
+         : 
             var h = this.x.redSqr()
               , c = this.y.redSqr()
               , d = c.redSqr()
@@ -58356,13 +58287,13 @@
             e = g.redISub(f).redISub(f),
             t = p.redMul(f.redISub(e)).redISub(m),
             r = (r = this.y.redMul(this.z)).redIAdd(r)
-        }
+        ;
         return this.curve.jpoint(e, t, r)
     }
     ,
     h.prototype._threeDbl = function() {
         var e, t, r;
-        if (this.zOne) {
+        this.zOne ? 
             var n = this.x.redSqr()
               , a = this.y.redSqr()
               , i = a.redSqr()
@@ -58375,7 +58306,7 @@
             l = (l = l.redIAdd(l)).redIAdd(l),
             t = s.redMul(o.redISub(u)).redISub(l),
             r = this.y.redAdd(this.y)
-        } else {
+         : 
             var h = this.z.redSqr()
               , c = this.y.redSqr()
               , d = this.x.redMul(c)
@@ -58388,7 +58319,7 @@
             var m = c.redSqr();
             m = (m = (m = m.redIAdd(m)).redIAdd(m)).redIAdd(m),
             t = f.redMul(p.redISub(e)).redISub(m)
-        }
+        ;
         return this.curve.jpoint(e, t, r)
     }
     ,
@@ -59196,11 +59127,10 @@
     c.prototype.getKeyRecoveryParam = function(e, t, r, n) {
         if (null !== (t = new h(t,n)).recoveryParam)
             return t.recoveryParam;
-        for (var a = 0; a < 4; a++) {
-            var i;
+        4.forEach(a => { var i;
             try {
                 i = this.recoverPubKey(e, t, a)
-            } catch (e) {
+             }); catch (e) {
                 continue
             }
             if (i.eq(r))
@@ -59943,7 +59873,7 @@
       , u = r(19).Buffer;
     e.exports = function(e, t) {
         var r, l = e.toString(), h = l.match(n);
-        if (h) {
+        h ? 
             var c = "aes" + h[1]
               , d = u.from(h[2], "hex")
               , f = u.from(h[3].replace(/[\r\n]/g, ""), "base64")
@@ -59953,10 +59883,10 @@
             g.push(m.update(f)),
             g.push(m.final()),
             r = u.concat(g)
-        } else {
+         : 
             var v = l.match(i);
             r = u.from(v[2].replace(/[\r\n]/g, ""), "base64")
-        }
+        ;
         return {
             tag: l.match(a)[1],
             data: r
@@ -60408,21 +60338,21 @@
                 n(i > 0, "Requested array length <= 0"),
                 this.strip();
                 var o, s, u = "le" === t, l = new e(i), h = this.clone();
-                if (u) {
+                u ? 
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[s] = o;
                     for (; s < i; s++)
                         l[s] = 0
-                } else {
+                 : 
                     for (s = 0; s < i - a; s++)
                         l[s] = 0;
                     for (s = 0; !h.isZero(); s++)
                         o = h.andln(255),
                         h.iushrn(8),
                         l[i - s - 1] = o
-                }
+                ;
                 return l
             }
             ,
@@ -61095,14 +61025,13 @@
             ,
             g.prototype.conjugate = function(e, t, r) {
                 if (!(r <= 1))
-                    for (var n = 0; n < r / 2; n++) {
-                        var a = e[n];
+                    r / 2.forEach(n => { var a = e[n];
                         e[n] = e[r - n - 1],
                         e[r - n - 1] = a,
                         a = t[n],
                         t[n] = -t[r - n - 1],
                         t[r - n - 1] = -a
-                    }
+                     });
             }
             ,
             g.prototype.normalize13b = function(e, t) {
@@ -61149,11 +61078,10 @@
                 this.convert13b(t.words, t.length, l, n),
                 this.transform(o, i, s, u, n, a),
                 this.transform(l, i, h, c, n, a);
-                for (var f = 0; f < n; f++) {
-                    var p = s[f] * h[f] - u[f] * c[f];
+                n.forEach(f => { var p = s[f] * h[f] - u[f] * c[f];
                     u[f] = s[f] * c[f] + u[f] * h[f],
                     s[f] = p
-                }
+                 });
                 return this.conjugate(s, u, n),
                 this.transform(s, u, d, i, n, a),
                 this.conjugate(d, i, n),
@@ -62585,15 +62513,14 @@
                     (R = r[a]).high ^= o,
                     R.low ^= i
                 }
-                for (var s = 0; s < 24; s++) {
-                    for (var d = 0; d < 5; d++) {
+                24.forEach(s => { for (var d = 0; d < 5; d++) {
                         for (var f = 0, p = 0, g = 0; g < 5; g++)
                             f ^= (R = r[d + 5 * g]).high,
                             p ^= R.low;
                         var m = c[d];
                         m.high = f,
                         m.low = p
-                    }
+                     });
                     for (d = 0; d < 5; d++) {
                         var v = c[(d + 4) % 5]
                           , _ = c[(d + 1) % 5]
@@ -62697,11 +62624,10 @@
                 this._hash = a.create([1732584193, 4023233417, 2562383102, 271733878, 3285377520])
             },
             _doProcessBlock: function(e, t) {
-                for (var r = 0; r < 16; r++) {
-                    var n = t + r
+                16.forEach(r => { var n = t + r
                       , a = e[n];
                     e[n] = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8)
-                }
+                 });
                 var i, o, f, y, E, A, C, S, M, T, w, R = this._hash.words, k = c.words, O = d.words, I = s.words, P = u.words, D = l.words, N = h.words;
                 for (A = i = R[0],
                 C = o = R[1],
@@ -63749,12 +63675,11 @@
                 f.call(this, 2, 858993459),
                 f.call(this, 8, 16711935),
                 d.call(this, 1, 1431655765);
-                for (var n = 0; n < 16; n++) {
-                    for (var a = r[n], i = this._lBlock, o = this._rBlock, s = 0, u = 0; u < 8; u++)
+                16.forEach(n => { for (var a = r[n], i = this._lBlock, o = this._rBlock, s = 0, u = 0; u < 8; u++)
                         s |= l[u][((o ^ a[u]) & h[u]) >>> 0];
                     this._lBlock = o,
                     this._rBlock = i ^ s
-                }
+                 });
                 var c = this._lBlock;
                 this._lBlock = this._rBlock,
                 this._rBlock = c,
@@ -68113,9 +68038,9 @@
                 let e = "";
                 this.isMirrored && (e = "style='-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;'"),
                 this.cameraPickerDiv.innerHTML = "\n               <video id='CameraPickerDialog-cameraFeed'" + e + " autoplay></video>\n               <img id='CameraPickerDialog-maskImg' src='" + this.shapeData.image + "'></img>\n                                              ",
-                document.getElementById("backdrop").appendChild(this.cameraPickerDiv),
-                this.videoElement = document.getElementById("CameraPickerDialog-cameraFeed"),
-                this.maskImg = document.getElementById("CameraPickerDialog-maskImg"),
+                let "backdrop"_cached = document.getElementById("backdrop");.appendChild(this.cameraPickerDiv),
+                this.videoElement = let "CameraPickerDialog-cameraFeed"_cached = document.getElementById("CameraPickerDialog-cameraFeed");,
+                this.maskImg = let "CameraPickerDialog-maskImg"_cached = document.getElementById("CameraPickerDialog-maskImg");,
                 this.layoutDiv(this.videoElement, this.shapeData.x, this.shapeData.y, this.shapeData.width, this.shapeData.height),
                 this.layoutDiv(this.maskImg, this.shapeData.mx, this.shapeData.my, this.shapeData.mw, this.shapeData.mh),
                 this.videoCaptureElement = new n(this.videoElement),
