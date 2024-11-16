@@ -409,50 +409,85 @@
         e.style.width = t + "px",
         e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
-        var n = window.devicePixelRatio * scaleMultiplier
-          , a = Math.floor(t * n)
-          , i = Math.floor(r * n);
-        e.width = a,
-        e.height = i,
-        e.style.width = a + "px",
-        e.style.height = i + "px",
-        e.style.zoom = scaleMultiplier / n
+    // Set canvas size scaled to the document height
+function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
+    // Calculate scaling factor using device pixel ratio and scaleMultiplier
+    var scale = window.devicePixelRatio * scaleMultiplier;
+
+    // Compute width and height scaled by the factor
+    var scaledWidth = Math.floor(t * scale);
+    var scaledHeight = Math.floor(r * scale);
+
+    // Apply scaled dimensions to the canvas
+    e.width = scaledWidth;
+    e.height = scaledHeight;
+    e.style.width = scaledWidth + "px";
+    e.style.height = scaledHeight + "px";
+
+    // Adjust zoom for better rendering
+    e.style.zoom = scaleMultiplier / scale;
+}
+
+// Calculate local X coordinate of a point relative to an element
+function localx(e, t) {
+    var adjustedX = t;
+
+    // Traverse up the DOM tree to adjust the X coordinate
+    while (e && e.offsetTop != null) {
+        var transformMatrix = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+        adjustedX -= e.offsetLeft + e.clientLeft + transformMatrix.m41;
+        e = e.parentNode;
     }
-    function localx(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
-            e = e.parentNode;
-        return r
+    return adjustedX;
+}
+
+// Calculate global X coordinate of an element
+function globalx(e) {
+    var globalX = 0;
+
+    // Traverse up the DOM tree to compute the global X position
+    while (e && e.offsetLeft != null) {
+        var transformMatrix = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+        var scaleX = transformMatrix.m11;
+
+        // Adjust for transformations and offsets
+        globalX += (e.clientWidth - scaleX * e.clientWidth) / 2;
+        globalX += transformMatrix.m41 + e.offsetLeft + e.clientLeft;
+        e = e.parentNode;
     }
-    function globalx(e) {
-        for (var t = 0; e && null != e.offsetLeft; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m11;
-            t += (e.clientWidth - n * e.clientWidth) / 2,
-            t += r.m41,
-            t += e.offsetLeft + e.clientLeft,
-            e = e.parentNode
-        }
-        return t
+    return globalX;
+}
+
+// Calculate local Y coordinate of a point relative to an element
+function localy(e, t) {
+    var adjustedY = t;
+
+    // Traverse up the DOM tree to adjust the Y coordinate
+    while (e && e.offsetTop != null) {
+        var transformMatrix = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+        adjustedY -= e.offsetTop + e.clientTop + transformMatrix.m42;
+        e = e.parentNode;
     }
-    function localy(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
-            e = e.parentNode;
-        return r
+    return adjustedY;
+}
+
+// Calculate global Y coordinate of an element
+function globaly(e) {
+    var globalY = 0;
+
+    // Traverse up the DOM tree to compute the global Y position
+    while (e && e.offsetTop != null) {
+        var transformMatrix = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform);
+        var scaleY = transformMatrix.m22;
+
+        // Adjust for transformations and offsets
+        globalY += (e.clientHeight - scaleY * e.clientHeight) / 2;
+        globalY += transformMatrix.m42 + e.offsetTop + e.clientTop;
+        e = e.parentNode;
     }
-    function globaly(e) {
-        for (var t = 0; e && null != e.offsetTop; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m22;
-            t += (e.clientHeight - n * e.clientHeight) / 2,
-            t += r.m42,
-            t += e.offsetTop + e.clientTop,
-            e = e.parentNode
-        }
-        return t
-    }
+    return globalY;
+}
+
     function setProps(e, t) {
         for (var r in t)
             e[r] = t[r]
