@@ -23,7 +23,7 @@
     element.style.position = 'fixed';
     element.style.top = 0;
     element.style.left = 0;
-    element.style.width = '150%';
+    element.style.width = '100%';
     element.style.height = '100%';
     element.style.zIndex = 1000;
     element.style.backgroundColor = '#000';
@@ -63,7 +63,7 @@
   if (!inIframe()) {
     window.addEventListener("load", () => {
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js");
+        navigator.serviceWorker.register("sw1.js");
       }
     });
   }
