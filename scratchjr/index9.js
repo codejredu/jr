@@ -409,16 +409,17 @@
         e.style.width = t + "px",
         e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
-        const scaleFactor = window.devicePixelRatio * scaleMultiplier;
-        const scaledWidth = Math.floor(t * scaleFactor);
-        const scaledHeight = Math.floor(r * scaleFactor);
+    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r, scaleFactor = 1) {
+        const deviceScale = window.devicePixelRatio * scaleMultiplier;
+        const totalScale = deviceScale * scaleFactor;
+        const scaledWidth = Math.floor(t * totalScale);
+        const scaledHeight = Math.floor(r * totalScale);
     
         e.width = scaledWidth;
         e.height = scaledHeight;
         e.style.width = `${scaledWidth}px`;
         e.style.height = `${scaledHeight}px`;
-        e.style.zoom = scaleMultiplier / window.devicePixelRatio;
+        e.style.zoom = scaleMultiplier / deviceScale;
     }
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
