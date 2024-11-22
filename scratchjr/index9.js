@@ -409,7 +409,7 @@
         e.style.width = t + "px",
         e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r, scaleFactor = 1) {
+    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r, scaleFactor = 2) {
         const deviceScale = window.devicePixelRatio * scaleMultiplier;
         const totalScale = deviceScale * scaleFactor;
         const scaledWidth = Math.floor(t * totalScale);
