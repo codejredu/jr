@@ -1,7 +1,3 @@
-// Modernized version of the uploaded script
-// This script has been updated to use ES6+ features and a cleaner structure.
-// Additional modifications can be made as needed.
-
 !function(e) {
     var t = {};
     function r(n) {
@@ -68155,4 +68151,3 @@
     }
 }
 ]);
-
