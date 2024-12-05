@@ -10134,22 +10134,35 @@
             }
         }
         static grabMouseMove(e) {
+            // הקוד הקיים
             var t = M.getScreenPt(e)
-              , r = c.a.diff(t, a.a.deltaPoint);
+            var r = c.a.diff(t, a.a.deltaPoint);
             M.movePointByDrag(r.x, r.y),
             S = !0;
             var n = Object(_.gn)(y.getAttribute("parentid"))
-              , i = f.a.isCloseDPath(n);
-            if (u.a.reshape(n),
-            i != f.a.isCloseDPath(n) && M.playSnapSound(i),
+            var i = f.a.isCloseDPath(n);
+            u.a.reshape(n),
+            
+            // שינוי צורת העכבר
+            document.body.style.cursor = 'grabbing'; // מוסיף סמן עכבר של גרירה
+        
+            if (i != f.a.isCloseDPath(n) && M.playSnapSound(i),
             !f.a.isCloseDPath(n) && u.a.isTip(y)) {
                 h.a.clearLayer();
                 var o = u.a.getClosestPath(t, n, Object(_.gn)("layer1"), u.a.maxDistance());
+                
                 if (o) {
                     var l = s.a.createGroup(Object(_.gn)("draglayer"), "cusorstate");
                     h.a.getKid(l, o, .7),
                     E = o
                 }
+            }
+        }
+        
+        // מומלץ להוסיף גם איפוס של צורת העכבר כאשר מסיימים את הגרירה
+        static grabMouseUp(e) {
+            document.body.style.cursor = 'default'; // מחזיר את צורת העכבר המקורית
+        }
             }
         }
         static playSnapSound(e) {
