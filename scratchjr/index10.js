@@ -388,9 +388,9 @@
     }
     function hitTest(e, t) {
 
-            // Custom cursor change logic for interactive objects
-            if (t) {
-                t.style.cursor = "pointer"; // Change cursor to hand pointer
+            // Ensure proper cursor style for interactive objects
+            if (e && e.style) { // Check if element exists and is styled
+                e.style.cursor = "pointer"; // Change cursor to hand pointer
                 console.log("Cursor changed to pointer on interactive object."); // Debug log
             }
                     if (!t)
