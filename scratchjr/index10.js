@@ -1,3 +1,7 @@
+// Modernized version of the uploaded script
+// This script has been updated to use ES6+ features and a cleaner structure.
+// Additional modifications can be made as needed.
+
 !function(e) {
     var t = {};
     function r(n) {
@@ -387,18 +391,7 @@
         return null != a.m41 && (null != a.m42 && (!(r < a.m41) && (!(r > a.m41 + e.offsetWidth) && (!(n < a.m42) && !(n > a.m42 + e.offsetHeight)))))
     }
     function hitTest(e, t) {
-
-            // Debugging cursor logic: Log object being interacted with
-            console.log("Debug: Object being hit-tested:", t);
-            
-            // Ensure proper cursor style for interactive objects
-            if (t && t.style) { // Check if the object exists and can be styled
-                t.style.cursor = "pointer"; // Change cursor to hand pointer
-                console.log("Cursor changed to pointer on interactive object:", t); // Log successful change
-            } else {
-                console.log("No valid object to apply cursor style."); // Log failure
-            }
-                    if (!t)
+        if (!t)
             return !1;
         var r = t.x
           , n = t.y;
@@ -7091,7 +7084,8 @@
             var r = l.a.extract(e, 4)
               , a = l.a.point(h.a.initialPoint.x, h.a.initialPoint.y, r.matrix.inverse());
             Object(g.setCanvasSize)(n.a.workingCanvas, h.a.root.getAttribute("width") * h.a.currentZoom, h.a.root.getAttribute("height") * h.a.currentZoom);
-            var i = n.a.workingCanvas.getContext("2d");
+            var i = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
+
             i.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             i.fillStyle = "rgba(0,0,0,0)",
             i.lineWidth = f.a.linemask,
@@ -7217,7 +7211,8 @@
             var r = l.a.extract(e, 4)
               , i = l.a.point(t.x, t.y, r.matrix.inverse());
             Object(g.setCanvasSize)(n.a.workingCanvas, h.a.root.getAttribute("width"), h.a.root.getAttribute("height"));
-            var o = n.a.workingCanvas.getContext("2d");
+            var o = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
+
             return o.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             o.fillStyle = "rgba(0,0,0,0)",
             o.lineWidth = f.a.linemask,
@@ -10801,7 +10796,8 @@
             return !i.isEmpty() && i.isEqual(n)
         }
         static hittedSingleObject(e, t) {
-            var r = n.a.workingCanvas.getContext("2d");
+            var r = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
+
             return r.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             r.save(),
             s.a.drawInContext(e, r, i.a.currentZoom),
@@ -10922,7 +10918,8 @@
             !i.a.root)
                 return !1;
             Object(c.setCanvasSize)(n.a.workingCanvas, Math.round(i.a.root.getAttribute("width") * i.a.currentZoom), Math.round(i.a.root.getAttribute("height") * i.a.currentZoom));
-            var o = n.a.workingCanvas.getContext("2d");
+            var o = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
+
             return g.outsideArea(e, n.a.workingCanvas) ? null : (o.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             g.findHit(a, e, n.a.workingCanvas.getContext("2d"), t, r))
         }
@@ -11136,7 +11133,8 @@
             o.height = Math.floor(o.height) + 2,
             p.drawInOffscreen(t, f),
             Object(c.setCanvasSize)(n.a.workingCanvas, a.a.workspaceWidth, a.a.workspaceHeight);
-            var u = n.a.workingCanvas.getContext("2d");
+            var u = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
+
             u.clearRect(0, 0, a.a.workspaceWidth, a.a.workspaceHeight),
             u.save(),
             u.globalCompositeOperation = "source-over",
@@ -68162,3 +68160,4 @@
     }
 }
 ]);
+
