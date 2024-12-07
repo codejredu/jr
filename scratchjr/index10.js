@@ -118,13 +118,19 @@
     }
     )),
     __webpack_require__.d(__webpack_exports__, "newDiv", (function() {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         return newDiv
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
     }
     )),
     __webpack_require__.d(__webpack_exports__, "newImage", (function() {
@@ -136,13 +142,19 @@
     }
     )),
     __webpack_require__.d(__webpack_exports__, "newHTML", (function() {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         return newHTML
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
     }
     )),
     __webpack_require__.d(__webpack_exports__, "newP", (function() {
@@ -341,9 +353,12 @@
         window.location.reload()
     }
     function newDiv(e, t, r, n, a, i) {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         var o = document.createElement("div");
         return o.style.position = "absolute",
         o.style.top = r + "px",
@@ -372,9 +387,12 @@
         o
     }
     function newHTML(e, t, r) {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         var n = document.createElement(e);
         return t && n.setAttribute("class", t),
         r && r.appendChild(n),
@@ -1725,14 +1743,20 @@
         }
         static setupEditableField() {
             O = Object(u.newHTML)("form", "textform", u.frame),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             O.name = "editable";
             var e = Object(u.newHTML)("input", "textinput", O);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             function t(e) {
                 e.preventDefault(),
                 e.stopPropagation(),
@@ -1811,14 +1835,20 @@
         }
         static setupKeypad() {
             k = Object(u.newHTML)("div", "picokeyboard", u.frame),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             k.onpointerdown = Z.eatEvent;
             for (var e = Object(u.newHTML)("div", "insidekeyboard", k), t = 1; t < 10; t++)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Z.keyboardAddKey(e, t, "onekey");
             Z.keyboardAddKey(e, "-", "onekey minus"),
             Z.keyboardAddKey(e, "0", "onekey"),
@@ -1849,13 +1879,19 @@
         }
         static keyboardAddKey(e, t, r) {
             var n = Object(u.newHTML)("div", r, e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(u.newHTML)("span", void 0, n).textContent = t || "",
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.onpointerdown = Z.numEditKey
         }
         static numberClicked(e, t) {
@@ -2371,18 +2407,27 @@
         static layout() {
             q.topbar();
             var e = Object(E.newHTML)("div", "innerpaint", w);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             q.leftPalette(e);
             var t = Object(E.newHTML)("div", "workspacebkg-container", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(E.newHTML)("div", "workspacebkg", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "workspacebkg"),
             q.rightPalette(e),
             q.colorPalette(w),
@@ -2391,32 +2436,44 @@
         }
         static topbar() {
             var e = Object(E.newHTML)("div", "paintop", w);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             q.checkMark(e),
             m.a.setup(e),
             q.nameOfcostume(e)
         }
         static checkMark(e) {
             var t = Object(E.newHTML)("div", "paintdone", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.id = "donecheck",
             E.isTablet,
             t.onpointerdown = q.backToProject
         }
         static nameOfcostume(e) {
             var t = Object(E.newHTML)("form", "spriteform", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.name = "spriteform";
             var r = Object(E.newHTML)("input", void 0, t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.autocomplete = !1,
             r.autocorrect = !1,
             r.name = "name",
@@ -2472,34 +2529,49 @@
         }
         static leftPalette(e) {
             var t = Object(E.newHTML)("div", "side up", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(E.newHTML)("div", "paintpalette", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "paintpalette"),
             q.setupEditPalette(r),
             q.createSizeSelector(r)
         }
         static setupEditPalette(e) {
             var t = Object(E.newHTML)("div", "section", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "painttools");
             var r = ["path", "ellipse", "rect", "tri"]
               , n = 0;
             for (n = 0; n < r.length; n++) {
                 var a = Object(E.newHTML)("div", "element off", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , i = Object(E.newHTML)("div", "tool " + r[n] + " off", a);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 i.setAttribute("key", r[n]),
                 E.isTablet,
                 i.onpointerdown = q.setMode
@@ -2507,15 +2579,21 @@
         }
         static createSizeSelector(e) {
             var t = Object(E.newHTML)("div", "section space", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "sizeSelector");
             for (var r = 0; r < L.length; r++) {
                 var n = Object(E.newHTML)("div", "pensizeholder", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 n.key = r,
                 n.onpointerdown = function(e) {
                     e.preventDefault(),
@@ -2526,9 +2604,12 @@
                 }
                 ;
                 var a = Object(E.newHTML)("div", "line t" + r, n);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 q.drawPenSizeInColor(a)
             }
             B = L[1],
@@ -2553,28 +2634,40 @@
         }
         static rightPalette(e) {
             var t = Object(E.newHTML)("div", "side", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             q.addSidePalette(t, "selectortools", ["select", "rotate"]),
             q.addSidePalette(t, "edittools", ["stamper", "scissors"]),
             q.addSidePalette(t, "filltools", "1" == u.default.camera && v.default.available ? ["camera", "paintbucket"] : ["paintbucket"])
         }
         static addSidePalette(e, t, r) {
             var n = Object(E.newHTML)("div", "paintpalette short", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("id", t);
             for (var a = 0; a < r.length; a++) {
                 var i = Object(E.newHTML)("div", "element off", n)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , o = Object(E.newHTML)("div", "tool " + r[a] + " off", i);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 o.setAttribute("key", r[a]),
                 o.onpointerdown = q.setMode
             }
@@ -2585,34 +2678,49 @@
                 display: "block"
             });
             var e = Object(E.newHTML)("div", "phototopbar", Object(E.gn)("backdrop"));
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "photocontrols");
             var t = Object(E.newHTML)("div", "flipcamera", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "cameraflip"),
             t.setAttribute("key", "cameraflip"),
             E.isAndroid && !AndroidInterface.scratchjr_has_multiple_cameras() && (t.style.display = "none"),
             t.onpointerdown = q.setMode;
             var r = Object(E.newHTML)("div", "snapshot-container", Object(E.gn)("backdrop"));
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "capture-container");
             var n = Object(E.newHTML)("div", "snapshot", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("id", "capture"),
             n.setAttribute("key", "camerasnap"),
             n.onpointerdown = q.setMode;
             var a = Object(E.newHTML)("div", "cameraclose", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.setAttribute("id", "cameraclose"),
             a.onpointerdown = q.closeCameraMode
         }
@@ -2658,31 +2766,49 @@
         static colorPalette(e) {
             var t = q.initSwatchList()
               , r = Object(E.newHTML)("div", "swatchpalette-container", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , n = Object(E.newHTML)("div", "swatchpalette", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("id", "swatches");
             for (var a = 0; a < t.length; a++) {
                 var i = Object(E.newHTML)("div", "swatchbucket", n)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , o = Object(E.newHTML)("div", "swatchframe", i);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Object(E.newHTML)("div", "swatchcolor", o).style.background = t[a],
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 o = Object(E.newHTML)("div", "splasharea off", i),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 q.setSplashColor(o, k, t[a]),
                 q.addImageUrl(o, O),
                 i.onpointerdown = q.selectSwatch
@@ -2723,9 +2849,12 @@
         }
         static createSVGeditor(e) {
             var t = Object(E.newHTML)("div", "maincanvas", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "maincanvas"),
             t.style.background = "#F5F2F7",
             t.style.top = "0px",
@@ -4910,26 +5039,38 @@
             d = S.version,
             h = Object(n.gn)("htmlcontents");
             var e = Object(n.newHTML)("div", "inner", h);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("div", "scrollarea", e).setAttribute("id", "scrollarea"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             h.onpointerdown = p.handleTouchStart,
             h.onpointerup = p.handleTouchEnd,
             p.displayYourProjects()
         }
         static emptyProjectThumbnail(e) {
             var t = Object(n.newHTML)("div", "projectthumb", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("div", "aproject empty", t),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.id = "newproject"
         }
         static handleTouchStart(e) {
@@ -5070,52 +5211,79 @@
                 var s = "string" == typeof o ? JSON.parse(o) : o
                   , u = s.pagecount ? s.pagecount : 1
                   , l = Object(n.newHTML)("div", "projectthumb", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 l.setAttribute("id", i),
                 l.type = "projectthumb",
                 l.thumb = s.md5;
                 var h = Object(n.newHTML)("div", "aproject p" + u, l);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 p.insertThumbnail(h, 192, 144, s);
                 var c = Object(n.newHTML)("div", "projecttitle", l);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Object(n.newHTML)("h4", void 0, c).textContent = r.name;
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 var d = Object(n.newHTML)("div", "share", l)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , f = Object(n.newHTML)("div", "ribbonHorizontal", l)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , g = Object(n.newHTML)("div", "ribbonVertical", l);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 "0" != r.isgift && (d.style.visibility = "visible",
                 f.style.visibility = "visible",
                 g.style.visibility = "visible"),
                 Object(n.newHTML)("div", "closex", l)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             }
         }
         static insertThumbnail(e, t, r, i) {
             var o = i.md5
               , s = Object(n.newHTML)("img", void 0, e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             o && a.a.getAsset(o, (function(e) {
                 s.src = e
             }
@@ -5149,9 +5317,12 @@
             v = Object(n.gn)("htmlcontents"),
             Object(n.gn)("tabicon").onpointerdown = b.playHowTo,
             Object(n.newHTML)("div", "samples off", v).setAttribute("id", "samples"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             b.display("samples")
         }
         static playHowTo(e) {
@@ -5198,28 +5369,43 @@
         }
         static addLink(e, t, r) {
             var a = Object(n.newHTML)("div", "samplethumb", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.setAttribute("id", "sample-" + t),
             a.md5 = r,
             a.type = "samplethumb";
             var i = Object(n.newHTML)("div", "thumb pos" + t, a);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("div", "woodframe", i),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("div", "sampleicon", i),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("p", void 0, a).textContent = "Sample " + t
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static requestFromServer(e, t, r) {
             var n = new XMLHttpRequest;
@@ -5338,9 +5524,12 @@
             Object(n.gn)("wrapc").scrollTop = 0,
             Object(n.gn)("wrapc").className = "contentwrap scroll",
             Object(n.newHTML)("div", "htmlcontents home", e).setAttribute("id", "htmlcontents"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             p.init()
         }
         static loadSamples(e) {
@@ -5351,9 +5540,12 @@
             Object(n.gn)("wrapc").scrollTop = 0,
             Object(n.gn)("wrapc").className = "contentwrap noscroll",
             Object(n.newHTML)("div", "htmlcontents help", e).setAttribute("id", "htmlcontents"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             document.onpointermove = function(e) {
                 e.preventDefault()
             }
@@ -5364,9 +5556,12 @@
             Object(n.gn)("topsection").className = "topsection book",
             Object(n.gn)("footer").className = "footer on",
             Object(n.newHTML)("div", "htmlcontents home", e).setAttribute("id", "htmlcontents"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             setTimeout((function() {
                 S.setSubMenu("about")
             }
@@ -5378,25 +5573,37 @@
             Object(n.gn)("wrapc").scrollTop = 0,
             Object(n.gn)("wrapc").className = "contentwrap scroll";
             var t = Object(n.newHTML)("div", "htmlcontents settings", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "htmlcontents"),
             Object(n.newHTML)("h1", "localizationtitle", t).textContent = o.default.localize("SELECT_LANGUAGE");
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var r, a = Object(n.newHTML)("div", "languagebuttons", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             for (var u in window.Settings.supportedLocales) {
                 var l = "";
                 window.Settings.supportedLocales[u] == o.default.currentLocale && (l = " selected"),
                 (r = Object(n.newHTML)("div", "localizationselect" + l, a)).textContent = u,
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 r.onpointerdown = function(e) {
                     i.a.sndFX("tap.wav");
                     let t = window.Settings.supportedLocales[e.target.textContent];
@@ -5462,9 +5669,12 @@
             Object(n.gn)("wrapc").scrollTop = 0,
             Object(n.gn)("wrapc").className = r;
             var i = Object(n.newHTML)("div", "htmlsubpagecontents", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             i.setAttribute("id", "htmlsubpagecontents"),
             Object(n.gn)("htmlsubpagecontents").className = a;
             var o = Object(n.preprocessAndLoad)(t);
@@ -5479,35 +5689,53 @@
             for (var t = Object(n.gn)("wrapc"); t.childElementCount > 0; )
                 t.removeChild(t.childNodes[0]);
             var r = Object(n.newHTML)("div", "htmlcontents", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "htmlcontents");
             var a = Object(n.newHTML)("div", "errormsg", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("h1", void 0, a).textContent = e,
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             E = !1
         }
         static missing(e, t) {
             Object(n.gn)("wrapc").className = "contentwrap scroll";
             var r = Object(n.newHTML)("div", "htmlcontents", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "htmlcontents"),
             r = Object(n.newHTML)("div", "errormsg", r),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(n.newHTML)("h1", void 0, r).textContent = e.toUpperCase() + ": UNDER CONSTRUCTION",
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             E = !1
         }
         static goHome() {
@@ -6278,30 +6506,45 @@
         static init() {
             n.a.log("Project init", n.a.getTime(), "sec"),
             Object(p.newHTML)("div", "modal-backdrop fade", p.frame.parentNode).setAttribute("id", "backdrop"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.setProps)(Object(p.gn)("backdrop").style, {
                 display: "none"
             });
             var e = Object(p.newHTML)("div", "modal-outer", p.frame.parentNode)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , t = Object(p.newHTML)("div", "modal-middle", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(p.newHTML)("div", "modal hide fade", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "modaldialog"),
             Object(p.setProps)(Object(p.gn)("modaldialog").style, {});
             var a = Object(p.newHTML)("div", "modal-body", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.setAttribute("id", "modalbody"),
             Object(p.setProps)(a.style, {
                 zoom: p.scaleMultiplier
@@ -6315,29 +6558,47 @@
         static addFeedback() {
             var e = Object(p.gn)("modalbody");
             Object(p.newHTML)("div", "loadscreenfill", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.newHTML)("div", "topfill", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.newHTML)("div", "loadscreencover", e).setAttribute("id", "progressbar"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.newHTML)("div", "topcover", e).setAttribute("id", "topcover"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.newHTML)("div", "progressbar2", e).setAttribute("id", "progressbar2"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(p.newHTML)("div", "loadicon", e).appendChild(E)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static setProgress(e) {
             if (Object(p.gn)("progressbar")) {
@@ -8679,9 +8940,12 @@
             l.a.move3D(l.a.dragcanvas, r, a),
             c.frame.appendChild(l.a.dragcanvas),
             d = Object(c.newHTML)("div", "pagethumb caret", Object(c.gn)("pagecc")),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             d.prev = l.a.dragthumbnail.prev,
             d.next = l.a.dragthumbnail.next,
             l.a.dragthumbnail.prev && (l.a.dragthumbnail.prev.next = d),
@@ -8836,13 +9100,19 @@
         }
         static emptyPage(e) {
             var t = Object(c.newHTML)("div", "pagethumb", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(c.newHTML)("div", "empty", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return ("PBS" == window.Settings.edition ? Object(c.newImage)(r, "assets/ui/newpage.svg") : Object(c.newImage)(r, "assets/ui/newpage.png", {
                 position: "absolute"
             })).setAttribute("class", "unselectable"),
@@ -8918,9 +9188,12 @@
                 var t = e.getAttribute("class");
                 e.setAttribute("class", t + " shakethumb"),
                 Object(c.newHTML)("div", "deletespritethumb", e).id = "deletespritethumb"
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             }
         }
         static stopCharShaking(e) {
@@ -9083,37 +9356,55 @@
             _ = 90 * m,
             A.createCategorySelectors(e);
             var t = Object(g.newHTML)("div", "palette", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "palette"),
             t.onpointerdown = function(e) {
                 A.paletteMouseDown(e)
             }
             ;
             var r = Object(g.newHTML)("div", "papercut", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(g.newHTML)("div", "withstyle", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static createCategorySelectors(e) {
             var t = Object(g.newHTML)("div", "categoryselector", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "selectors");
             var r = Object(g.newHTML)("div", "catbkg", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(g.newHTML)("div", "catimage", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             for (var n = 15 * g.scaleMultiplier, a = 54 * g.scaleMultiplier, o = 0; o < i.a.categories.length; o++)
                 A.createSelector(t, o, n + o * a, 0, i.a.categories[o])
         }
@@ -9171,9 +9462,12 @@
             n.a.stopShaking = A.stopShaking,
             e.setAttribute("class", "shakeme"),
             Object(g.newHTML)("div", "deletesound", e)) : A.showHelp(null, e))
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static clickBlock(e, t) {
             n.a.shaking && t == n.a.shaking ? A.removeSound(t) : (n.a.clearSelection(),
@@ -9264,9 +9558,12 @@
             var i = 51 * g.scaleMultiplier
               , o = 57 * g.scaleMultiplier
               , s = Object(g.newDiv)(e, r, n, i, o, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute"
             });
             s.index = t;
@@ -9373,9 +9670,12 @@
         static drawRecordSound(e, t, r) {
             var n = Object(g.gn)("palette")
               , a = Object(g.newDiv)(n, r, 0, e, t, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 top: 6 * g.scaleMultiplier + "px"
             })
               , o = Object(g.newCanvas)(a, 0, 0, a.offsetWidth * window.devicePixelRatio, a.offsetHeight * window.devicePixelRatio, {
@@ -9605,9 +9905,12 @@
         }
         static setup(e) {
             var t = Object(l.newHTML)("div", "controlundo", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "undocontrols");
             for (var r = [["undo", f.prevStep], ["redo", f.nextStep]], n = 0; n < r.length; n++)
                 f.newToggleClicky(t, "id_", r[n][0], r[n][1]);
@@ -9615,9 +9918,12 @@
         }
         static newToggleClicky(e, t, r, n) {
             var a = Object(l.newHTML)("div", r + "button", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return a.setAttribute("type", "toggleclicky"),
             a.setAttribute("id", t + r),
             n && (l.isTablet,
@@ -10858,9 +11164,12 @@
         }
         static setup(e) {
             var t = Object(u.newHTML)("div", "paintundo", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "paintundocontrols");
             for (var r = [["undo", d.undo], ["redo", d.redo]], n = 0; n < r.length; n++) {
                 d.newToggleClicky(t, "id_p", r[n][0], r[n][1]).offsetWidth,
@@ -10870,13 +11179,19 @@
         }
         static newToggleClicky(e, t, r, n) {
             var a = Object(u.newHTML)("div", "undocircle", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return Object(u.newHTML)("div", r + " off", a),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.setAttribute("type", "toggleclicky"),
             a.setAttribute("id", t + r),
             n && (u.isTablet,
@@ -11246,9 +11561,12 @@
         }
         static showmask() {
             var e = Object(c.newDiv)(i.a.frame, 0, 0, d.width, d.height, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: n.a.layerTop + 20
             });
@@ -11507,9 +11825,12 @@
         }
         static showmask() {
             var e = Object(c.newDiv)(a.a.frame, 0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: 2e5,
                 visibility: "visible"
@@ -11548,9 +11869,12 @@
             this.aup = void 0,
             this.adown = void 0,
             this.contents = Object(l.newDiv)(e, 0, 0, r, n, {}),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.contents.setAttribute("id", t),
             this.contents.owner = this,
             this.addArrows(e, r, n),
@@ -11565,41 +11889,65 @@
         }
         addArrows(e, t, r) {
             this.aleft = Object(l.newHTML)("div", "leftarrow", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.aleft.style.height = r + "px";
             var n = Object(l.newHTML)("span", void 0, this.aleft);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.style.top = Math.floor((r - n.offsetHeight) / 2) + "px",
             this.aright = Object(l.newHTML)("div", "rightarrow", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.aright.style.height = r + "px";
             var a = Object(l.newHTML)("span", void 0, this.aright);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.style.top = Math.floor((r - a.offsetHeight) / 2) + "px",
             this.aup = Object(l.newHTML)("div", "toparrow", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.adown = Object(l.newHTML)("div", "bottomarrow", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(l.newHTML)("div", "halign up", this.aup),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(l.newHTML)("div", "halign down", this.adown);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var i = this;
             l.isTablet,
             this.aup.onpointerdown = function(e) {
@@ -11879,14 +12227,20 @@
         }
         static createScripts(e) {
             var t = Object(l.newHTML)("div", "scripts", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "scripts"),
             f = Object(l.newHTML)("div", "watermark", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var r = Math.max(Object(l.getDocumentHeight)(), l.frame.offsetHeight);
             Object(l.setCanvasSize)(t, t.offsetWidth, r - t.offsetTop),
             p = new h(t,"scriptscontainer",t.offsetWidth,r - t.offsetTop,n.a.getActiveScript,n.a.getBlocks)
@@ -12445,9 +12799,12 @@
         constructor(e) {
             this.currentPage = void 0,
             this.div = Object(y.newHTML)("div", "stage", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.div.setAttribute("id", "stage"),
             this.div.style.webkitTextSizeAdjust = "100%",
             this.width = 480,
@@ -12456,9 +12813,12 @@
             this.div.style.zoom = this.currentZoom,
             this.pages = [],
             this.pagesdiv = Object(y.newDiv)(this.div, 0, 0, 480, 360, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute"
             });
             var t = this;
@@ -12871,9 +13231,12 @@
         sd() {
             var e = Object(y.gn)("stage")
               , t = Object(y.newDiv)(Object(y.gn)("stageframe"), e.offsetLeft + 1, e.offsetTop + 1, 482, 362, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: o.a.layerTop + 20,
                 visibility: "hidden"
@@ -12892,9 +13255,12 @@
               , r = e.outline.width
               , n = e.outline.height
               , a = Object(y.newDiv)(Object(y.gn)("stageframe"), t.offsetLeft + 1, t.offsetTop + 1, r, n, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: o.a.layerTop + 20,
                 visibility: "hidden"
@@ -12935,9 +13301,12 @@
         }
         static topSection() {
             var e = Object(y.newHTML)("div", "topsection", y.frame);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "topsection"),
             o.a.isEditable(),
             D.leftPanel(e),
@@ -12946,17 +13315,26 @@
         }
         static leftPanel(e) {
             var t = Object(y.newHTML)("div", "leftpanel", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(y.newHTML)("div", "menu", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , n = Object(y.newHTML)("div", "flipme", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("id", "flip"),
             n.onpointerdown = function(e) {}
             ,
@@ -12965,17 +13343,26 @@
         }
         static layoutFileBtns(e) {
             var t = Object(y.newHTML)("div", "filebuttons", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var r = Object(y.newHTML)("span", "btn btn-open", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var n = Object(y.newHTML)("input", "open-file", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("type", "file");
             n.setAttribute("accept", ".sjr");
             n.onchange = function(e) {
@@ -12985,9 +13372,12 @@
             };
             
             var saveButton = Object(y.newHTML)("button", "btn btn-save", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             saveButton.onpointerup = function(e) {
                 const t = [":שם הפרויקט"];
                 t && D.zipAndSaveCurrentProject(t, function() {});
@@ -12997,9 +13387,12 @@
             
             // Creating and adding the Coding Cards button
             var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             googleFormBtn.onclick = function() {
                 window.open("https://moshe310.wixsite.com/codejrenglish");
             };
@@ -13022,9 +13415,12 @@
         static gnSave2CloudButton(e) {
             if (a.a.parse(location.search).s) {
                 var submitSaveBtn = Object(y.newHTML)("button", "btn btn-submit-save", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 submitSaveBtn.onpointerup = function(e) {
                     D.zipAndSubmitCurrentProject("scratchjr", function() {});
                 };
@@ -13051,9 +13447,12 @@
         }
         static middleSection() {
             var e = Object(y.newHTML)("div", "blockspalette", y.frame);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "blockspalette"),
             c.a.setup(e),
             f.a.setup(e)
@@ -13063,49 +13462,76 @@
         }
         static addProjectInfo() {
             O = Object(y.newHTML)("div", "info", y.frame),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             O.setAttribute("id", "projectinfo");
             var e = Object(y.newHTML)("div", "infobox fade", y.frame);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "infobox"),
             I = Object(y.newHTML)("div", "paintdone", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.newHTML)("div", "infoboxlogo", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var t = D.addEditableName(e)
               , r = Object(y.newHTML)("div", "fixedinfo", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             if (Object(y.newHTML)("div", "infolabel", r).setAttribute("id", "deviceName"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             window.Settings.shareEnabled) {
                 var n = Object(y.newHTML)("div", "infoboxShareButtons", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , a = Object(y.newHTML)("div", "infoboxShareButton", n);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 if (a.id = "infoboxShareButtonEmail",
                 a.textContent = w.default.localize("SHARING_BY_EMAIL"),
                 y.isAndroid ? a.style.margin = "auto" : a.style.float = "left",
                 !y.isAndroid) {
                     var i = Object(y.newHTML)("div", "infoboxShareButton", n);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                     i.id = "infoboxShareButtonAirdrop",
                     i.textContent = w.default.localize("SHARING_BY_AIRDROP"),
                     i.style.float = "right",
@@ -13121,9 +13547,12 @@
                 }
                 ));
                 var o = Object(y.newHTML)("img", "infoboxShareLoading", n);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 o.src = "./assets/ui/loader.png",
                 a.onpointerdown = function(e) {
                     D.parentalGate(e, (function(e) {
@@ -13140,32 +13569,50 @@
         static parentalGate(e, t) {
             v.a.sndFX("tap.wav");
             var r = Object(y.newHTML)("div", "parentalgate", Object(y.gn)("frame"));
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.newHTML)("div", "paintdone", r).onpointerdown = function() {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 l(!1)
             }
             ;
             var n = Object(y.newHTML)("div", "parentalgateproblem", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , a = Object(y.newHTML)("div", "parentalgatechoice", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , i = Object(y.newHTML)("div", "parentalgatechoice", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , o = Object(y.newHTML)("div", "parentalgatechoice", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , s = [["30 + 7", "37", "9", "28", 0], ["22 + 3", "18", "25", "3", 1], ["91 + 1", "32", "74", "92", 2], ["30 + 4", "34", "59", "12", 0], ["48 + 1", "9", "49", "20", 1], ["32 + 6", "23", "99", "38", 2], ["53 + 4", "57", "12", "90", 0], ["26 + 3", "17", "29", "8", 1], ["71 + 1", "58", "14", "72", 2], ["11 + 8", "19", "23", "67", 0]]
               , u = s[Math.floor(Math.random() * s.length)];
             function l(n) {
@@ -13190,9 +13637,12 @@
             }
             ,
             Object(y.newHTML)("div", "parentalgateexplain", r).textContent = w.default.localize("PARENTAL_GATE_EXPLANATION")
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static infoDoShare(e, t, r, n) {
             v.a.sndFX("tap.wav"),
@@ -13240,9 +13690,12 @@
         }
         static addEditableName(e) {
             var t = Object(y.newHTML)("form", "projectname", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.name = "projectname",
             t.id = "title",
             t.onsubmit = function(e) {
@@ -13250,9 +13703,12 @@
             }
             ;
             var r = Object(y.newHTML)("input", "pnamefield", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             function n(e) {
                 e.preventDefault(),
                 e.target.blur()
@@ -13365,24 +13821,36 @@
         }
         static layoutLibrary(e) {
             var t = Object(y.newHTML)("div", "thumbpanel", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "library");
             var r = Object(y.newHTML)("div", "spritethumbs", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , n = Object(y.newHTML)("div", "spritecc", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             (n.setAttribute("id", "spritecc"),
             n.onpointerdown = D.spriteThumbsActions,
             o.a.isEditable()) && Object(y.newHTML)("div", "addsprite", t).addEventListener("click", D.addSprite, !1)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static mascotData(e) {
             var t = {
@@ -13508,13 +13976,19 @@
         }
         static stageArea(e) {
             var t = Object(y.newHTML)("div", "centerpanel", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(y.newHTML)("div", "stageframe", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "stageframe"),
             o.a.stage = new E(r),
             d.a.init(r),
@@ -13546,21 +14020,30 @@
         }
         static creatTopBarClicky(e, t, r, n) {
             var a = Object(y.newHTML)("div", r, e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.onpointerdown = n,
             a.setAttribute("id", t)
         }
         static fullscreenControls() {
             D.nextpage = Object(y.newHTML)("div", "nextpage off", y.frame),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             D.prevpage = Object(y.newHTML)("div", "nextpage off", y.frame),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             y.isTablet,
             D.nextpage.onpointerdown = D.nextPage,
             y.isTablet,
@@ -13625,35 +14108,53 @@
         }
         static rightPanel(e) {
             var t = Object(y.newHTML)("div", "rightpanel", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(y.newHTML)("div", "pages", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "pages"),
             Object(y.newHTML)("div", "pagescc", r).setAttribute("id", "pagecc")
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static layoutToolbar(e) {
             var t = Object(y.newDiv)(e, 220, 0, 132, 56, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute"
             });
             t.setAttribute("id", "toolbar"),
             Object(y.newHTML)("div", "addText", t).onpointerdown = D.addText,
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.newHTML)("div", "changeBkg", t).onpointerdown = D.addBackground
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static addSprite(e) {
             if (!o.a.onHold) {
@@ -13683,18 +14184,24 @@
         }
         static createFormForText(e) {
             var t = Object(y.newHTML)("div", "pagetext off", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", "textbox"),
             y.isAndroid && (t.onpointerdown = function(e) {
                 e.preventDefault()
             }
             );
             var r = Object(y.newHTML)("form", "pageform", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.name = "activetextbox",
             r.id = "myform",
             r.textsprite = null;
@@ -13708,19 +14215,28 @@
             n.onblur = void 0,
             r.onsubmit = void 0;
             var a = Object(y.newHTML)("div", "pagetextactions", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , i = Object(y.newHTML)("div", "fontsizeText off", a);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             i.setAttribute("id", "fontsizebutton"),
             i.onpointerdown = D.openFontSizeMenu;
             var o = Object(y.newHTML)("div", "changecolorText off", a);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             o.setAttribute("id", "fontcolorbutton"),
             o.onpointerdown = D.topLevelColor,
             D.createColorMenu(t),
@@ -13729,27 +14245,42 @@
         static createColorMenu(e) {
             var t = s.a.fontcolors
               , r = Object(y.newHTML)("div", "textuicolormenu off", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "textcolormenu");
             for (var n = 0; n < t.length; n++) {
                 var a = Object(y.newHTML)("div", "textcolorbucket", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                   , i = Object(y.newHTML)("div", "swatchframe", a);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Object(y.newHTML)("div", "swatchcolor", i).style.background = t[n],
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 i = Object(y.newHTML)("div", "splasharea off", a),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 T.a.setSplashColor(i, T.a.splash, t[n]),
                 T.a.addImageUrl(i, T.a.splashshade),
                 a.onpointerdown = D.setTextColor
@@ -13759,20 +14290,29 @@
         static createTextSizeMenu(e) {
             var t = s.a.fontsizes
               , r = Object(y.newHTML)("div", "textuifont off", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             r.setAttribute("id", "textfontsizes");
             for (var n = 0; n < t.length; n++) {
                 var a = Object(y.newHTML)("div", "textuisize t" + (n + 1), r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 a.fs = t[n],
                 Object(y.newHTML)("span", void 0, a).textContent = "A",
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 a.onpointerdown = D.setTextSize
             }
             D.setMenuTextSize(Object(y.gn)("textfontsizes").childNodes[5])
@@ -15572,9 +16112,12 @@
             var p = e.top + e.offsetHeight - 28 * a.scaleMultiplier + Object(a.globaly)(u, 0);
             p + (10 + l) * a.scaleMultiplier > Object(a.getDocumentHeight)() && (p = Object(a.getDocumentHeight)() - (15 + l) * a.scaleMultiplier);
             var g = Object(a.newDiv)(a.frame, f, p, c, l, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: 1e5,
                 webkitTransform: "translate(" + -c / 2 + "px," + -l / 2 + "px) scale(" + a.scaleMultiplier + ", " + a.scaleMultiplier + ") translate(" + c / 2 + "px, " + l / 2 + "px)"
@@ -15588,13 +16131,19 @@
         static addImageToDropDown(e, t, r, i) {
             var s = n.a.getImageFrom("assets/blockicons/" + t, "svg")
               , u = Object(a.newHTML)("div", "ddchoice", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , l = Object(a.newHTML)("canvas", void 0, u)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , h = 42 * window.devicePixelRatio;
             Object(a.setCanvasSize)(l, h, h),
             Object(a.setProps)(l.style, {
@@ -15662,9 +16211,12 @@
         }
         static createGrid(e) {
             var t = Object(o.newHTML)("div", "", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return t.style.width = "480px",
             t.style.height = "360px",
             t.style.zIndex = n.a.layerTop,
@@ -15705,9 +16257,12 @@
         }
         static createNumbering(e, t) {
             var r = Object(o.newDiv)(Object(o.gn)("stageframe"), 0, 0, e - 46 - 30, 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: n.a.layerTop
             });
@@ -15715,9 +16270,12 @@
             r.style.zoom = this.currentZoom;
             for (var a = 24, s = 0; s < 20; s++) {
                 var u = Object(o.newDiv)(r, a, 0, 24, 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                     position: "absolute",
                     zIndex: 10
                 });
@@ -15727,9 +16285,12 @@
                 a += 24
             }
             var l = Object(o.newDiv)(Object(o.gn)("stageframe"), 0, 0, 24, t + 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: n.a.layerTop
             });
@@ -15737,9 +16298,12 @@
             l.style.zoom = this.currentZoom;
             for (var h = 336, c = 0; c < 15; c++) {
                 var d = Object(o.newDiv)(l, 0, h, 24, 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                     position: "absolute",
                     zIndex: 10
                 });
@@ -15751,9 +16315,12 @@
         }
         static createYcursor() {
             var e = Object(o.newDiv)(Object(o.gn)("colnum"), 0, 0, 24, 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: 20
             });
@@ -15764,9 +16331,12 @@
         }
         static createXcursor() {
             var e = Object(o.newDiv)(Object(o.gn)("rownum"), 24, 0, 24, 24, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: 20
             });
@@ -15777,9 +16347,12 @@
         }
         static createCursor() {
             var e = Object(o.newDiv)(Object(o.gn)("livegrid"), 0, 0, 26, 26, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: n.a.layerAboveBottom
             });
@@ -18237,56 +18810,89 @@
         }
         static init() {
             var e = Object(u.newHTML)("div", "record fade", u.frame);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "recorddialog");
             var t = Object(u.newHTML)("div", "toolbar", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(u.newHTML)("div", "actions", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(u.newHTML)("div", "microphone", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var n = Object(u.newHTML)("div", "recordbuttons", r)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , a = Object(u.newHTML)("div", "recorddone", n);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             u.isTablet,
             a.onpointerdown = _.saveSoundAndClose;
             var i = Object(u.newHTML)("div", "soundbox", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             i.setAttribute("id", "soundbox");
             var o = Object(u.newHTML)("div", "soundvolume", i);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             o.setAttribute("id", "soundvolume");
             for (var s = 0; s < 13; s++) {
                 var l = Object(u.newHTML)("div", "indicator", o);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Object(u.newHTML)("div", "soundlevel", l)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             }
             var h = Object(u.newHTML)("div", "soundcontrols", i);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             h.setAttribute("id", "soundcontrols");
             for (var c = [["record", _.record], ["stop", _.stopSnd], ["play", _.playSnd]], d = 0; d < c.length; d++)
                 _.newToggleClicky(h, "id_", c[d][0], c[d][1])
@@ -18315,13 +18921,19 @@
         }
         static newToggleClicky(e, t, r, n) {
             var a = Object(u.newHTML)("div", "controlwrap", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return Object(u.newHTML)("div", r + "snd off", a),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             a.setAttribute("type", "toggleclicky"),
             a.setAttribute("id", t + r),
             n && (u.isTablet,
@@ -18574,9 +19186,12 @@
             this.dragList = [];
             var t = Object(y.gn)("scriptscontainer");
             this.sc = Object(y.newHTML)("div", "look", t),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.setCanvasSize)(this.sc, t.offsetWidth, t.offsetHeight),
             this.sc.setAttribute("id", e.id + "_scripts"),
             this.sc.setAttribute("class", "look"),
@@ -19069,26 +19684,38 @@
         }
         spriteThumbnail(e) {
             var t = Object(y.newHTML)("div", "spritethumb off", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", Object(y.getIdFor)("spritethumb")),
             t.type = "spritethumb",
             t.owner = this.id;
             var r = Object(y.newHTML)("canvas", "thumbcanvas", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return y.isAndroid ? Object(y.setCanvasSizeScaledToWindowDocumentHeight)(r, 64, 64) : Object(y.setCanvasSize)(r, 64, 64),
             this.drawMyImage(r, r.width, r.height),
             (e = Object(y.newHTML)("p", "sname", t)).textContent = this.name,
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.newHTML)("div", "brush", t),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.thumbnail = t,
             t
         }
@@ -19310,9 +19937,12 @@
               , r = 36
               , a = this.screenTop();
             this.balloon = Object(y.newDiv)(n.a.stage.currentPage.div, 0, 0, t, r, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zIndex: 2,
                 visibility: "hidden"
@@ -19399,9 +20029,12 @@
             var r = e.page;
             Object(y.setProps)(this, e),
             this.div = Object(y.newHTML)("p", "textsprite", r.div),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(y.setProps)(this.div.style, {
                 fontSize: this.fontsize + "px",
                 color: this.color,
@@ -19628,9 +20261,12 @@
         startShaking() {
             var e = this.div.parentNode
               , t = Object(y.newHTML)("div", "shakeme", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.id = "shakediv",
             y.isAndroid ? Object(y.setProps)(t.style, {
                 position: "absolute",
@@ -19652,9 +20288,12 @@
             this.setTransform(r),
             t.appendChild(this.div);
             var a = Object(y.newHTML)("div", "sprite" == this.type ? "deletesprite" : "deletetext", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             y.isiOS && "sprite" == this.type && (a.style.zoom = Math.floor(1 / this.scale * 100) + "%"),
             Object(y.globalx)(a) - Object(y.globalx)(n.a.stage.div) < 0 && (a.style.left = Math.abs(Object(y.globalx)(a) - Object(y.globalx)(n.a.stage.div)) * this.scale + "px"),
             Object(y.globaly)(a) - Object(y.globaly)(n.a.stage.div) < 0 && (a.style.top = Math.abs(Object(y.globaly)(a) - Object(y.globaly)(n.a.stage.div)) * this.scale + "px"),
@@ -20429,9 +21068,12 @@
         constructor(e, t, r) {
             var a = n.a.stage.pagesdiv;
             this.div = Object(m.newHTML)("div", "stagepage", a),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.div.owner = this,
             this.id = e,
             this.textstartat = 36,
@@ -20440,9 +21082,12 @@
             this.num = t ? t.num : n.a.stage.pages.length + 1,
             this.sprites = JSON.stringify([]),
             this.bkg = Object(m.newDiv)(this.div, 0, 0, 480, 360, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 background: n.a.stagecolor
             }),
@@ -20565,33 +21210,51 @@
         }
         pageThumbnail(e) {
             var t = Object(m.newHTML)("div", "pagethumb", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.setAttribute("id", Object(m.getIdFor)("pagethumb")),
             t.owner = this.id,
             t.type = "pagethumb";
             var r = Object(m.newHTML)("div", "pc-container", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , n = Object(m.newHTML)("canvas", "pc", r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             this.setPageThumb(n);
             var a = Object(m.newHTML)("div", "pagenum", t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return Object(m.newHTML)("p", void 0, a).textContent = this.num,
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(m.newHTML)("div", "deletethumb", t),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             m.isTablet,
             t.onpointerdown = function(e) {
                 i.a.pageMouseDown(e)
@@ -21855,40 +22518,61 @@
             v = document.getElementById("libframe"),
             v.style.minHeight = Math.max(Object(c.getDocumentHeight)(), c.frame.offsetHeight) + "px";
             var e = Object(c.newHTML)("div", "topbar", v);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "topbar"),
             Object(c.newHTML)("div", "actions", e).setAttribute("id", "libactions");
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             var t = Object(c.newHTML)("div", "assetname-container", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(c.newHTML)("div", "assetname", t)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , n = Object(c.newHTML)("p", void 0, r);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             n.setAttribute("id", "assetname"),
             n.textContent = "",
             b.layoutHeader()
         }
         static createScrollPanel() {
             var e = Object(c.newHTML)("div", "innerlibrary", v);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             e.setAttribute("id", "asssetsview"),
             Object(c.newHTML)("div", "scrollarea", e).setAttribute("id", "scrollarea"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             b.resizeScroll()
         }
         static open(e) {
@@ -21935,23 +22619,35 @@
         }
         static layoutHeader() {
             var e = Object(c.newHTML)("div", "bkgbuttons", Object(c.gn)("libactions"))
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , t = Object(c.newHTML)("div", "painticon", e);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             t.id = "library_paintme",
             t.onpointerdown = b.editResource,
             Object(c.newHTML)("div", "okicon", e).setAttribute("id", "okbut"),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             Object(c.newHTML)("div", "cancelicon", e).onpointerdown = b.cancelPick
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
         }
         static cancelPick(e) {
             n.a.onHold = !0,
@@ -22021,9 +22717,12 @@
             s.h = Number(o.height);
             var l = Math.min(r / s.w, n / s.h)
               , h = Object(c.newHTML)("img", void 0, s);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return h.style.left = 9 * c.scaleMultiplier + "px",
             h.style.top = 7 * c.scaleMultiplier + "px",
             h.style.position = "relative",
@@ -22040,9 +22739,12 @@
         }
         static addLocalThumbChoose(e, t, r, n, a) {
             var s = Object(c.newHTML)("div", "assetbox off", e)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , u = t.md5;
             s.byme = _ ? 1 : 0,
             s.setAttribute("id", u),
@@ -22051,9 +22753,12 @@
             s.w = Number(t.width),
             s.h = Number(t.height);
             var l = Object(c.newHTML)("img", void 0, s)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , h = Math.min(r / s.w, n / s.h);
             l.style.height = s.h * h + "px",
             l.style.width = s.w * h + "px",
@@ -22151,9 +22856,12 @@
         static startShaking(e) {
             e.className = e.className + " shakeme",
             Object(c.newHTML)("div", "deleteasset", e),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             p = e
         }
         static stopShaking() {
@@ -22488,9 +23196,12 @@
             case "s":
                 this.argValue = e.spec[4],
                 this.div = Object(s.newDiv)(e.div, 2, 46, 60, 20, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                     position: "absolute",
                     zoom: 100 * e.scale + "%"
                 }),
@@ -22501,16 +23212,22 @@
             case "r":
                 this.argValue = e.spec[4],
                 this.div = Object(s.newHTML)("div", "recordedCircle", e.div),
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 Object(s.setProps)(this.div.style, {
                     zoom: 100 * e.scale + "%"
                 }),
                 Object(s.newHTML)("p", "recordedNumber", this.div).textContent = this.daddy.inpalette ? this.argValue : "?"
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             }
         }
         update() {
@@ -22550,9 +23267,12 @@
             }
             ;
             var c = Object(s.newDiv)(this.daddy.div, a, i, u, l, {
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
                 position: "absolute",
                 zoom: 100 * r + "%",
                 margin: "0px",
@@ -22570,17 +23290,23 @@
         }
         addNumArgument(e) {
             var t = Object(s.newHTML)("div", "numfield", this.daddy.div);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             "repeat" == this.daddy.blocktype && Object(s.setProps)(t.style, {
                 left: this.daddy.blockshape.width / window.devicePixelRatio - 62 * this.daddy.scale + "px",
                 top: this.daddy.blockshape.height / window.devicePixelRatio - 11 * this.daddy.scale + "px"
             });
             var r = Object(s.newHTML)("h3", void 0, t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return this.input = r,
             r.owner = this,
             r.textContent = e,
@@ -22591,13 +23317,19 @@
         }
         addTextArgument(e) {
             var t = Object(s.newHTML)("div", "textfield", this.daddy.div)
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
               , r = Object(s.newHTML)("h3", void 0, t);
-    element.addEventListener('mouseover', (event) => {
-        event.target.style.cursor = 'pointer';
-    }); // Added cursor pointer on mouseover
+    if (element) {
+        element.addEventListener('mouseover', (event) => {
+            event.target.style.cursor = 'pointer';
+        });
+    } // Added mouseover event to dynamically set cursor style
+
             return this.input = r,
             r.owner = this,
             r.textContent = e,
