@@ -388,10 +388,15 @@
     }
     function hitTest(e, t) {
 
+            // Debugging cursor logic: Log object being interacted with
+            console.log("Debug: Object being hit-tested:", t);
+            
             // Ensure proper cursor style for interactive objects
-            if (e && e.style) { // Check if element exists and is styled
-                e.style.cursor = "pointer"; // Change cursor to hand pointer
-                console.log("Cursor changed to pointer on interactive object."); // Debug log
+            if (t && t.style) { // Check if the object exists and can be styled
+                t.style.cursor = "pointer"; // Change cursor to hand pointer
+                console.log("Cursor changed to pointer on interactive object:", t); // Log successful change
+            } else {
+                console.log("No valid object to apply cursor style."); // Log failure
             }
                     if (!t)
             return !1;
