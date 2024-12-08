@@ -68161,3 +68161,19 @@
 }
 ]);
 
+
+/**
+ * Adding cursor change functionality for SVG element with ID 'mySvg'.
+ * When the mouse is over the SVG, the cursor changes to a crosshair.
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    const svgElement = document.getElementById("mySvg");
+    if (svgElement) {
+        svgElement.addEventListener("mouseover", function() {
+            this.style.cursor = "crosshair"; // Change cursor to crosshair on hover
+        });
+        svgElement.addEventListener("mouseout", function() {
+            this.style.cursor = "default"; // Revert cursor to default on mouse out
+        });
+    }
+});
