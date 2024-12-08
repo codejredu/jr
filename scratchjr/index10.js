@@ -1,7 +1,3 @@
-// Modernized version of the uploaded script
-// This script has been updated to use ES6+ features and a cleaner structure.
-// Additional modifications can be made as needed.
-
 !function(e) {
     var t = {};
     function r(n) {
@@ -7084,8 +7080,7 @@
             var r = l.a.extract(e, 4)
               , a = l.a.point(h.a.initialPoint.x, h.a.initialPoint.y, r.matrix.inverse());
             Object(g.setCanvasSize)(n.a.workingCanvas, h.a.root.getAttribute("width") * h.a.currentZoom, h.a.root.getAttribute("height") * h.a.currentZoom);
-            var i = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
-
+            var i = n.a.workingCanvas.getContext("2d");
             i.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             i.fillStyle = "rgba(0,0,0,0)",
             i.lineWidth = f.a.linemask,
@@ -7211,8 +7206,7 @@
             var r = l.a.extract(e, 4)
               , i = l.a.point(t.x, t.y, r.matrix.inverse());
             Object(g.setCanvasSize)(n.a.workingCanvas, h.a.root.getAttribute("width"), h.a.root.getAttribute("height"));
-            var o = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
-
+            var o = n.a.workingCanvas.getContext("2d");
             return o.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             o.fillStyle = "rgba(0,0,0,0)",
             o.lineWidth = f.a.linemask,
@@ -10796,8 +10790,7 @@
             return !i.isEmpty() && i.isEqual(n)
         }
         static hittedSingleObject(e, t) {
-            var r = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
-
+            var r = n.a.workingCanvas.getContext("2d");
             return r.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             r.save(),
             s.a.drawInContext(e, r, i.a.currentZoom),
@@ -10918,8 +10911,7 @@
             !i.a.root)
                 return !1;
             Object(c.setCanvasSize)(n.a.workingCanvas, Math.round(i.a.root.getAttribute("width") * i.a.currentZoom), Math.round(i.a.root.getAttribute("height") * i.a.currentZoom));
-            var o = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
-
+            var o = n.a.workingCanvas.getContext("2d");
             return g.outsideArea(e, n.a.workingCanvas) ? null : (o.clearRect(0, 0, n.a.workingCanvas.width, n.a.workingCanvas.height),
             g.findHit(a, e, n.a.workingCanvas.getContext("2d"), t, r))
         }
@@ -11133,8 +11125,7 @@
             o.height = Math.floor(o.height) + 2,
             p.drawInOffscreen(t, f),
             Object(c.setCanvasSize)(n.a.workingCanvas, a.a.workspaceWidth, a.a.workspaceHeight);
-            var u = n.a.workingcanvas.getContext("2d", { willReadFrequently: true });
-
+            var u = n.a.workingCanvas.getContext("2d");
             u.clearRect(0, 0, a.a.workspaceWidth, a.a.workspaceHeight),
             u.save(),
             u.globalCompositeOperation = "source-over",
@@ -68160,20 +68151,3 @@
     }
 }
 ]);
-
-
-/**
- * Adding cursor change functionality for SVG element with ID 'mySvg'.
- * When the mouse is over the SVG, the cursor changes to a crosshair.
- */
-document.addEventListener("DOMContentLoaded", function() {
-    const svgElement = document.getElementById("mySvg");
-    if (svgElement) {
-        svgElement.addEventListener("mouseover", function() {
-            this.style.cursor = "crosshair"; // Change cursor to crosshair on hover
-        });
-        svgElement.addEventListener("mouseout", function() {
-            this.style.cursor = "default"; // Revert cursor to default on mouse out
-        });
-    }
-});
