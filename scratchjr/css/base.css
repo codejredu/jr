@@ -66,3 +66,7 @@ h4 {
 #stageframe { /* 角色场景区域 */
     touch-action: none;
 }
+/* Change cursor to hand for interactive elements */
+.interactive {
+    cursor: pointer; /* This will change the cursor to a hand icon */
+}
