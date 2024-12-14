@@ -1,99 +1,68 @@
-/* Reset and Base Styles */
-:root {
-    --main-color: #4c4d4f;
-    --heading-color: #554747;
-    --font-family: 'Roboto', Arial, sans-serif;
-    --base-font-size: 16px;
-    --line-height: 1.5;
-    --spacing-unit: 8px;
-    --button-width: 200px;
-    --button-max-width: 150px;
-}
-
-* {
+html, body, div, h1, h2, h3, h4, h5, h6, p, pre, blockquote, address, img, dl,
+dt, dd, ol, ul, li, table, caption, tbody, tfoot, thead, tr, th, td, form, input,
+fieldset, legend, object, embed {
+    border: 0;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
-    color: var(--main-color);
+    color: #4c4d4f;
     direction: ltr;
-    font-size: var(--base-font-size);
-    font-family: var(--font-family);
+    font: 81.25% Roboto, arial, sans-serif;
+    -webkit-user-select: none;
     height: 100%;
-    user-select: none;
 }
 
 body {
     width: 100%;
     height: 100%;
     min-width: 1020px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
-/* Headings */
+/* Set default, padding, margin and font-size on block elements */
+h1 {
+    font-size: 1.23em;
+    margin: 0 0 .77em;
+}
+
+h2,
+h3 {
+    font-size: 1.08em;
+}
+
 h1, h2, h3, h4 {
     font-weight: 700;
-    color: var(--heading-color);
-    margin-bottom: calc(var(--spacing-unit) * 2);
-    line-height: calc(var(--line-height) * 2);
+    line-height: 32px;
+    color: #554747;
 }
 
 h1 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 2em; /* 26px */
+    line-height: 1.3077em; /* 34px */
 }
 
 h2 {
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-size: 1.6923em; /* 22px */
+    line-height: 1.1818em; /* 26px */
 }
 
 h3 {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: 1.3846em; /* 18px */
 }
 
 h4 {
-    font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+    font-size: 1.2308em; /* 16px */
+    line-height: 1.25em; /* 20px */
 }
 
-/* Buttons on the left */
-button {
-    width: var(--button-width);
-    max-width: var(--button-max-width);
-    padding: var(--spacing-unit);
-    border: none;
-    background-color: var(--main-color);
-    color: white;
-    cursor: pointer;
-    text-align: center;
-}
-
-/* Specific IDs */
-#pagecc,
-#blockspalette,
-#scripts,
-#maincanvas,
+#pagecc, /* 右侧四个page */
+#blockspalette, /* 积木块区域 */
+#scripts, /* 脚本逻辑区域 */
+#maincanvas, /* 绘制区域 */
 #spritecc canvas,
-#stageframe {
+#stageframe { /* 角色场景区域 */
     touch-action: none;
-}
-
-/* Responsive Design Improvements */
-@media (max-width: 768px) {
-    body {
-        min-width: auto;
-        padding: var(--spacing-unit);
-    }
-
-    h1, h2, h3, h4 {
-        line-height: var(--line-height);
-    }
-
-    button {
-        width: calc(var(--button-width) * 0.75);
-    }
 }
