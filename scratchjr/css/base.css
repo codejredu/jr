@@ -1,67 +1,99 @@
-/* איפוס CSS מודרני (Normalize.css או Reset CSS מינימלי) */
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* חשוב! כולל padding ו-border בחישוב הרוחב והגובה */
+/* Reset and Base Styles */
+:root {
+    --main-color: #4c4d4f;
+    --heading-color: #554747;
+    --font-family: 'Roboto', Arial, sans-serif;
+    --base-font-size: 16px;
+    --line-height: 1.5;
+    --spacing-unit: 8px;
+    --button-width: 200px;
+    --button-max-width: 150px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--main-color);
+    direction: ltr;
+    font-size: var(--base-font-size);
+    font-family: var(--font-family);
+    height: 100%;
+    user-select: none;
 }
 
 body {
-  margin: 0; /* איפוס שוליים */
-  font-family: Roboto, arial, sans-serif;
-  font-size: 16px; /* גודל גופן בסיסי (100%) */
-  line-height: 1.5; /* גובה שורה ברירת מחדל */
-  color: #4c4d4f;
-  min-height: 100vh; /* גובה מינימלי של 100% מגובה המסך */
+    width: 100%;
+    height: 100%;
+    min-width: 1020px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Headings */
 h1, h2, h3, h4 {
-  font-weight: 700;
-  color: #554747;
-  line-height: 1.2; /* גובה שורה משופר לכותרות */
-  margin-top: 1rem; /* מרווח עליון לכותרות */
-  margin-bottom: 0.5rem; /* מרווח תחתון לכותרות */
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    line-height: calc(var(--line-height) * 2);
 }
 
 h1 {
-  font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 h2 {
-  font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 h3 {
-  font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 h4 {
-  font-size: 1rem;
+    font-size: clamp(0.875rem, 1.5vw, 1.25rem);
 }
 
-/* סגנונות ספציפיים לאזורים שלך */
+/* Buttons on the left */
+button {
+    width: var(--button-width);
+    max-width: var(--button-max-width);
+    padding: var(--spacing-unit);
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Specific IDs */
 #pagecc,
 #blockspalette,
 #scripts,
 #maincanvas,
 #spritecc canvas,
 #stageframe {
-  touch-action: none;
+    touch-action: none;
 }
 
-/* שיפורים נוספים */
-img {
-  max-width: 100%; /* תמונות לא יחרגו מהרוחב של ההורה שלהן */
-  height: auto;
-  display: block; /* מניעת מרווחים לא רצויים מתחת לתמונות */
-}
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+    body {
+        min-width: auto;
+        padding: var(--spacing-unit);
+    }
 
-/* טיפוגרפיה משופרת */
-p {
-    margin-bottom: 1rem;
-}
+    h1, h2, h3, h4 {
+        line-height: var(--line-height);
+    }
 
-/* רשימות */
-ul, ol {
-    padding-left: 20px;
-    margin-bottom: 1rem;
+    button {
+        width: calc(var(--button-width) * 0.75);
+    }
 }
