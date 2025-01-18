@@ -1,3 +1,26 @@
+// Function to add hover effects
+function addHoverEffect(element) {
+    element.addEventListener('mouseover', function() {
+        element.style.cursor = 'pointer'; // Change cursor to hand
+    });
+
+    element.addEventListener('mouseout', function() {
+        element.style.cursor = 'default'; // Reset cursor to default
+    });
+}
+
+// Get the elements by their IDs
+var myDiv = document.getElementById('myDiv');
+var myButton = document.getElementById('myButton');
+
+// Apply the hover effect to the elements
+if (myDiv) {
+    addHoverEffect(myDiv);
+}
+
+if (myButton) {
+    addHoverEffect(myButton);
+}
 !function(e) {
     var t = {};
     function r(n) {
