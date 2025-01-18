@@ -328,35 +328,23 @@
     function rl() {
         window.location.reload()
     }
-    function newDiv(e, t, r, n, a, i) { 
-        var o = document.createElement("div"); 
-        o.className = "interactive"; // Add the interactive class
-        o.style.position = "absolute"; 
-        o.style.top = r + "px"; 
-        o.style.left = t + "px"; 
-        n && (o.style.width = n + "px"); 
-        a && (o.style.height = a + "px"); 
-        setProps(o.style, i); 
-        e.appendChild(o); 
-        return o; 
+    function newDiv(e, t, r, n, a, i) {
+        var o = document.createElement("div");
+        return o.style.position = "absolute",
+        o.style.top = r + "px",
+        o.style.left = t + "px",
+        n && (o.style.width = n + "px"),
+        a && (o.style.height = a + "px"),
+        setProps(o.style, i),
+        e.appendChild(o),
+        o
     }
-    
-    function newImage(e, t, r) { 
-        var n = document.createElement("img"); 
-        n.className = "interactive"; // Add the interactive class
-        n.src = t; 
-        setProps(n.style, r); 
-        e && e.appendChild(n); 
-        return n; 
-    }
-    
-    function newP(e, t, r) { 
-        var n = document.createElement("p"); 
-        n.className = "interactive"; // Add the interactive class
-        n.appendChild(document.createTextNode(t)); 
-        setProps(n.style, r); 
-        e.appendChild(n); 
-        return n; 
+    function newImage(e, t, r) {
+        var n = document.createElement("img");
+        return n.src = t,
+        setProps(n.style, r),
+        e && e.appendChild(n),
+        n
     }
     function newCanvas(e, t, r, n, a, i) {
         var o = document.createElement("canvas");
@@ -640,50 +628,69 @@
         return e + "_" + t
     }
     function rgb2hsb(e) {
-        if (null == e)
-            return [24, 1, 1];
-        var t, r, n, a;
-        e = e.indexOf("rgb") > -1 ? rgbToHex(e) : rgbaToHex(e);
-        var i = getRGB(parseInt(e.substring(1, e.length), 16))
-          , o = i[0];
-        o /= 255;
-        var s = i[1];
-        s /= 255;
-        var u = i[2];
-        return u /= 255,
-        (t = Math.min(Math.min(o, s), u)) == (r = Math.max(Math.max(o, s), u)) ? [0, 0, r] : (n = o == t ? s - u : s == t ? u - o : o - s,
-        a = o == t ? 3 : s == t ? 5 : 1,
-        [Math.round(60 * (a - n / (r - t))) % 360, Math.round((r - t) / r * 100) / 100, (r = Math.round(100 * r)) / 100])
+        if (e == null) return [24, 1, 1];
+    
+        // Convert to hex if the input is in rgb/rgba format
+        e = e.includes("rgb") ? (e.includes("rgba") ? rgbaToHex(e) : rgbToHex(e)) : e;
+    
+        // Extract RGB values
+        let rgb = parseInt(e.slice(1), 16);
+        let r = (rgb >> 16) & 255;
+        let g = (rgb >> 8) & 255;
+        let b = rgb & 255;
+    
+        // Normalize the RGB values
+        r /= 255;
+        g /= 255;
+        b /= 255;
+    
+        // Calculate min and max values
+        let min = Math.min(r, g, b);
+        let max = Math.max(r, g, b);
+    
+        // Calculate brightness
+        let brightness = max;
+    
+        // Calculate saturation
+        let saturation = max === 0 ? 0 : (max - min) / max;
+    
+        // Calculate hue
+        let hue;
+        if (max === min) {
+            hue = 0;
+        } else if (max === r) {
+            hue = (g - b) / (max - min);
+        } else if (max === g) {
+            hue = 2 + (b - r) / (max - min);
+        } else {
+            hue = 4 + (r - g) / (max - min);
+        }
+    
+        hue = Math.round(hue * 60);
+        if (hue < 0) hue += 360;
+    
+        return [hue, Math.round(saturation * 100) / 100, Math.round(brightness * 100) / 100];
     }
+    
     function rgbToHex(e) {
-        if (e.indexOf("rgb") < 0)
-            return e;
-        var t = e.substring(4, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
+        if (!e.includes("rgb")) return e;
+        let [r, g, b] = e.slice(4, -1).split(',').map(Number);
+        return rgbToString({ r, g, b });
     }
+    
     function rgbaToHex(e) {
-        if (e.indexOf("rgba") < 0)
-            return e;
-        var t = e.substring(5, e.length - 1).split(",");
-        return rgbToString({
-            r: Number(t[0]),
-            g: Number(t[1]),
-            b: Number(t[2])
-        })
+        if (!e.includes("rgba")) return e;
+        let [r, g, b] = e.slice(5, -1).split(',').map(Number);
+        return rgbToString({ r, g, b });
     }
-    function rgbToString(e) {
-        return "#" + getHex(e.r) + getHex(e.g) + getHex(e.b)
+    
+    function rgbToString({ r, g, b }) {
+        return `#${getHex(r)}${getHex(g)}${getHex(b)}`;
     }
-    function getRGB(e) {
-        return [Number(e >> 16 & 255), Number(e >> 8 & 255), Number(255 & e)]
-    }
-    function getHex(e) {
-        var t = e.toString(16);
-        return 1 == t.length ? "0" + t : t
+    
+    function getHex(value) {
+        let hex = value.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
     }
     function findKeyframesRule(e) {
         for (var t = document.styleSheets, r = 0; r < t.length; ++r)
