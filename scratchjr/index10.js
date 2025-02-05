@@ -1,26 +1,3 @@
-// Function to add hover effects
-function addHoverEffect(element) {
-    element.addEventListener('mouseover', function() {
-        element.style.cursor = 'pointer'; // Change cursor to hand
-    });
-
-    element.addEventListener('mouseout', function() {
-        element.style.cursor = 'default'; // Reset cursor to default
-    });
-}
-
-// Get the elements by their IDs
-var myDiv = document.getElementById('myDiv');
-var myButton = document.getElementById('myButton');
-
-// Apply the hover effect to the elements
-if (myDiv) {
-    addHoverEffect(myDiv);
-}
-
-if (myButton) {
-    addHoverEffect(myButton);
-}
 !function(e) {
     var t = {};
     function r(n) {
@@ -432,16 +409,29 @@ if (myButton) {
         e.style.width = t + "px",
         e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
-        var n = window.devicePixelRatio * scaleMultiplier
-          , a = Math.floor(t * n)
-          , i = Math.floor(r * n);
-        e.width = a,
-        e.height = i,
-        e.style.width = a + "px",
-        e.style.height = i + "px",
-        e.style.zoom = scaleMultiplier / n
+    function setCanvasSizeScaledToWindowDocumentHeight(canvas, baseWidth, baseHeight) {
+        // קבלת גודל המסך הנוכחי
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        
+        // קביעת קנה המידה בהתבסס על רזולוציית המסך
+        var deviceRatio = window.devicePixelRatio || 1;
+        var scale = Math.min(screenWidth / baseWidth, screenHeight / baseHeight) * deviceRatio;
+    
+        // חישוב הרוחב והגובה החדשים
+        var newWidth = Math.floor(baseWidth * scale);
+        var newHeight = Math.floor(baseHeight * scale);
+    
+        // הגדרת גודל הקנבס וההתאמה ל-CSS
+        canvas.width = newWidth;
+        canvas.height = newHeight;
+        canvas.style.width = newWidth + "px";
+        canvas.style.height = newHeight + "px";
+    
+        // התאמת זום לרזולוציות שונות
+        canvas.style.zoom = 1 / deviceRatio;
     }
+    
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
             r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
@@ -651,69 +641,50 @@ if (myButton) {
         return e + "_" + t
     }
     function rgb2hsb(e) {
-        if (e == null) return [24, 1, 1];
-    
-        // Convert to hex if the input is in rgb/rgba format
-        e = e.includes("rgb") ? (e.includes("rgba") ? rgbaToHex(e) : rgbToHex(e)) : e;
-    
-        // Extract RGB values
-        let rgb = parseInt(e.slice(1), 16);
-        let r = (rgb >> 16) & 255;
-        let g = (rgb >> 8) & 255;
-        let b = rgb & 255;
-    
-        // Normalize the RGB values
-        r /= 255;
-        g /= 255;
-        b /= 255;
-    
-        // Calculate min and max values
-        let min = Math.min(r, g, b);
-        let max = Math.max(r, g, b);
-    
-        // Calculate brightness
-        let brightness = max;
-    
-        // Calculate saturation
-        let saturation = max === 0 ? 0 : (max - min) / max;
-    
-        // Calculate hue
-        let hue;
-        if (max === min) {
-            hue = 0;
-        } else if (max === r) {
-            hue = (g - b) / (max - min);
-        } else if (max === g) {
-            hue = 2 + (b - r) / (max - min);
-        } else {
-            hue = 4 + (r - g) / (max - min);
-        }
-    
-        hue = Math.round(hue * 60);
-        if (hue < 0) hue += 360;
-    
-        return [hue, Math.round(saturation * 100) / 100, Math.round(brightness * 100) / 100];
+        if (null == e)
+            return [24, 1, 1];
+        var t, r, n, a;
+        e = e.indexOf("rgb") > -1 ? rgbToHex(e) : rgbaToHex(e);
+        var i = getRGB(parseInt(e.substring(1, e.length), 16))
+          , o = i[0];
+        o /= 255;
+        var s = i[1];
+        s /= 255;
+        var u = i[2];
+        return u /= 255,
+        (t = Math.min(Math.min(o, s), u)) == (r = Math.max(Math.max(o, s), u)) ? [0, 0, r] : (n = o == t ? s - u : s == t ? u - o : o - s,
+        a = o == t ? 3 : s == t ? 5 : 1,
+        [Math.round(60 * (a - n / (r - t))) % 360, Math.round((r - t) / r * 100) / 100, (r = Math.round(100 * r)) / 100])
     }
-    
     function rgbToHex(e) {
-        if (!e.includes("rgb")) return e;
-        let [r, g, b] = e.slice(4, -1).split(',').map(Number);
-        return rgbToString({ r, g, b });
+        if (e.indexOf("rgb") < 0)
+            return e;
+        var t = e.substring(4, e.length - 1).split(",");
+        return rgbToString({
+            r: Number(t[0]),
+            g: Number(t[1]),
+            b: Number(t[2])
+        })
     }
-    
     function rgbaToHex(e) {
-        if (!e.includes("rgba")) return e;
-        let [r, g, b] = e.slice(5, -1).split(',').map(Number);
-        return rgbToString({ r, g, b });
+        if (e.indexOf("rgba") < 0)
+            return e;
+        var t = e.substring(5, e.length - 1).split(",");
+        return rgbToString({
+            r: Number(t[0]),
+            g: Number(t[1]),
+            b: Number(t[2])
+        })
     }
-    
-    function rgbToString({ r, g, b }) {
-        return `#${getHex(r)}${getHex(g)}${getHex(b)}`;
+    function rgbToString(e) {
+        return "#" + getHex(e.r) + getHex(e.g) + getHex(e.b)
     }
-    
-    function getHex(value) {
-        let hex = value.toString(16);
-        return hex.length == 1 ? "0" + hex : hex;
+    function getRGB(e) {
+        return [Number(e >> 16 & 255), Number(e >> 8 & 255), Number(255 & e)]
+    }
+    function getHex(e) {
+        var t = e.toString(16);
+        return 1 == t.length ? "0" + t : t
     }
     function findKeyframesRule(e) {
         for (var t = document.styleSheets, r = 0; r < t.length; ++r)
