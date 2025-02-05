@@ -346,16 +346,33 @@
         e && e.appendChild(n),
         n
     }
-    function newCanvas(e, t, r, n, a, i) {
-        var o = document.createElement("canvas");
-        return o.style.position = "absolute",
-        o.style.top = r + "px",
-        o.style.left = t + "px",
-        setCanvasSize(o, n, a),
-        setProps(o.style, i),
-        e.appendChild(o),
-        o
+    function newCanvas(parent, x, y, width, height, style) {
+        var canvas = document.createElement("canvas");
+        
+        // מיקום אבסולוטי
+        canvas.style.position = "absolute";
+        canvas.style.top = y + "px";
+        canvas.style.left = x + "px";
+    
+        // תמיכה ברזולוציות מסך גבוהות
+        var deviceRatio = window.devicePixelRatio || 1;
+        var adjustedWidth = Math.floor(width * deviceRatio);
+        var adjustedHeight = Math.floor(height * deviceRatio);
+    
+        // הגדרת גודל הקנבס בצורה אופטימלית
+        setCanvasSize(canvas, adjustedWidth, adjustedHeight);
+        
+        // הוספת סגנון מותאם אישית
+        if (style) {
+            setProps(canvas.style, style);
+        }
+    
+        // הוספת הקנבס להורה
+        parent.appendChild(canvas);
+    
+        return canvas;
     }
+    
     function newHTML(e, t, r) {
         var n = document.createElement(e);
         return t && n.setAttribute("class", t),
@@ -409,29 +426,16 @@
         e.style.width = t + "px",
         e.style.height = r + "px"
     }
-    function setCanvasSizeScaledToWindowDocumentHeight(canvas, baseWidth, baseHeight) {
-        // קבלת גודל המסך הנוכחי
-        var screenWidth = window.innerWidth;
-        var screenHeight = window.innerHeight;
-        
-        // קביעת קנה המידה בהתבסס על רזולוציית המסך
-        var deviceRatio = window.devicePixelRatio || 1;
-        var scale = Math.min(screenWidth / baseWidth, screenHeight / baseHeight) * deviceRatio;
-    
-        // חישוב הרוחב והגובה החדשים
-        var newWidth = Math.floor(baseWidth * scale);
-        var newHeight = Math.floor(baseHeight * scale);
-    
-        // הגדרת גודל הקנבס וההתאמה ל-CSS
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        canvas.style.width = newWidth + "px";
-        canvas.style.height = newHeight + "px";
-    
-        // התאמת זום לרזולוציות שונות
-        canvas.style.zoom = 1 / deviceRatio;
+    function setCanvasSizeScaledToWindowDocumentHeight(e, t, r) {
+        var n = window.devicePixelRatio * scaleMultiplier
+          , a = Math.floor(t * n)
+          , i = Math.floor(r * n);
+        e.width = a,
+        e.height = i,
+        e.style.width = a + "px",
+        e.style.height = i + "px",
+        e.style.zoom = scaleMultiplier / n
     }
-    
     function localx(e, t) {
         for (var r = t; e && null != e.offsetTop; )
             r -= e.offsetLeft + e.clientLeft + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m41,
