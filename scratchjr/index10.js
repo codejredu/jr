@@ -346,33 +346,16 @@
         e && e.appendChild(n),
         n
     }
-    function newCanvas(parent, x, y, width, height, style) {
-        var canvas = document.createElement("canvas");
-        
-        // מיקום אבסולוטי
-        canvas.style.position = "absolute";
-        canvas.style.top = y + "px";
-        canvas.style.left = x + "px";
-    
-        // תמיכה ברזולוציות מסך גבוהות
-        var deviceRatio = window.devicePixelRatio || 1;
-        var adjustedWidth = Math.floor(width * deviceRatio);
-        var adjustedHeight = Math.floor(height * deviceRatio);
-    
-        // הגדרת גודל הקנבס בצורה אופטימלית
-        setCanvasSize(canvas, adjustedWidth, adjustedHeight);
-        
-        // הוספת סגנון מותאם אישית
-        if (style) {
-            setProps(canvas.style, style);
-        }
-    
-        // הוספת הקנבס להורה
-        parent.appendChild(canvas);
-    
-        return canvas;
+    function newCanvas(e, t, r, n, a, i) {
+        var o = document.createElement("canvas");
+        return o.style.position = "absolute",
+        o.style.top = r + "px",
+        o.style.left = t + "px",
+        setCanvasSize(o, n, a),
+        setProps(o.style, i),
+        e.appendChild(o),
+        o
     }
-    
     function newHTML(e, t, r) {
         var n = document.createElement(e);
         return t && n.setAttribute("class", t),
@@ -454,22 +437,28 @@
         return t
     }
     function localy(e, t) {
-        for (var r = t; e && null != e.offsetTop; )
-            r -= e.offsetTop + e.clientTop + new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform).m42,
+        for (var r = t; e && null != e.offsetTop; ) {
+            let matrix = window.getComputedStyle(e).transform || window.getComputedStyle(e).webkitTransform;
+            matrix = new CSSMatrix(matrix); // Use CSSMatrix
+            r -= e.offsetTop + e.clientTop + matrix.m42;
             e = e.parentNode;
-        return r
+        }
+        return r;
     }
+    
     function globaly(e) {
         for (var t = 0; e && null != e.offsetTop; ) {
-            var r = new WebKitCSSMatrix(window.getComputedStyle(e).webkitTransform)
-              , n = r.m22;
-            t += (e.clientHeight - n * e.clientHeight) / 2,
-            t += r.m42,
-            t += e.offsetTop + e.clientTop,
-            e = e.parentNode
+            let matrix = window.getComputedStyle(e).transform || window.getComputedStyle(e).webkitTransform;
+            matrix = new CSSMatrix(matrix); // Use CSSMatrix
+            var n = matrix.m22;
+            t += (e.clientHeight - n * e.clientHeight) / 2;
+            t += matrix.m42;
+            t += e.offsetTop + e.clientTop;
+            e = e.parentNode;
         }
-        return t
+        return t;
     }
+    
     function setProps(e, t) {
         for (var r in t)
             e[r] = t[r]
@@ -12603,72 +12592,61 @@
             D.layoutLibrary(t)
         }
         static layoutFileBtns(e) {
-            var t = Object(y.newHTML)("div", "filebuttons", e);
-            var r = Object(y.newHTML)("span", "btn btn-open", t);
-            var n = Object(y.newHTML)("input", "open-file", r);
-            n.setAttribute("type", "file");
-            n.setAttribute("accept", ".sjr");
+            var t = Object(y.newHTML)("div", "filebuttons", e)
+              , r = Object(y.newHTML)("span", "btn btn-open", t)
+              , n = Object(y.newHTML)("input", "open-file", r);
+            n.setAttribute("type", "file"),
+            n.setAttribute("accept", ".sjr"),
             n.onchange = function(e) {
                 const t = n.files;
-                t.length && D.dealwithUploadedFile(t[0]);
-                n.value = null;
-            };
-            
-            var saveButton = Object(y.newHTML)("button", "btn btn-save", t);
-            saveButton.onpointerup = function(e) {
+                t.length && D.dealwithUploadedFile(t[0]),
+                n.value = null
+            },
+            Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
                 const t = [":שם הפרויקט"];
-                t && D.zipAndSaveCurrentProject(t, function() {});
-            };
-            
+                t && D.zipAndSaveCurrentProject(t, (function() {}
+                ))
+            },
             this.gnSave2CloudButton(t);
-            
-            // Creating and adding the Coding Cards button
-            var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
-            googleFormBtn.onclick = function() {
-                window.open("https://moshe310.wixsite.com/codejrenglish");
-            };
-            googleFormBtn.innerText = "Coding Cards";
-            
-            // Styling all buttons consistently
-            var allButtons = t.querySelectorAll('.btn');
-            allButtons.forEach(function(button) {
-                button.style.width = "60px";
-                button.style.height = "54px";
-                button.style.borderRadius = "10px";
-                button.style.border = "0px solid #795548";
-                button.style.backgroundColor = "#9C8A7B";
-                button.style.color = "#ffffff";
-                button.style.margin = "0 5px"; // Add some margin between buttons
-                button.style.verticalAlign = "top"; // Align buttons to the top
-            });
+          
+           // יצירת והוספת כפתור גרפי עם קישור לטופס Google
+var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
+
+// הגדרת אירוע ה-onclick לפתיחת טופס Google
+googleFormBtn.onclick = function() {
+  window.open("https://moshe310.wixsite.com/codejrenglish");
+};
+
+// הגדרת טקסט הכפתור
+googleFormBtn.innerText = "Coding Cards";
+
+// הגדרת סגנון הכפתור
+googleFormBtn.style.width = "60px";
+googleFormBtn.style.height = "52px";
+googleFormBtn.style.position = "relative";
+googleFormBtn.style.top = "-32px"; // העלאת הכפתור ב-10 פיקסלים
+
+googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
+googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
+googleFormBtn.style.backgroundColor = "#CDAE7C"; // רקע צהוב בהיר
+googleFormBtn.style.color = "#333"; // צבע טקסט שחור
         }
         
         static gnSave2CloudButton(e) {
-            if (a.a.parse(location.search).s) {
-                var submitSaveBtn = Object(y.newHTML)("button", "btn btn-submit-save", e);
-                submitSaveBtn.onpointerup = function(e) {
-                    D.zipAndSubmitCurrentProject("scratchjr", function() {});
-                };
-                // Apply the same styling to this button
-                submitSaveBtn.style.width = "60px";
-                submitSaveBtn.style.height = "54px";
-                submitSaveBtn.style.borderRadius = "10px";
-                submitSaveBtn.style.border = "0px solid #795548";
-                submitSaveBtn.style.backgroundColor = "#9C8A7B";
-                submitSaveBtn.style.color = "#ffffff";
-                submitSaveBtn.style.margin = "0 5px";
-                submitSaveBtn.style.verticalAlign = "top";
-            }
+            a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
+                D.zipAndSubmitCurrentProject("scratchjr", (function() {}
+                ))
+            })
         }
-        
         static dealwithUploadedFile(e) {
             const t = new FileReader;
-            t.readAsDataURL(e);
+            t.readAsDataURL(e),
             t.onload = function() {
-                S.a.tempSaveProject(t.result.split(",")[1]).then(() => {
-                    window.location.reload();
-                });
-            };
+                S.a.tempSaveProject(t.result.split(",")[1]).then(()=>{
+                    window.location.reload()
+                }
+                )
+            }
         }
         static middleSection() {
             var e = Object(y.newHTML)("div", "blockspalette", y.frame);
