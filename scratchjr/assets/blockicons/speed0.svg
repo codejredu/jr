@@ -53,13 +53,11 @@
        x="19.5"
        y="4" /><text
        xml:space="preserve"
-       style="font-size:12px;line-height:1.25;font-family:sans-serif;white-space:pre;inline-size:15.123;display:inline"
+       style="font-size:12px;line-height:1.25;font-family:sans-serif;white-space:pre;inline-size:15.123;display:inline;fill:#f0f8ff"
        x="25"
        y="27"
        id="text1"
        transform="translate(-2.5625,-1.310547)"><tspan
          x="25"
          y="27"
-         id="tspan2"><tspan
-           style="fill:#c0c0c0"
-           id="tspan1">1</tspan></tspan></text></g></svg>
+         id="tspan1">1</tspan></text></g></svg>
