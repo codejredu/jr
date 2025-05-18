@@ -54,12 +54,12 @@
        x="9"
        y="7.5" /><text
        xml:space="preserve"
-       style="font-size:12px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#fcfce0"
+       style="font-size:12px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;white-space:pre;inline-size:0;fill:#babdb6"
        x="15.039063"
        y="33.378906"
-       id="text29"><tspan
+       id="text29"
+       transform="translate(1,-3)"><tspan
          id="tspan29"
          x="15.039063"
          y="33.378906"
-         sodipodi:role="line"
-         style="font-size:12px">2</tspan></text></g></svg>
+         style="font-size:12px;fill:#babdb6">2</tspan></text></g></svg>
