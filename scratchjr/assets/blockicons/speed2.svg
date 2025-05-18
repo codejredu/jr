@@ -53,11 +53,12 @@
        x="20"
        y="5" /><text
        xml:space="preserve"
-       style="font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#fcfce0"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#fcfce0"
        x="18"
        y="30"
        id="text29"><tspan
          id="tspan29"
          x="18"
          y="30"
-         sodipodi:role="line">3</tspan></text></g></svg>
+         sodipodi:role="line"
+         style="font-size:16px">3</tspan></text></g></svg>
